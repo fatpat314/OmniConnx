@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if listings %}
+    <ul>
+    {% for listings in listings %}
+        <li><a href="">{{ listings.listing_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No listings are available.</p>
+{% endif %}
+
+{% endblock %}
