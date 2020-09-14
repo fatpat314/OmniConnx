@@ -11,17 +11,37 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic.list import ListView
 
-from listings.models import Listings
+from categorys.models import Categorys, Subcategorys
 
 # Create your views here.
-class CategoryListView(ListView):
+class CategorysListView(ListView):
     """Render a list of all Categorys"""
-    model = Listings
+    model = Categorys
     def get(self, request):
         """GET list of categorys"""
-        listings = self.get_queryset().all()
-        return render(request, 'listings/index.html',{
-        'listings': listings,
+        categorys = self.get_queryset().all()
+        return render(request, 'categorys/index.html',{
+        'categorys': categorys,
+        })
+
+class SubcategorysListView(ListView):
+    model = Subcategorys
+    def get(self, request):
+        """GET list of categorys"""
+        subcategorys = self.get_queryset().all()
+        return render(request, 'categorys/subcategorys.html',{
+        'subcategorys': subcategorys,
+        })
+
+class CategorysDetailView(DetailView):
+    """render a specific event based on its id"""
+    model = Categorys
+
+    def get(self, request, id):
+        '''Return a specific event page by id'''
+        categorys = self.get_queryset().get(id=id)#Figure out how to name thow events the same name
+        return render(request, 'detail.html',{
+            'categorys': categorys
         })
 
 # def index(request):

@@ -2,14 +2,16 @@
 
 {% block content %}
 
-{% if listings %}
+{% if categorys %}
     <ul>
-    {% for listings in listings %}
-        <li><a href="">{{ listings.listing_text }}</a></li>
+    {% for categorys in categorys %}
+        <li><a href="subcategorys">{{ categorys.categorys_text }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
     <p>No listings are available.</p>
 {% endif %}
+
+
 
 {% endblock %}

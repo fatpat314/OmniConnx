@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # listings
-    'listings.apps.ListingsConfig'
+    'categorys',
 ]
 
 MIDDLEWARE = [

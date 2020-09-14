@@ -18,9 +18,9 @@ from django.urls import include, path
 from accounts.views import SignUpView
 
 urlpatterns = [
-    path('', include('listings.urls')),
+    path('', include('categorys.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
-    path('listings/', include('listings.urls')),
+    path('categorys/', include('categorys.urls')),
     path('admin/', admin.site.urls),
 ]
