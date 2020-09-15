@@ -1,64 +1,29 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
-from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
-from django.shortcuts import render
-from django.http import Http404
-from django.http import HttpResponse
-from django.template import loader
-from django.views.generic.edit import CreateView, UpdateView, DeleteView, View
-from django.http import HttpResponse, HttpResponseRedirect
-from django.urls import reverse, reverse_lazy
-from django.views.generic.list import ListView
+from .models import Category, SubCategory, Listing
 
-from categorys.models import Categorys, Subcategorys
 
-# Create your views here.
-class CategorysListView(ListView):
-    """Render a list of all Categorys"""
-    model = Categorys
-    def get(self, request):
-        """GET list of categorys"""
-        categorys = self.get_queryset().all()
-        return render(request, 'categorys/index.html',{
-        'categorys': categorys,
-        })
+def index_view(request, parent_or_child=None, pk=None):
+    categories = Category.objects.filter(parent=None)
 
-class SubcategorysListView(ListView):
-    model = Subcategorys
-    def get(self, request):
-        """GET list of categorys"""
-        subcategorys = self.get_queryset().all()
-        return render(request, 'categorys/subcategorys.html',{
-        'subcategorys': subcategorys,
-        })
+    if parent_or_child is None:
+        listings = Listing.objects.all()
 
-class CategorysDetailView(DetailView):
-    """render a specific event based on its id"""
-    model = Categorys
+    elif parent_or_child == 'child':
+        sub_cat = SubCategory.objects.get(pk=pk)
+        listings = sub_cat.listing_set.all()
 
-    def get(self, request, id):
-        '''Return a specific event page by id'''
-        categorys = self.get_queryset().get(id=id)#Figure out how to name thow events the same name
-        return render(request, 'detail.html',{
-            'categorys': categorys
-        })
+    elif parent_or_child == 'parent':
+        listings = []
+        sub_cats = Category.objects.get(pk=pk).children.all()
 
-# def index(request):
-#     latest_listing_list = Listings.objects.order_by('-pub_date')[:5]
-#     template = loader.get_template('listings/index.html')
-#     context = {
-#         'latest_listing list': latest_listing_list,
-#     }
-#     return HttpResponse(template.render(context, request))
+        for sub_cat in sub_cats:
+            prds = sub_cat.listing_set.all()
+            listings += prds
+    else:
+        listings = []
 
-# def detail(request, listing_id):
-#     try:
-#         listing = Listings.objects.get(pk=listing_id)
-#     except Listings.doesNotExsist:
-#         raise Http404("Listing does not exist")
-#     return render(request, 'listings/detail.html', {'listing': listing})
-#
-# def result(request, listing_id):
-#     response ="You are looking at the results of Listing %s." % listing_id
-#     return HttpResponse("You're voteing on Listing %s." % listing_id)
+    return render(
+        request,
+        'categorys/index.html',
+        {'categories': categories, 'listings': listings}
+    )

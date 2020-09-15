@@ -6,33 +6,44 @@ from django.urls import reverse
 from django.utils.text import slugify
 from django.utils import timezone
 from django.contrib.auth.models import User
+from .managers import CategoryManager, SubCategoryManager
 
 # Create your models here.
-class Categorys(models.Model):
-    categorys_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
+class Node(models.Model):
+    name = models.CharField(max_length=150)
+    parent = models.ForeignKey(
+        'self',
+        on_delete=models.CASCADE,
+        related_name='children',
+        null=True,
+        blank=True
+    )
 
     def __str__(self):
-        return self.categorys_text
+        return self.name
 
-    def was_published_recently(self):
-        return self.pub_date >= timezome.now() - datetime.timedelta(days=1)
+    class Meta:
+        ordering = ('name',)
+        verbose_name_plural = 'Nodes'
 
-class Subcategorys(models.Model):
-    subcategory_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('pubdate')
+class Category(Node):
+    objects = CategoryManager()
+    class Meta:
+        proxy = True
+        verbose_name_plural = 'Categories'
+
+class SubCategory(Node):
+    objects = SubCategoryManager()
+    class Meta:
+        proxy = True
+        verbose_name_plural = 'Sub Categories'
+
+class Listing(models.Model):
+    sub_category = models.ForeignKey(
+        SubCategory, on_delete=models.CASCADE
+    )
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
 
     def __str__(self):
-        return self.subcategory_text
-
-    def was_published_recently(self):
-        return self.pub_date >= timezome.now() - datetime.timedelta(days=1)
-
-
-class Choice(models.Model):
-    categorys = models.ForeignKey(Categorys, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
-
-    def __str__(self):
-        return self.choice_text
+        return self.name

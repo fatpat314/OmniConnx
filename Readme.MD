@@ -12,5 +12,4 @@
 
 ## link to our Trello Board: https://trello.com/b/usUjrQVn/omnes-education-backlog
 
-## master github repo: https://github.com/fatpat314/OmniConnx.git 
-
+## master github repo: https://github.com/fatpat314/OmniConnx.git
