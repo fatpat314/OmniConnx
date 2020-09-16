@@ -22,7 +22,7 @@
                     </li>
                     {% for sub_cat in category.children.all %}
                         <li class="list-group-item ml-4">
-                            <a href="{% url 'index' parent_or_child='child' pk=sub_cat.id %}">
+                            <a href="{% url 'listing' parent_or_child='child' pk=sub_cat.id %}">
                                 {{ sub_cat }}
                             </a>
                         </li>
@@ -30,14 +30,14 @@
                 {% endfor %}
             </ul>
         </div>
-        <div class="col-9">
+        <!-- <div class="col-9">
             <h3 class="text-center display-4 text-secondary ml-4 mt-4">Listings</h3>
             {% for listing in listings %}
                 <p class="text-center ml-4 mt-4">{{ listing.name }}</p>
                 <p class="text-center ml-4 mt-4">{{ listing.description }}</p>
                 <hr>
             {% endfor %}
-        </div>
+        </div> -->
     </div>
 </div>
 

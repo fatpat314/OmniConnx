@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="col-9">
+    <h3 class="text-center display-4 text-secondary ml-4 mt-4">Listings</h3>
+    {% for listing in listings %}
+        <a href="/post">
+            <p class="text-center ml-4 mt-4">{{ listing.name }}</p>
+        </a>
+        <p class="text-center ml-4 mt-4">{{ listing.description }}</p>
+            <hr>
+    {% endfor %}
+</div>
+{% endblock %}
