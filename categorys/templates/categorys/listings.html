@@ -1,13 +1,27 @@
 {% extends "base.html" %}
+<!-- listings.html -->
+<!-- This is just a page for the list of posts -->
+<!-- Dont change any href or jinja brackets -->
 
+<!-- Don't change this -->
 {% block content %}
 
 <div class="col-9">
     <h3 class="text-center display-4 text-secondary ml-4 mt-4">Listings</h3>
+    <!-- Don't change the href -->
+    <a href="{% url 'new' %}" class="btn btn-success ml-4">New Page</a>
+
+    <!-- Don't change this -->
     {% for listing in listings %}
-        <a href="/post">
-            <p class="text-center ml-4 mt-4">{{ listing.name }}</p>
+
+        <!-- Don't change this -->
+        <a href="{% url 'post' pk=listing.id %}">
+
+            <!-- Don't change the listing.title -->
+            <p class="text-center ml-4 mt-4">{{ listing.title }}</p>
         </a>
+
+        <!-- Don't change the listing.description -->
         <p class="text-center ml-4 mt-4">{{ listing.description }}</p>
             <hr>
     {% endfor %}

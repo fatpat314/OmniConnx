@@ -1,11 +1,26 @@
 {% extends "base.html" %}
+<!-- post.html -->
+<!-- This is just a page that shows the post.
+Dont change anything inbetween jinja brackets.
+Do what ever you want -->
 
+<!-- Don't change this -->
 {% block content %}
-This is currently just a placeholder. I still need to make the routes <br>
-dynamic to each post. Which does not have a model yet. But this page will just <br>
-import information to whatever template you build. <br>
-<br>
-<br>
-Later we are going to need to figure out a few placement things,<br>
-but we can worry about that later.<br>
+    <div class="row">
+      <div class="col m-4">
+         <!-- Don't change this -->
+        <h3>{{ post.title }} <small class="text-muted">Last updated {{ post.modified|date:"SHORT_DATETIME_FORMAT" }} by <b>{{ post.author.username }}</b></small></h3>
+
+        <hr>
+        <!-- Don't change this -->
+        <p>{{ post.content|linebreaksbr }}</p>
+
+        <hr>
+        <!-- Don't change this -->
+        <a href="/">Back to List</a>
+
+      </div>
+    </div>
+
+    <!-- Don't change this -->
 {% endblock %}

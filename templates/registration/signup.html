@@ -1,24 +1,47 @@
 {% extends 'base.html' %}
+<!-- signup.html -->
+<!-- This is the user sign up form,
+You can change anything that is not
+inside of or connected to jinja brackets.
+Add what ever you want.  -->
 
 {% block content %}
+<!-- Header -->
   <h3>Sign Up <small class="text-muted"></small></h3>
   <hr>
       <div class="row">
         <div class="col">
           <form method="post" class="mx-auto">
+              <!-- Dont change this -->
             {% csrf_token %}
+
+            <!-- Dont change this -->
             {% for field in form %}
+
+            <!-- Dont change this -->
                 {% for error in field.errors %}
+
+                <!-- You can change this is you want, just dont change the jinja brackets -->
                     <p class="text-danger">{{ error }}</p>
+
+                <!-- Dont change this -->
                 {% endfor %}
+
+                <!-- You can change this is you want -->
                 <div class="form-group row">
                     <div class="col-8">
-                      <label for="id_{{ field.name }}">{{ field.label|title }}:</label>
-                      <input class="form-control" type="{% if "password" in field.name %}password{% else %}text{% endif %}" name="{{ field.name }}" id="id_{{ field.name }}" name="{{ email }}" required>
 
+                      <!-- You can change this is you want, just dont change the jinja brackets -->
+                      <label for="id_{{ field.name }}">{{ field.label|title }}:</label>
+
+                      <!-- You can change this is you want, just dont change the jinja brackets -->
+                      <input class="form-control" type="{% if "password" in field.name %}password{% else %}text{% endif %}" name="{{ field.name }}" id="id_{{ field.name }}" name="{{ email }}" required>
                     </div>
                 </div>
+            <!-- Dont change this -->
             {% endfor %}
+
+            <!-- You can change this is you want -->
             <button type="submit" class="btn btn-success">Sign up</button>
           </form>
         </div>

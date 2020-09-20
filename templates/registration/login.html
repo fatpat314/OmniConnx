@@ -1,43 +1,89 @@
 {% extends "base.html" %}
+<!-- login.html -->
+<!-- This is the login page. Users who have already
+signed up log in on this page.
+Feel free to add whatever you want. Just dont
+change what is in the href or jinja brackets -->
 
 {% block content %}
+<!-- header -->
     <h3>Log In </h3>
 
+    <!-- Change if you want -->
     <div class="row">
+
+        <!-- Change if you want -->
         <div class="col">
+
+            <!-- Don't change this -->
             {% if form.errors %}
+
+                <!-- Don't change this -->
                 <p>Your username and password didn't match. Please try again.</p>
+
+            <!-- Don't change this -->
             {% endif %}
 
+            <!-- Don't change this -->
             {% if next %}
-                {% if user.is_authenticated %}
-                    <p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
-                {% else %}
-                    <p>Please login to see this page.</p>
-                {% endif %}
-            {% endif %}
 
+                <!-- Don't change this -->
+                {% if user.is_authenticated %}
+
+                    <!-- Don't change this -->
+                    <p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
+
+                <!-- Don't change this -->
+                {% else %}
+
+                <!-- Don't change this -->
+                    <p>Please login to see this page.</p>
+
+                <!-- Don't change this -->
+                {% endif %}
+            <!-- Don't change this -->
+            {% endif %}
+            <!-- Don't change in between the {% %}, but feel free to style -->
             <form method="post" action="{% url 'login' %}" class="mx-auto">
+
+                <!-- Don't change this -->
                 {% csrf_token %}
+
+                <!-- You can change this if you want -->
                 <div class="form-group row">
                     <div class="col-8">
+
+                        <!-- Don't change this -->
                         <label for="id_username">Username</label>
+
+                        <!-- Don't change this -->
                         <input class="form-control" type="text" name="username" id="id_username" required>
+
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-8">
+
+                        <!-- Don't change this -->
                         <label for="id_password">Password</label>
+
+                        <!-- Don't change this -->
                         <input class="form-control" type="password" name="password" id="id_password" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-8">
+
+                        <!-- Don't change this, unless you want to restyle the button -->
                         <input type="submit" value="login" class="btn btn-success">
+
+                        <!-- Don't change this, unless you want to restyle the button -->
                         <input type="hidden" name="next" value="{{ next }}">
                     </div>
                 </div>
             </form>
         </div>
     </div>
+
+ <!-- Don't change this -->
 {% endblock %}

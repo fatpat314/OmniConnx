@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+<!-- new-wiki-form.html -->
+
+<!-- This is the form page for creating a new post.
+Its bear, needs plenty of style-->
+
+<!-- Don't change this -->
+{% block content %}
+
+<!-- Don't change this -->
+<form method="POST">
+
+    <!-- Don't change this -->
+    {% csrf_token %}
+
+    <!-- Don't change this -->
+    {{ form.as_p }}
+
+    <!-- Don't change this -->
+    <input type='submit' value="Send the names to the server!">
+
+</form>
+
+<!-- Don't change this -->
+{% endblock %}
