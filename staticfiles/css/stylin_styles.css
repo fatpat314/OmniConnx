@@ -1,0 +1,522 @@
+/* Colors */
+:root {
+  --color-lighter-4: #ffcccc;
+  --color-lighter-3: #ff9999;
+  --color-lighter-2: #ff6666;
+  --color-lighter-1: #ff3333;
+}
+
+:root {
+  /* Tints */
+  --color-gray-lighter-4: #e6e6e6;
+  --color-gray-lighter-3: #cdcdcd;
+  --color-gray-lighter-2: #b3b3b3;
+  --color-gray-lighter-1: #9a9a9a;
+  --color-gray: gray;
+  /* Shades */
+  --color-gray-darker-1: #676767;
+  --color-gray-darker-2: #4d4d4d;
+  --color-gray-darker-3: #343434;
+  --color-gray-darker-4: #1a1a1a;
+  /* Tints */
+  --color-primary-lighter-4: #cce5ff;
+  --color-primary-lighter-3: #99caff;
+  --color-primary-lighter-2: #66b0ff;
+  --color-primary-lighter-1: #3395ff;
+  --color-primary: #007bff;
+  /* Shades */
+  --color-primary-darker-1: #0062cc;
+  --color-primary-darker-2: #004a99;
+  --color-primary-darker-3: #003166;
+  --color-primary-darker-4: #001933;
+  /* Tints */
+  --color-info-lighter-4: #a7e9f4;
+  --color-info-lighter-3: #7adeee;
+  --color-info-lighter-2: #4cd3e9;
+  --color-info-lighter-1: #1fc8e3;
+  --color-info: #17a2b8;
+  /* Shades */
+  --color-info-darker-1: #117a8b;
+  --color-info-darker-2: #0c525d;
+  --color-info-darker-3: #062a30;
+  --color-info-darker-4: #000203;
+  /* Tints */
+  --color-success-lighter-4: #afecbd;
+  --color-success-lighter-3: #86e29b;
+  --color-success-lighter-2: #5dd879;
+  --color-success-lighter-1: #34ce57;
+  --color-success: #28a745;
+  /* Shades */
+  --color-success-darker-1: #1e7e34;
+  --color-success-darker-2: #145523;
+  --color-success-darker-3: #0a2c12;
+  --color-success-darker-4: #010201;
+  /* Tints */
+  --color-danger-lighter-4: #fae3e5;
+  --color-danger-lighter-3: #f3b7bd;
+  --color-danger-lighter-2: #eb8c95;
+  --color-danger-lighter-1: #e4606d;
+  --color-danger: #dc3545;
+  /* Shades */
+  --color-danger-darker-1: #bd2130;
+  --color-danger-darker-2: #921925;
+  --color-danger-darker-3: #66121a;
+  --color-danger-darker-4: #3b0a0f;
+  /* Tints */
+  --color-callout-lighter-4: #ffeed3;
+  --color-callout-lighter-3: #ffdba0;
+  --color-callout-lighter-2: #ffc86d;
+  --color-callout-lighter-1: #ffb43a;
+  --color-callout: #ffa107;
+  /* Shades */
+  --color-callout-darker-1: #d38300;
+  --color-callout-darker-2: #a06300;
+  --color-callout-darker-3: #6d4400;
+  --color-callout-darker-4: #3a2400;
+  /* Tints */
+  --color-secondary-lighter-4: #fff6d3;
+  --color-secondary-lighter-3: #ffeca0;
+  --color-secondary-lighter-2: #ffe26d;
+  --color-secondary-lighter-1: #ffd73a;
+  --color-secondary: #ffcd07;
+  /* Shades */
+  --color-secondary-darker-1: #d3a800;
+  --color-secondary-darker-2: #a08000;
+  --color-secondary-darker-3: #6d5700;
+  --color-secondary-darker-4: #3a2e00;
+  /* Tints */
+  --color-other-lighter-4: white;
+  --color-other-lighter-3: #f4dbf9;
+  --color-other-lighter-2: #e6b0f1;
+  --color-other-lighter-1: #d885e9;
+  --color-other: #ca5ae1;
+  /* Shades */
+  --color-other-darker-1: #bc2fd9;
+  --color-other-darker-2: #9b21b4;
+  --color-other-darker-3: #761989;
+  --color-other-darker-4: #51115e;
+  /* Tints */
+  --color-alternate-lighter-4: white;
+  --color-alternate-lighter-3: #ebdbf9;
+  --color-alternate-lighter-2: #d4b0f1;
+  --color-alternate-lighter-1: #bc85e9;
+  --color-alternate: #a45ae1;
+  /* Shades */
+  --color-alternate-darker-1: #8c2fd9;
+  --color-alternate-darker-2: #7221b4;
+  --color-alternate-darker-3: #561989;
+  --color-alternate-darker-4: #3b115e;
+  /* base Color names */
+  --color-background: var(--color-gray-lighter-4);
+  --color-foreground: var(--color-gray-darker-4);
+  --color-lightest: var(--color-gray-lighter-4);
+  --color-light: var(--color-gray-lighter-2);
+  --color-md-light:var(--color-gray);
+  --color-md-dark: var(--color-gray-darker-1);
+  --color-dark: var(--color-gray-darker-4);
+}
+
+/*# sourceMappingURL=stylin_styles.css.map */
+
+:root {
+  --bg-color: #fff;
+  --fg-color: cornflowerblue;
+  --list-color: #OOOOEE;  
+  --background-color: #f7c8a8; 
+  --foreground-color: #db4242;
+  --primary-color: #2478fe;
+  --secondary-color: rgb(164, 95, 230);
+  --base-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --code-font: 'Courier New', Courier, monospace; 
+  --ltr-space: 0.75px;
+  
+}
+
+.header {
+background-color: var(--foreground-color);
+color: var(--background-color);
+padding: 1rem;
+margin-right: 1rem;
+} 
+
+pre {
+font-family: var(--code-font);
+background-color: var(--foreground-color);
+color: var(--background-color);
+margin-right: 1rem;
+}
+
+body {
+  font-family: var(--base-font);
+  line-height: 1.75;
+  letter-spacing: var(--ltr-space);
+  margin-left: 2rem;
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+}
+
+.navbar1 {
+list-style-type: none ;
+margin-right: 1rem;
+margin-top: 1rem;
+padding: 0;
+overflow: hidden;
+background-color: var(--foreground-color);
+}
+
+.navbar1 li {
+  float: left;
+}
+
+.navbar1 li a {
+  display: block;
+  color: white;
+  text-align: left;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar2 {
+  list-style-type: none;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--foreground-color);
+  }
+  
+  .navbar2 li {
+    float: right;
+  }
+  
+  .navbar2 li a {
+    display: flex;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  .navbar3 {
+    list-style-type: none ;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--foreground-color);
+    }
+
+    .navbar3 li {
+      float: right;
+    }
+    
+    .navbar3 li a {
+      display: block;
+      color: white;
+      text-align: right;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    
+    .topnav {
+      position: relative;
+      background-color: #333;
+      overflow: hidden;
+    }
+    
+    /* Style the links inside the navigation bar */
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    /* Change the color of links on hover */
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    /* Add a color to the active/current link */
+    .topnav a.active {
+      background-color: #4CAF50;
+      color: white;
+    }
+    
+    /* Centered section inside the top navigation */
+    .topnav-centered a {
+      float: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    /* Right-aligned section inside the top navigation */
+    .topnav-right {
+      float: right;
+      
+    }
+    
+    /* Responsive navigation menu - display links on top of each other instead of next to each other (for mobile devices) */
+    @media screen and (max-width: 600px) {
+      .topnav a, .topnav-right {
+        float: none;
+        display: block;
+      }
+    
+      .topnav-centered a {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+      }
+    }
+a {
+  color: var(--secondary-color);
+} */
+
+.container, h1, h2, h3, h4, h5, h6, p, #colors {
+  font-family: --base-font;
+  letter-spacing: --ltr-space;
+  margin-left: 2rem;  
+  color: var(--foreground-color);                                     
+}
+
+button {
+  display: inline-block;
+  padding: 0.5em 0.75em;
+  background-color: var(--bg-color);
+  border: 1px solid;
+  color: var(--fg-color);
+  border-radius: 0.5em;
+  font-size: 1em;
+  transition: 300ms;
+  box-shadow: 0 9px #999;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+}
+
+button:hover {
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+}
+
+button.press {
+  display: inline-block;
+  padding: 0.5em 0.75em;
+  color: #fff;
+  background-color: #4CAF50;
+  border: 1px solid;
+  border-radius: 0.5em;
+  font-size: 1em;
+  transition: 300ms;
+  box-shadow: 0 9px #999;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+}
+
+button.press:hover {
+  background-color: #3e8e41;
+  color: var(--bg-color);
+}
+
+button.press:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+button.flash {
+  font-weight: bold; 
+  background-color: #f85353; 
+  color: black;
+  position: relative;
+  border: none;
+  font-size: 14px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+button.flash:after {
+  background:  white;
+  content: "";
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+button.flash:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+button.round {
+  border-radius: 1.5em;
+  font-weight: bold;
+  background-color: #6bc253; 
+  color: black;
+}
+
+button.round:hover {
+  background-color: #6bc253;
+  color: white;
+}
+
+button.shadow {
+  --bg-color: tomato; /* Red button */
+  --fg-color: white;
+}
+button.shadow:hover {
+    background-color: var(--fg-color);
+    color: var(--bg-color);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+button.action {
+ --fg-color: yellowgreen; /* Green button */
+}
+
+#customcheck {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;        
+  cursor: pointer;
+  font-size: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+    }
+
+
+    /* Hide the browser's default checkbox */
+#customcheck input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+Create a custom checkbox
+.ss-checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.ss-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  margin-right: 10px;
+}
+
+/* On mouse-over, add a grey background color */
+.ss-checkbox:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.ss-checkbox input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.ss-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.ss-checkbox .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/* form can be display-flex and flex-direction-column and add Padding */
+form {
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+  padding-bottom: 20px;
+}
+
+form span {
+  padding-bottom: 10px;
+}
+form > label {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px;
+}
+
+input[type=text],
+textarea {
+  border: 0.5px solid var(--color-sample-1);
+  font-size: 12pt;
+  padding: 10px;
+  border-radius: 20px;
+  max-width: 100%;
+  outline: none !important;
+}
+
+.swatch {
+  margin-right: 1rem;
+} 
+/*# sourceMappingURL=stylin_styles.css.map */
