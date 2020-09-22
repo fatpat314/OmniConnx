@@ -8,42 +8,19 @@
 {% block content %}
 
 <!-- You can change this -->
-<div class="container">
-    <h2 class=" mb-4 mt-2 display-3 test-center text-muted">Category & Sub-Category Example</h2>
-    <div class="row">
-        <div class="col-3">
-
-            <!-- You can change this -->
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-
-                     <!-- Don't change this -->
-                    <a href="{% url 'index_all' %}">All</a>
-                </li>
-
+<h3>OmniConnx</h3>
+  <hr>
+  <a href="{% url 'index_all' %}">All</a>
+<div class="card-columns">
                 <!-- Don't change this -->
                 {% for category in categories %}
-
                     <!-- You can change this -->
-                    <li class="list-group-item">
-                        <!-- Don't change this -->
-                        <a href="{% url 'index' parent_or_child='parent' pk=category.id %}"> {{ category }} </a>
-                    </li>
-
-                    <!-- Don't change this -->
-                    {% for sub_cat in category.children.all %}
-
-
-                        <li class="list-group-item ml-4">
-                             <!-- Don't change this -->
-                            <a href="{% url 'listing' parent_or_child='child' pk=sub_cat.id %}"> {{ sub_cat }} </a>
-
+                        <li class="list-group-item">
+                            <!-- Don't change this -->
+                            {% include "categorys/partials/index_card.html" %}
                         </li>
-                    <!-- Don't change this -->
-                    {% endfor %}
                 <!-- Don't change this -->
                 {% endfor %}
-            </ul>
         </div>
     </div>
 </div>
