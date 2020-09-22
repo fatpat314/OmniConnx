@@ -44,3 +44,5 @@ class SubCategoryAdmin(admin.ModelAdmin):
         return('parent', 'name')
 
 admin.site.register(SubCategory, SubCategoryAdmin)
+
+admin.site.register(Listing)

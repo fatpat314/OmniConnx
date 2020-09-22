@@ -95,12 +95,5 @@ class New_wiki_form(CreateView):
         form = PageForm(request.POST)
         if form.is_valid():
             new_wiki_form = form.save()
-            return HttpResponseRedirect(reverse_lazy('post', args=[new_wiki_form.slug]))
-        return render(request, 'categorys/index.html', {'form':form})
-
-
-
-
-
-
-        
+            return HttpResponseRedirect(reverse_lazy('post', args=[new_wiki_form.id]))
+        return render(request, 'categorys/new-wiki-form.html', {'form':form})

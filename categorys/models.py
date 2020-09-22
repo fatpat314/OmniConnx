@@ -18,6 +18,8 @@ class Node(models.Model):
         null=True,
         blank=True
     )
+    _id = models.IntegerField(null=True, blank=True)
+
 
     def __str__(self):
         return self.name
@@ -39,7 +41,7 @@ class SubCategory(Node):
         verbose_name_plural = 'Sub Categories'
 
 class Listing(models.Model):
-    sub_category = models.ForeignKey(SubCategory, on_delete=models.CASCADE, null=True)
+    sub_category = models.ForeignKey(SubCategory, on_delete=models.CASCADE, null=False)
     # name = models.CharField(max_length=100)
     """ Represents a single wiki page. """
     title = models.CharField(max_length=settings.WIKI_PAGE_TITLE_MAX_LENGTH, unique=True, null=True, help_text="Title of your page.")

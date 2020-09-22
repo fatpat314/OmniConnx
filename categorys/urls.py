@@ -24,4 +24,3 @@ urlpatterns += staticfiles_urlpatterns()
     # path('<str:slug>/', PageDetailView.as_view(), name='post'),
     # path('accounts/', include('django.contrib.auth.urls')),
     # path('form/', New_wiki_form.as_view(), name='new'),
-    
