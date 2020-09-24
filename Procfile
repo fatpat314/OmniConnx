@@ -1,1 +1,1 @@
-web: gunicorn omniconnx.wsgi --log-file -
+web: gunicorn OmniConnx.wsgi --log-file -
