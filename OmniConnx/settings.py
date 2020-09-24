@@ -25,7 +25,7 @@ SECRET_KEY = 'p*i+o=-#7m2sz@m00weu26%p2xb73t8^0+r-f44#_$xgv0i_!k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'git.heroku.com/omniconnx.git', 'omniconnx.herokuapp.com/', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', 'git.heroku.com/omniconnx.git', 'omniconnx.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
