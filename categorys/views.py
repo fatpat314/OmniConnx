@@ -9,6 +9,11 @@ from .forms import PageForm
 from django.views.generic.edit import CreateView
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
+from django.template import loader
+
+def home_view(request):
+
+    return render(request, "home.html")
 
 
 def index_view(request, parent_or_child=None, pk=None):

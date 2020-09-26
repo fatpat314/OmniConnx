@@ -1,4 +1,9 @@
 Lotus
+<div class="card-columns" style="margin-top: 4vh;">
+    <a href="index">ENTER</a>
+</div>
+
+
 <!-- A container -->
 <div class="container">
     <!-- 5 child divs -->
@@ -8,10 +13,10 @@ Lotus
     <div></div>
     <div></div>
   </div>
-  
-  
+
+
   <style>
-  
+
     /* Container styles */
     .container {
       width: 200px;
@@ -19,7 +24,7 @@ Lotus
       border: 1px solid;
       position: relative;
     }
-  
+
     /* Style all of the child divs */
     /* These styles shared by all children */
     .container > div {
@@ -41,65 +46,63 @@ Lotus
       to their starting positions when the animation ends! */
       animation-fill-mode: forwards;
     }
-  
+
     /* These styles apply to individual children */
-  
+
     .container > div:nth-child(1) {
       animation-name: bloom-1;
       background-color: hsla(0, 100%, 50%, 0.21);
     }
-  
+
     .container > div:nth-child(2) {
       animation-name: bloom-2;
       background-color: hsla(60, 100%, 50%, 0.21);
     }
-  
+
     .container > div:nth-child(3) {
       background-color: hsla(120, 100%, 50%, 0.21);
     }
-  
+
     .container > div:nth-child(4) {
       animation-name: bloom-4;
       background-color: hsla(180, 100%, 50%, 0.21);
     }
-  
+
     .container > div:nth-child(5) {
       animation-name: bloom-5;
       background-color: hsla(240, 100%, 50%, 0.21);
     }
-  
+
     @keyframes bloom-1 {
       0% { transform: rotate(45deg); }
       100% { transform: rotate(-45deg); }
     }
-  
+
     @keyframes bloom-2 {
       0% { transform: rotate(45deg); }
       100% { transform: rotate(135deg); }
     }
-  
+
     @keyframes bloom-4 {
       0% { transform: rotate(45deg); }
       100% { transform: rotate(0deg); }
     }
-  
+
     @keyframes bloom-5 {
       0% { transform: rotate(45deg); }
       100% { transform: rotate(90deg); }
     }
-  
-  
-  
-  
-  
+
+
+
     body {
       display: flex;
       justify-content: center;
       align-items: center;
     }
-  
+
     body, html {
       height: 100%;
     }
-    
+
   </style>
