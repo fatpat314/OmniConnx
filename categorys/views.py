@@ -12,8 +12,10 @@ from django.urls import reverse, reverse_lazy
 from django.template import loader
 
 def home_view(request):
-
     return render(request, "home.html")
+
+def about_view(request):
+    return render(request, "about.html")
 
 
 def index_view(request, parent_or_child=None, pk=None):

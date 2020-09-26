@@ -11,7 +11,8 @@ admin.autodiscover()
 # app_name = 'categorys'
 urlpatterns = [
     path('', views.home_view, name='home'),
-    path('index', views.index_view, name='index_all'),
+    path('about/', views.about_view, name='about'),
+    path('index/', views.index_view, name='index_all'),
     path('<str:parent_or_child>/<int:pk>/', views.index_view, name='index'),
     path('listings/<str:parent_or_child>/<int:pk>/',views.listing_view, name='listing'),
     path('post/<int:pk>',PageDetailView.as_view(), name='post'),
