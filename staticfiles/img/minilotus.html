@@ -14,15 +14,16 @@
     <div></div>
     <div></div>
     <div></div>
+
   </div>
 
   <style>
 
     /* Container styles */
     .container {
-      width: 200px;
-      height: 200px;
-      border: 1px solid;
+      width: 50px;
+      height: 50px;
+      border: 0.25px solid;
       position: relative;
     }
 
@@ -31,16 +32,16 @@
     .container > div {
       position: absolute;
       border-radius: 0 50% 50% 50%;
-      border: 1px solid;
-      width: 120px;
-      height: 120px;
+      border: 0.25px solid;
+      width: 30px;
+      height: 30px;
       /* Position these in the center */
-      left: 20px;
-      top: 40px;
+      left: 5px;
+      top: 10px;
       /* Rotate 45 deg points the point at the top */
       transform: rotate(45deg);
       /* Move the point of transformation to the lower right */
-      transform-origin: 80px 80px;
+      transform-origin: 20px 20px;
       animation-duration: 6000ms;
       animation-iteration-count: 1;
       /* Important! Without this the elements will snap
