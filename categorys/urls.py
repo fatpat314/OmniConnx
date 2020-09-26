@@ -15,6 +15,7 @@ urlpatterns = [
     path('listings/<str:parent_or_child>/<int:pk>/',views.listing_view, name='listing'),
     path('post/<int:pk>',PageDetailView.as_view(), name='post'),
     path('form/', New_wiki_form.as_view(), name='new'),
+    # path('home/', PageDetailView.as_view(), name='home' )
 ]
 
 urlpatterns += staticfiles_urlpatterns()
