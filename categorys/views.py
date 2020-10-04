@@ -17,6 +17,60 @@ def home_view(request):
 def about_view(request):
     return render(request, "about.html")
 
+def student_view(request, parent_or_child=None, pk=None):
+    categories = Category.objects.filter(parent=None)
+
+    if parent_or_child is None:
+        listings = Listing.objects.all()
+
+    elif parent_or_child == 'child':
+        sub_cat = SubCategory.objects.get(pk=pk)
+        listings = sub_cat.listing_set.all()
+
+    elif parent_or_child == 'parent':
+        listings = []
+        sub_cats = Category.objects.get(pk=pk).children.all()
+
+        for sub_cat in sub_cats:
+            prds = sub_cat.listing_set.all()
+            listings += prds
+    else:
+        listings = []
+
+    return render(
+        request,
+        'for_students.html',
+        {'categories': categories, 'listings': listings}
+    )
+    # return render(request, "for_students.html")
+
+def professionals_view(request, parent_or_child=None, pk=None):
+    categories = Category.objects.filter(parent=None)
+
+    if parent_or_child is None:
+        listings = Listing.objects.all()
+
+    elif parent_or_child == 'child':
+        sub_cat = SubCategory.objects.get(pk=pk)
+        listings = sub_cat.listing_set.all()
+
+    elif parent_or_child == 'parent':
+        listings = []
+        sub_cats = Category.objects.get(pk=pk).children.all()
+
+        for sub_cat in sub_cats:
+            prds = sub_cat.listing_set.all()
+            listings += prds
+    else:
+        listings = []
+
+    return render(
+        request,
+        'for_professionals.html',
+        {'categories': categories, 'listings': listings}
+    )
+    # return render(request, "for_professionals.html")
+
 
 def index_view(request, parent_or_child=None, pk=None):
     categories = Category.objects.filter(parent=None)
@@ -70,6 +124,7 @@ def listing_view(request, parent_or_child=None, pk=None):
         'categorys/listings.html',
         {'categories': categories, 'listings': listings}
     )
+
 
 # class PageListView(ListView):
 #     """ Renders a list of all Pages. """

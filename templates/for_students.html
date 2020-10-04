@@ -1,32 +1,21 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-<!-- index.html -->
-<!-- just an index page -->
-
-
-<!-- Don't change this -->
 {% block content %}
-<div class="mini-logo">
-
-</div>
-<!-- You can change this -->
-<h3>OmniConnx</h3>
+<h3>For Students</h3>
   <hr>
   <a href="{% url 'index_all' %}">All</a>
 <div class="card-columns">
                 <!-- Don't change this -->
                 {% for category in categories %}
+                    {% if category.name == 'For Students' %}
                     <!-- You can change this -->
-                        <li class="list-group-item">
                             <!-- Don't change this -->
                             {% include "categorys/partials/index_card.html" %}
-                        </li>
+                    {% endif %}
                 <!-- Don't change this -->
                 {% endfor %}
         </div>
     </div>
 </div>
-
-
 
 {% endblock %}

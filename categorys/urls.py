@@ -17,6 +17,8 @@ urlpatterns = [
     path('listings/<str:parent_or_child>/<int:pk>/',views.listing_view, name='listing'),
     path('post/<int:pk>',PageDetailView.as_view(), name='post'),
     path('form/', New_wiki_form.as_view(), name='new'),
+    path('students/', views.student_view, name='students'),
+    path('professionals/', views.professionals_view, name='professionals')
     # path('home/', PageDetailView.as_view(), name='home' )
 ]
 
