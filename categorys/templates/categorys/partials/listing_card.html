@@ -2,7 +2,9 @@
   <h5 class="card-header ">{{ listing.title }}</h5>
   <div class="card-body border-dark">
     <p class="card-text text-dark">
-      {{ listing.content|truncatewords_html:30 }}
+
+          {{ listing.content|truncatewords_html:30 }}
+
       <hr>
       <div class="text-right"><a href="{% url 'post' pk=listing.id %}" title="Read More">Read More</a></div>
   <div class="card-footer">

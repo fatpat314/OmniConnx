@@ -13,7 +13,9 @@
 <div class="card-columns">
     <!-- Don't change this -->
     {% for listing in listings %}
+    <li class="list-group-item">
         {% include "categorys/partials/listing_card.html" %}
+    </li>
     {% endfor %}
 </div>
 {% else %}
