@@ -285,6 +285,14 @@ a {
   background-color:#00FFFF36                  
 }
 
+.card {
+  background-color: hsl(5deg 100% 90%);
+}
+
+.list-group-item {
+  background-color: hsla(120, 100%, 50%, 0.21)
+}
+
 button {
   display: inline-block;
   padding: 0.5em 0.75em;
