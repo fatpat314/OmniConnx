@@ -116,7 +116,7 @@
   --color-dark: var(--color-gray-darker-4);
 }
 
-/*# sourceMappingURL=stylin_styles.css.ma                
+/* sourceMappingURL=stylin_styles.css.ma                 */ */
 :root {
   --bg-color: #fff;
   --fg-color: cornflowerblue;
@@ -150,7 +150,7 @@ body {
   line-height: 1.75;
   letter-spacing: var(--ltr-space);
   margin-left: 2rem;
-  background-color: var(--background-color);
+  background-color: lightblue;
   color: var(--foreground-color);
 }
 
@@ -282,7 +282,7 @@ a {
   font-family: --base-font;
   letter-spacing: --ltr-space;
   margin-left: 2rem;  
-  color: var(--foreground-color);                                     
+  background-color:#00FFFF36                  
 }
 
 button {

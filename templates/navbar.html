@@ -1,33 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
+{% load static %}
 
-<body>
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <!-- Brand/logo -->
-    <a class="navbar-brand" href="#">
-      <img src="./OmniConnx/staticfiles/img/minilotus.png" alt="logo" style="width:40px;">
-    </a>
-    
-    <!-- Links -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">OmniConnx</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#">About Us</a>
+      <li class="nav-item active">
+        <a class="nav-link" href="/about">About Us <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Students</a>
+        <a class="nav-link" href="#">For Students</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Professionals</a>
+        <a class="nav-link" href="#">For Professionals</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Category 1</a>
+          <a class="dropdown-item" href="#">Category 2</a>
+          <a class="dropdown-item" href="#">Category 3</a>
+        </div>
       </li>
     </ul>
-  </nav>
-  
-  </body>
-  </html>
-  
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="{% url 'login' %}" class="btn btn-secondary ml-2">Log In</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'signup' %}" class="btn btn-primary ml-2">Sign Up</a>
+        </li>
+    </ul>
+  </div>
+</nav>
