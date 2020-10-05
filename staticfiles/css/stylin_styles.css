@@ -155,6 +155,10 @@ border: 5px color=#007BFF;
 border-bottom-color: #007BFF; 
 }
 
+a.btn.btn {
+  float: right;
+}
+
  .navbar1 li {
   float: left;
 }
@@ -279,6 +283,12 @@ a {
 
 .card {
   background-color: #CCE5FF;
+}
+
+#about {
+  padding-left:4rem;
+  padding-right:4rem;
+  padding-bottom:4rem;
 }
 
 /* .list-group-item {
