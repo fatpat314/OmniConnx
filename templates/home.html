@@ -1,13 +1,8 @@
 
 
 {% block content %}
-<div class="card-columns" style="margin-top: 4vh;">
-    <a href="index">Welcome to OmniConnx</a>
-</div>
-<!-- <div class="animation" style="justify-content: center">
-    <a href= './OmniConnx/staticfiles/img/lotus.mp4'></a>
-</div> -->
-
+<div class="container">
+    <a href="index">
 <div class="container">
 
      <div></div>
@@ -16,15 +11,27 @@
     <div></div>
     <div></div>
   </div>
+</a>
 
   <style>
 
+    body {
+      background-color: #cce5ff;
+    }
+
+    .background-page {
+      width: auto;
+      height: 100%;
+      background-color: #99caff;
+    }
     /* Container styles */
     .container {
       width: 200px;
       height: 200px;
-      border: 1px solid;
-      position: relative;
+      /* border: 1px solid; */
+      position: absolute;
+      justify-content: center;
+      background-color:#99caff;
     }
 
     /* Style all of the child divs */
@@ -53,26 +60,33 @@
 
     .container > div:nth-child(1) {
       animation-name: bloom-1;
-      background-color: hsla(0, 100%, 50%, 0.21);
+      color: #007bff;
     }
-
-    .container > div:nth-child(2) {
+    /* --color-primary-lighter-4: #cce5ff;
+  --color-primary-lighter-3: #99caff;
+  --color-primary-lighter-2: #66b0ff;
+  --color-primary-lighter-1: #3395ff;
+  --color-primary: #007bff;
+     */
+  .container > div:nth-child(2) {
       animation-name: bloom-2;
-      background-color: hsla(60, 100%, 50%, 0.21);
+      color: #007bff;
+
     }
 
     .container > div:nth-child(3) {
-      background-color: hsla(120, 100%, 50%, 0.21);
+      color:#007bff
     }
 
     .container > div:nth-child(4) {
       animation-name: bloom-4;
-      background-color: hsla(180, 100%, 50%, 0.21);
+      color:#007bff
+
     }
 
     .container > div:nth-child(5) {
       animation-name: bloom-5;
-      background-color: hsla(240, 100%, 50%, 0.21);
+      color: #007bff
     }
 
     @keyframes bloom-1 {

@@ -149,18 +149,13 @@ body {
   font-family: var(--base-font);
   line-height: 1.75;
   letter-spacing: var(--ltr-space);
-  margin-left: 2rem;
-  background-color: lightblue;
-  color: var(--foreground-color);
+  /* margin-left: 2rem; */
+  background-color: #cce5ff;
+  /* color: var(--foreground-color); */
 }
 
-.navbar1 {
-list-style-type: none ;
-margin-right: 1rem;
-margin-top: 1rem;
-padding: 0;
-overflow: hidden;
-background-color: var(--foreground-color);
+.navbar {
+background-color: #007BFF;
 }
 
 .navbar1 li {
@@ -282,7 +277,7 @@ a {
   font-family: --base-font;
   letter-spacing: --ltr-space;
   margin-left: 2rem;  
-  background-color:#00FFFF36                  
+  background-color:#cce5ff                 
 }
 
 .card {
@@ -290,8 +285,8 @@ a {
 }
 
 .list-group-item {
-  background-color: hsla(120, 100%, 50%, 0.21)
-}
+  background-color: #007BFF;
+} 
 
 button {
   display: inline-block;
