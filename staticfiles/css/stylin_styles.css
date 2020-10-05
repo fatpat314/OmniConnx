@@ -154,8 +154,10 @@ body {
   /* color: var(--foreground-color); */
 }
 
-.navbar {
-background-color: #007BFF;
+.nav-navbar {
+background-color: #CCE5FF;
+border-bottom: 5px, color = #007BFF;
+border-bottom-color: #007BFF; 
 }
 
 .navbar1 li {

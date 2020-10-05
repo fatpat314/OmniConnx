@@ -1,14 +1,15 @@
 # OmniConnex #
 
-## Current status of project - Initial user interviews with medical professionals have begun
+## we need to add name OmniConnx directly below logo in same blue as logo
 
-## All data gathered during user interviews will be recorded on a Google Doc, which will be posted on our Trello board.
+  ## if possible change template to single scrolling page 
 
-## is essentially going to be a database of listings of paid opportunities with medical professionals for Med students, as well as provide means for them to communicate with one another about opportunities
+  ## need to make template for the about us page and style it
 
-## some ideas: it could be a database of opportunities that med students can register on, create a profile, upload their resumes, and apply to opportunities directly
+ ## need to change color of navbar to same shade of blue as background, and separate it with a thin darker blue border. also place the login button to the right of navbar and create a link to sign up page under login form instead of button
 
-## or, a database of med students available for paid opportunities that doctors can search when they need to hire some help ??
+## make whole site uniform in terms of colors and styles
+
 
 ## link to our Trello Board: https://trello.com/b/usUjrQVn/omnes-education-backlog
 
