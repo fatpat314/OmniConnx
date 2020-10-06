@@ -144,9 +144,10 @@ body {
   font-family: var(--base-font);
   line-height: 1.75;
   letter-spacing: var(--ltr-space);
-  /* margin-left: 2rem; */
-  background-color: #cce5ff;
-  /* color: var(--foreground-color); */
+
+  background-image: radial-gradient(white, #cce5ff, #99caff, #007bff);
+
+  
 }
 
 a.nav.navbar {
@@ -294,6 +295,8 @@ a {
   padding-left:4rem;
   padding-right:4rem;
   padding-bottom:4rem;
+  background-image: radial-gradient(white, #cce5ff, #99caff, #007bff);
+
 }
 
 /* .list-group-item {
