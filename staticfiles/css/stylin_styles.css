@@ -281,8 +281,13 @@ a {
   background-color  :#cce5ff                 
 }
 
+
 .card {
   background-color: #CCE5FF;
+}
+
+.card h3 {
+  background-color: #007bff;
 }
 
 #about {
