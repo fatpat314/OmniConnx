@@ -1,15 +1,12 @@
 # OmniConnex #
 
-## we need to add name OmniConnx directly below logo in same blue as logo
+## Next steps:
 
-  ## if possible change template to single scrolling page 
+## Index page - we’re looking for a call to action, something to prompt the user to click, along the lines of the homepage on this site: https://www.magiclinks.com/
 
-  ## need to make template for the about us page and style it
+## Content video for presenting the site - a screencast that mimics exactly what the User Experience will be. Pay attention to detail. 
 
- ## need to change color of navbar to same shade of blue as background, and separate it with a thin darker blue border. also place the login button to the right of navbar and create a link to sign up page under login form instead of button
-
-## make whole site uniform in terms of colors and styles
-
+## We need a solid Roadmap and Trello board for the rest of the project. 
 
 ## link to our Trello Board: https://trello.com/b/usUjrQVn/omnes-education-backlog
 
