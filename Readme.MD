@@ -19,3 +19,5 @@
 
 ## Sofiya's suggesting that we consider using Adalo to build the backend faster; it does look cool and is worth checking out but I'm not sure how that would fly with Dan and Kami.
 ## https://www.adalo.com/
+
+![](2__1___1_.png) https://omniconnx.slack.com/files/U01AFPDMT9Q/F01C5TV6GQH/2__1___1_.png
