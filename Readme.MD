@@ -18,6 +18,5 @@
 ## it would be nice to try to integrate the miniaturized logo into the navbar
 
 ## Sofiya's suggesting that we consider using Adalo to build the backend faster; it does look cool and is worth checking out but I'm not sure how that would fly with Dan and Kami.
-<<<<<<< HEAD
+
 ## lshttps://www.adalo.com/
-=======
