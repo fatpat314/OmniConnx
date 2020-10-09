@@ -20,3 +20,5 @@
 ## Sofiya's suggesting that we consider using Adalo to build the backend faster; it does look cool and is worth checking out but I'm not sure how that would fly with Dan and Kami.
 
 ## lshttps://www.adalo.com/
+
+# Note: Please send a team-wide message every time you push your changes to github to let everyone know to pull.
