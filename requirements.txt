@@ -1,5 +1,6 @@
 django==2.2.7
 pytz==2019.3
+django-crispy-forms
 djangorestframework
 gunicorn
 dj-database-url
