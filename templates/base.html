@@ -30,44 +30,7 @@ are the href's and jinja brackets you can litterally do whatever-->
 
 
         <!-- Don't change this -->
-        {% if user.is_authenticated %}
-
-                                            <!-- Don't change this -->
-        <div class="text-black">Hello, <strong>{{user.username}}</strong>!</div>
-
-        <!-- else, the user is not logged in, just bdjcjbbjxsay hello -->
-
-        <!-- Don't change this -->
-        {% else %}
-
-        <!-- change this if you want -->
-
-        <!-- Don't change this -->
-        {% endif %}
-
-</div>
-        <!-- If user is logged in change the login button into a logout button -->
-        <!--  -->
-        {% if user.is_authenticated %}
-
-        <!-- DONT CHANGE THE href, but feel free to style -->
-        <a href="{% url 'logout' %}" class="btn btn-danger ml-2">Log Out</a>
-
-        <!-- else, the user is not logged in, stay the same -->
-        <!-- Don't change this -->
-        {% else %}
-
-        <!-- DONT CHANGE THE href, but feel free to style -->
-        <a href="{% url 'login' %}" class="btn btn-secondary ml-2">Log In</a>
-
-        <!-- DONT CHANGE THE href, but feel free to style -->
-        <a href="{% url 'register' %}" class="btn btn-primary ml-2">Register</a>
-
-
-
-        <!-- Don't change this -->
-        {% endif %}
-        <a href="/about" class="btn btn-primary ml-2">About Us</a>
+        
 
       </form>
 
