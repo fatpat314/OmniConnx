@@ -202,3 +202,10 @@ class Post_edit_view(UpdateView):
     fields = ['title', 'content']
     template_name = 'categorys/post_edit.html'
     success_url = reverse_lazy('index_all')
+
+@method_decorator([login_required], name='dispatch')
+class Post_delete_view(DeleteView):
+
+    model = Listing
+    template_name = 'categorys/post_delete.html'
+    success_url = reverse_lazy('index_all')

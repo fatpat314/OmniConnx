@@ -19,7 +19,8 @@ urlpatterns = [
     path('form/', New_wiki_form.as_view(), name='new'),
     path('students/', views.student_view, name='students'),
     path('professionals/', views.professionals_view, name='professionals'),
-    path('<int:pk>/edit/', views.Post_edit_view.as_view(), name='edit-post')
+    path('<int:pk>/edit/', views.Post_edit_view.as_view(), name='edit-post'),
+    path('<int:pk>/delete/', views.Post_delete_view.as_view(), name='delete-post')
     # path('home/', PageDetailView.as_view(), name='home' )
 ]
 
