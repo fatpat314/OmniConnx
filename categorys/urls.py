@@ -1,6 +1,6 @@
 from django.urls import path, include
 from . import views
-from .views import New_wiki_form, PageDetailView  #PageListView,
+from .views import New_wiki_form, PageDetailView#, PageListView
 # from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -18,7 +18,8 @@ urlpatterns = [
     path('post/<int:pk>',PageDetailView.as_view(), name='post'),
     path('form/', New_wiki_form.as_view(), name='new'),
     path('students/', views.student_view, name='students'),
-    path('professionals/', views.professionals_view, name='professionals')
+    path('professionals/', views.professionals_view, name='professionals'),
+    path('<int:pk>/edit/', views.Post_edit_view.as_view(), name='edit-post')
     # path('home/', PageDetailView.as_view(), name='home' )
 ]
 
