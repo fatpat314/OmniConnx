@@ -17,7 +17,7 @@
         <a class="nav-link" href="/professionals">For Professionals</a>
       </li>
     </ul>
-      <{% if user.is_authenticated %}
+      {% if user.is_authenticated %}
 
                                           <!-- Don't change this -->
       <div class="text-black">Hello, <strong>{{user.username}}</strong>!</div>
