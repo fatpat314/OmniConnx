@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'crispy_forms',
+
     'categorys',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -120,13 +123,17 @@ USE_L10N = True
 USE_TZ = True
 
 # Where to redirect during authentication
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/profile"
 LOGOUT_REDIRECT_URL = "/"
 DEFAULT_LOGOUT_URL = "/"
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 STATIC_URL = '/static/'
 
