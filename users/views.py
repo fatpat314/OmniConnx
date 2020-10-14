@@ -21,7 +21,7 @@ def register(request):
     return render(request, 'register.html')
 
 @login_required
-def profile(request):
+def profile(request, parent_or_child=None, pk=None):
     if request.method =='POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
         p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
