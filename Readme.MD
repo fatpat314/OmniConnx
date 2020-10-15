@@ -22,3 +22,6 @@
 ## lshttps://www.adalo.com/
 
 # Note: Please send a team-wide message every time you push your changes to github to let everyone know to pull.
+
+
+# Installed django-comments-xtd and added dependencies; when it's time to implement comment thread blocks, follow the instructions at https://django-contrib-comments.readthedocs.io/en/latest/quickstart.html#comment-template-tags

@@ -32,17 +32,27 @@ ALLOWED_HOSTS = ['localhost', 'omniconnx.herokuapp.com', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'django.contrib.sites',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    
     'crispy_forms',
 
     'categorys',
     'users',
+
+    'django_comments_xtd',
+    'django_comments',
 ]
+
+COMMENTS_APP = 'django_comments_xtd';
+
+COMMENTS_XTD_MAX_THREAD_LEVEL  = 4;
+
+COMMENTS_XTD_CONFIRM_EMAIL = True;
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -78,6 +88,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'OmniConnx.wsgi.application'
 
+# the following is email authentication for comment threads
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_USERNAME_REQUIRED = False
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'yourusername@gmail.com'
+EMAIL_HOST_PASSWORD = 'yourpassword'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
