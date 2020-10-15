@@ -11,20 +11,103 @@
 </div>
 <!-- You can change this -->
 <h3>OmniConnx</h3>
-  <hr>
+<img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+
+
+
+
+
+
+
+
+
+
+<!-- Help!!! -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  body {
+    margin: 0;
+    font-family: "Lato", sans-serif;
+  }
+
+  .sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    position: left;
+    height: 100%;
+    overflow: auto;
+
+  }
+
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+
+  .sidebar a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: left;
+    }
+  }
+  </style>
+
+
+
+
+
   <!-- <a href="{% url 'index_all' %}"></a> -->
 <div class="card-columns">
-                <!-- Don't change this -->
-                {% for category in categories %}
-                    <!-- You can change this -->
-                        <li class="list-group-item">
-                            <!-- Don't change this -->
-                            {% include "categorys/partials/index_card.html" %}
-                        </li>
-                <!-- Don't change this -->
+                {% for listing in listings %}
+                <li class="list-group-item">
+                    {% include "categorys/partials/listing_card.html" %}
+                </li>
                 {% endfor %}
         </div>
     </div>
+</div>
+
+<div class="sidebar">
+    <!-- Don't change this -->
+    {% for category in categories %}
+        <!-- You can change this -->
+            <li class="list-group-item">
+                <!-- Don't change this -->
+                {% include "categorys/partials/index_card.html" %}
+            </li>
+    <!-- Don't change this -->
+    {% endfor %}
+
 </div>
 
 

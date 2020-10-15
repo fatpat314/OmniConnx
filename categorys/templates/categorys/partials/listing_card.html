@@ -1,6 +1,7 @@
 <div class="card mb-3">
   <h5 class="card-header ">{{ listing.title }}</h5>
   <img class="rounded-circle" style="width:75px;height:75px;" src="{{ listing.author.profile.image.url }}">
+  <small class="text-muted">Last updated {{ listing.modified|date:"SHORT_DATETIME_FORMAT" }} by <b>{{ listing.author.username }}</b></small>
   <div class="card-body border-dark">
     <p class="card-text text-dark">
           {{ listing.content|truncatewords_html:30 }}
@@ -8,6 +9,5 @@
       <hr>
       <div class="text-right"><a href="{% url 'post' pk=listing.id %}" title="Read More">Read More</a></div>
   <div class="card-footer">
-    <small class="text-muted">Last updated {{ listing.modified|date:"SHORT_DATETIME_FORMAT" }} by <b>{{ listing.author.username }}</b></small>
   </div>
 </div>
