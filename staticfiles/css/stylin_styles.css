@@ -156,6 +156,10 @@ border: 5px color=#007BFF;
 border-bottom-color: #007BFF;
 }
 
+.authed {
+  padding-left: 8rem;
+}
+
 a.btn.btn {
   float: right;
 }
