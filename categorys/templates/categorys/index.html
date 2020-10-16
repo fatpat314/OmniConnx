@@ -12,6 +12,7 @@
 <!-- You can change this -->
 <h3>OmniConnx</h3>
 <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+<a href="{% url 'new' %}" class="btn btn-success ml-4">New Post</a>
 
 
 
@@ -87,7 +88,7 @@
 
 
   <!-- <a href="{% url 'index_all' %}"></a> -->
-<div class="card-columns">
+<div class="">
                 {% for listing in listings %}
                 <li class="list-group-item">
                     {% include "categorys/partials/listing_card.html" %}
@@ -96,6 +97,9 @@
         </div>
     </div>
 </div>
+
+
+
 
 <div class="sidebar">
     <!-- Don't change this -->

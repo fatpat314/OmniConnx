@@ -7,7 +7,6 @@
 {% block content %}
 <h3>OmniConnx {% if listings %}<small class="text-muted">({{ listings|length }} Page{{ listings|length|pluralize:"s" }})</small>{% endif %}</h3>
 <hr>
-<a href="{% url 'new' %}" class="btn btn-success ml-4">New Post</a>
 <h3 class="text-center display-4 text-secondary ml-4 mt-4">Listings</h3>
 
 {% if listings %}
