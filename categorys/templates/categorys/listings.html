@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 <!-- listings.html -->
-<!-- just an index page -->
+<!-- just an index for listings of that SubCategory -->
 
 
-<!-- Don't change this -->
+
 {% block content %}
 <div class="mini-logo">
 
@@ -13,46 +13,60 @@
 {% if user.is_authenticated %}
     <h3>Welcome {{user.username}}!</h3>
 {% endif %}
-
-
-<style>
-.post-box {
-  color: white;
-  border: 2px solid black;
-  margin-top: 20px;
-  margin-left: 200px;
-  margin-right: 20px;
-  padding: 20px;
-}
-</style>
-
 <div class="">
     <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
-    <a href="{% url 'new' %}" class="btn btn-success ml-4">New Post</a>
-
-
+    {% if user.is_authenticated %}
+        <a href="{% url 'new' %}" class="btn btn-success ml-4">New Post</a>
+    {% endif %}
     <form class="post-box" method="POST">
-
         <!-- Don't change this -->
         {% csrf_token %}
-
         <!-- Don't change this -->
         {{ form.as_p }}
-
         <!-- Don't change this -->
         <input type='submit' value="Post">
-
     </form>
+</div>
+
+  <!-- <a href="{% url 'index_all' %}"></a> -->
+<div class="">
+    {% if listings %}
+    <div class="">
+        <!-- Don't change this -->
+        {% for listing in listings %}
+        <li class="list-group-item">
+            {% include "categorys/partials/listing_card.html" %}
+        </li>
+        {% endfor %}
+    </div>
+    {% else %}
+        <div class="alert alert-primary" role="alert">No pages to display.</div>
+    {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- This is the sidebar menu -->
+<div class="sidebar">
+    <!-- Don't change this -->
+    {% for category in categories %}
+        <!-- You can change this -->
+        <h5 class="card-header ">{{ category }}</h5>
+        <div class="card-body border-dark">
+          <p class="card-text text-dark">
+              {% for sub_cat in category.children.all %}
+                      <a href="{% url 'listing' parent_or_child='child' pk=sub_cat.id %}"> {{ sub_cat }} </a>
+              <hr>
+              <!-- Don't change this -->
+              {% endfor %}
+        </div>
+    <!-- Don't change this -->
+    {% endfor %}
 </div>
 
 
 
-
-
-
-
-
-<!-- Help!!! -->
+<!-- Help!!! I don't know CSS -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
   body {
@@ -121,50 +135,17 @@
     }
   }
   </style>
+  <style>
+  .post-box {
+    color: white;
+    border: 2px solid black;
+    margin-top: 20px;
+    margin-left: 200px;
+    margin-right: 20px;
+    padding: 20px;
+  }
+  </style>
 
-
-
-
-
-  <!-- <a href="{% url 'index_all' %}"></a> -->
-<div class="">
-    {% if listings %}
-    <div class="">
-        <!-- Don't change this -->
-        {% for listing in listings %}
-        <li class="list-group-item">
-            {% include "categorys/partials/listing_card.html" %}
-        </li>
-        {% endfor %}
-    </div>
-    {% else %}
-        <div class="alert alert-primary" role="alert">No pages to display.</div>
-    {% endif %}
-        </div>
-    </div>
-</div>
-
-
-
-
-<div class="sidebar">
-    <!-- Don't change this -->
-    {% for category in categories %}
-        <!-- You can change this -->
-        <h5 class="card-header ">{{ category }}</h5>
-        <div class="card-body border-dark">
-          <p class="card-text text-dark">
-              {% for sub_cat in category.children.all %}
-                      <a href="{% url 'listing' parent_or_child='child' pk=sub_cat.id %}"> {{ sub_cat }} </a>
-              <hr>
-              <!-- Don't change this -->
-              {% endfor %}
-
-        </div>
-    <!-- Don't change this -->
-    {% endfor %}
-
-</div>
 
 
 
