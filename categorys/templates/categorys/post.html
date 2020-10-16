@@ -22,8 +22,11 @@ Do what ever you want -->
 
       </div>
     </div>
+    {% if user.is_authenticated %}
     <a class="btn btn-primary" href="{% url 'edit-post' post.id %}"  role="button">Edit</a>
     <a class="btn btn-primary" href="{% url 'delete-post' post.id %}"  role="button">Delete</a>
+    {% endif %}
+    
 
     <!-- Don't change this -->
 {% endblock %}

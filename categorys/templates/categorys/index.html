@@ -10,10 +10,11 @@
 
 </div>
 <!-- You can change this -->
-<h3>OmniConnx</h3>
+
 {% if user.is_authenticated %}
-    <div class="text-black">Welcome <strong>{{user.username}}</strong>!</div>
+    <h3>Welcome {{user.username}}!</h3>
 {% endif %}
+
 
 
 <style>
