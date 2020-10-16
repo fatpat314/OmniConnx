@@ -2,13 +2,14 @@
 
 {% block content %}
 
+<!DOCTYPE html>
+<html>
+<head>
 
-<h1><a href="/index">OmniConnx</a></h1>
 
+<div class="container" id="section1">
+<h1><a href="/index">OmniConnx</h1>
 
-  <div class="container">
-
-    <a href="/index">
 <div class="container">
 
     <div></div>
@@ -18,7 +19,7 @@
     <div></div>
   </div>
 </a>
-<div>
+</div>
 
 
 
@@ -26,8 +27,18 @@
 
   <style>
 
+html {
+  scroll-behavior: smooth;
+}
+
+ 
+
+#section2 {
+  height: 600px;
+  background-color: yellow;
+}
     
-      
+
 
     
 
@@ -55,7 +66,7 @@
       text-align: justify;
     }
 
-    .background-page {
+    .background-page, #section1 {
       width: auto;
       height: 100%;
       background-color: #99caff;

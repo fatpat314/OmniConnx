@@ -416,10 +416,11 @@ button.action {
 /* form can be display-flex and flex-direction-column and add Padding */
 form {
   max-width: 50%;
+  max-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 10px;
+  margin-left: 2rem;
   padding-bottom: 20px;
 }
 
