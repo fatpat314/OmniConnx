@@ -155,6 +155,7 @@ class PageDetailView(DetailView):
           'post': post
         })
 
+@method_decorator([login_required], name='dispatch')
 class PageListView(ListView):
     """ Renders a list of all Pages. """
     model = Listing
