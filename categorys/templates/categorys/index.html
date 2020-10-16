@@ -11,10 +11,37 @@
 </div>
 <!-- You can change this -->
 <h3>OmniConnx</h3>
-<img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
-<a href="{% url 'new' %}" class="btn btn-success ml-4">New Post</a>
 
 
+<style>
+.post-box {
+  color: white;
+  border: 2px solid black;
+  margin-top: 20px;
+  margin-left: 200px;
+  margin-right: 20px;
+  padding: 20px;
+}
+</style>
+
+<div class="">
+    <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+    <a href="{% url 'new' %}" class="btn btn-success ml-4">New Post</a>
+
+
+    <form class="post-box" method="POST">
+
+        <!-- Don't change this -->
+        {% csrf_token %}
+
+        <!-- Don't change this -->
+        {{ form.as_p }}
+
+        <!-- Don't change this -->
+        <input type='submit' value="Post">
+
+    </form>
+</div>
 
 
 
@@ -127,4 +154,3 @@
 
 
 {% endblock %}
-

@@ -1,6 +1,6 @@
 from django.urls import path, include
 from . import views
-from .views import New_wiki_form, PageDetailView#, PageListView
+from .views import New_wiki_form, PageDetailView, PageListView
 # from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -12,8 +12,8 @@ admin.autodiscover()
 urlpatterns = [
     path('', views.home_view, name='home'),
     path('about/', views.about_view, name='about'),
-    path('index/', views.index_view, name='index_all'),
-    path('<str:parent_or_child>/<int:pk>/', views.index_view, name='index'),
+    path('index/', PageListView.as_view(), name='index_all'),#views.index_view
+    path('<str:parent_or_child>/<int:pk>/', PageListView.as_view(), name='index'),#views.index_view
     path('listings/<str:parent_or_child>/<int:pk>/',views.listing_view, name='listing'),
     path('post/<int:pk>',PageDetailView.as_view(), name='post'),
     path('form/', New_wiki_form.as_view(), name='new'),

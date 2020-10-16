@@ -77,31 +77,31 @@ def professionals_view(request, parent_or_child=None, pk=None):
     # return render(request, "for_professionals.html")
 
 
-def index_view(request, parent_or_child=None, pk=None):
-    categories = Category.objects.filter(parent=None)
-
-    if parent_or_child is None:
-        listings = Listing.objects.all().order_by("-created")
-
-    elif parent_or_child == 'child':
-        sub_cat = SubCategory.objects.get(pk=pk)
-        listings = sub_cat.listing_set.all().order_by("-created")
-
-    elif parent_or_child == 'parent':
-        listings = []
-        sub_cats = Category.objects.get(pk=pk).children.all().order_by("-created")
-
-        for sub_cat in sub_cats:
-            prds = sub_cat.listing_set.all().order_by("-created")
-            listings += prds
-    else:
-        listings = []
-
-    return render(
-        request,
-        'categorys/index.html',
-        {'categories': categories, 'listings': listings}
-    )
+# def index_view(request, parent_or_child=None, pk=None):
+#     categories = Category.objects.filter(parent=None)
+#
+#     if parent_or_child is None:
+#         listings = Listing.objects.all().order_by("-created")
+#
+#     elif parent_or_child == 'child':
+#         sub_cat = SubCategory.objects.get(pk=pk)
+#         listings = sub_cat.listing_set.all().order_by("-created")
+#
+#     elif parent_or_child == 'parent':
+#         listings = []
+#         sub_cats = Category.objects.get(pk=pk).children.all().order_by("-created")
+#
+#         for sub_cat in sub_cats:
+#             prds = sub_cat.listing_set.all().order_by("-created")
+#             listings += prds
+#     else:
+#         listings = []
+#
+#     return render(
+#         request,
+#         'categorys/index.html',
+#         {'categories': categories, 'listings': listings}
+#     )
 
 def listing_view(request, parent_or_child=None, pk=None):
 
@@ -159,32 +159,44 @@ class PageListView(ListView):
     """ Renders a list of all Pages. """
     model = Listing
 
-    def get(self, request, parent_or_child=None, pk=None):
+    def get(self, request, parent_or_child=None, pk=None, *args, **kwargs):
         """ GET a list of Pages. """
         categories = Category.objects.filter(parent=None)
 
         if parent_or_child is None:
-            listings = Listing.objects.all()
+            listings = Listing.objects.all().order_by("-created")
 
         elif parent_or_child == 'child':
             sub_cat = SubCategory.objects.get(pk=pk)
-            listings = sub_cat.listing_set.all()
+            listings = sub_cat.listing_set.all().order_by("-created")
 
         elif parent_or_child == 'parent':
             listings = []
-            sub_cats = Category.objects.get(pk=pk).children.all()
+            sub_cats = Category.objects.get(pk=pk).children.all().order_by("-created")
 
             for sub_cat in sub_cats:
-                prds = sub_cat.listing_set.all()
+                prds = sub_cat.listing_set.all().order_by("-created")
                 listings += prds
         else:
             listings = []
 
+        context = {'form': PageForm()}
+
         return render(
             request,
-            'users/profile.html',
-            {'categories': categories, 'listings': listings}
+            'categorys/index.html',
+            {'categories': categories, 'listings': listings, 'form': PageForm()}
         )
+    # def get(self, request, *args, **kwargs):
+    #     context = {'form': PageForm()}
+    #     return render(request, 'categorys/index.html', context)
+
+    def post(self, request, *args, **kwargs):
+        form = PageForm(request.POST)
+        if form.is_valid():
+            new_wiki_form = form.save()
+            return HttpResponseRedirect(reverse_lazy('post', args=[new_wiki_form.id]))
+        return render(request, 'categorys/index', {'form':form})
 
 class New_wiki_form(CreateView):
     def get(self, request, *args, **kwargs):
