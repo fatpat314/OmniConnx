@@ -6,4 +6,4 @@ djangorestframework
 gunicorn
 dj-database-url
 psycopg2-binary
-django-comments-xtd
+django_comments_xtd
