@@ -142,10 +142,16 @@
     <!-- Don't change this -->
     {% for category in categories %}
         <!-- You can change this -->
-            <li class="list-group-item">
-                <!-- Don't change this -->
-                {% include "categorys/partials/index_card.html" %}
-            </li>
+        <h5 class="card-header ">{{ category }}</h5>
+        <div class="card-body border-dark">
+          <p class="card-text text-dark">
+              {% for sub_cat in category.children.all %}
+                      <a href="{% url 'listing' parent_or_child='child' pk=sub_cat.id %}"> {{ sub_cat }} </a>
+              <hr>
+              <!-- Don't change this -->
+              {% endfor %}
+
+        </div>
     <!-- Don't change this -->
     {% endfor %}
 
