@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     'crispy_forms',
 
     'categorys',
@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'django_comments_xtd',
     'django_comments',
 ]
+
+SITE_ID=1
 
 COMMENTS_APP = 'django_comments_xtd';
 
