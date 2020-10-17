@@ -5,153 +5,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    #section2 {
-      height: 100%;
-      width: auto;
-      background-color: yellow;
-    }
-    
-        a {
-          text-decoration: none;
-          font-size: 38px;
-          color: #007bff;
-          padding-left: 8px;
-        }
-    
-        h1 {
-          /* position: relative;
-          text-align: justify; 
-          justify-content: center; */
-          color: #007bff;
-        }
-    
-        body {
-          background-color: #cce5ff;
-        }
-        h1 {
-          width: auto;
-          height: 50%;
-          color: #007bff;
-          text-align: justify;
-        }
-    
-        .background-page, #section1 {
-          width: auto;
-          height: 100%;
-          background-color: #99caff;
-          color: #007bff;
-          text-align: justify;
-        }
-
-        /* Container styles */
-        .container {
-          width: 220px;
-          height: 220px;
-          position: absolute;
-          justify-content: center;
-          background-color:#99caff;
-          /* text-align: justify; */
-        }
-    
-        /* Style all of the child divs */
-        /* These styles shared by all children */
-        .container > div {
-          position: absolute;
-          border-radius: 0 50% 50% 50%;
-          border: 2px solid;
-          width: 120px;
-          height: 120px;
-          /* Position these in the center */
-          left: 30px;
-          top: 55px;
-          /* Rotate 45 deg points the point at the top */
-          transform: rotate(45deg);
-          /* Move the point of transformation to the lower right */
-          transform-origin: 80px 80px;
-          animation-duration: 6000ms;
-          animation-iteration-count: 1;
-          /* Important! Without this the elements will snap
-          to their starting positions when the animation ends! */
-          animation-fill-mode: forwards;
-        }
-    
-        /* These styles apply to individual children */
-    
-        .container > div:nth-child(1) {
-          animation-name: bloom-1;
-          color: #007bff;
-        }
-    
-      .container > div:nth-child(2) {
-          animation-name: bloom-2;
-          color: #007bff;
-    
-        }
-    
-        .container > div:nth-child(3) {
-          color:#007bff
-        }
-    
-        .container > div:nth-child(4) {
-          animation-name: bloom-4;
-          color:#007bff
-    
-        }
-    
-        .container > div:nth-child(5) {
-          animation-name: bloom-5;
-          color: #007bff
-        }
-    
-        @keyframes bloom-1 {
-          0% { transform: rotate(45deg); }
-          100% { transform: rotate(-45deg); }
-        }
-    
-        @keyframes bloom-2 {
-          0% { transform: rotate(45deg); }
-          100% { transform: rotate(135deg); }
-        }
-    
-        @keyframes bloom-4 {
-          0% { transform: rotate(45deg); }
-          100% { transform: rotate(0deg); }
-        }
-    
-        @keyframes bloom-5 {
-          0% { transform: rotate(45deg); }
-          100% { transform: rotate(90deg); }
-        }
-    
-        a {
-          padding-right: 1rem;
-        }
-    
-        body {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-    
-        body, html {
-          height: 100%;
-          background-image: radial-gradient(white, #cce5ff, #99caff, #007bff);
-        }
-    
-      </style>
-      </head>
 
 <body>
-<div class="main" id="section1">
-  
+<!-- <div class="main" id="section1">
+  <a href="#section2"> -->
   <div class="container">
-<a href="#section2"><h1><a href="/index">OmniConnx</h1>
+<h1><a href="/index">OmniConnx</h1>
 
 <div class="container">
 
@@ -164,17 +23,159 @@
 </a>
 
 </div>
-</a>
-</div>
 
-<div class="main" id="section2">
 
-  
-</div>
+
+<!-- <div class="container" id="section2"></div> -->
 
 
 
 
+  <style>
+
+/* html {
+  scroll-behavior: smooth;
+} */
+
+ 
+/* 
+#section2 {
+  height: 100%;
+  width: auto;
+  background-color: yellow;
+} */
+    
+
+
+    
+
+    a {
+      text-decoration: none;
+      font-size: 38px;
+      color: #007bff;
+      padding-left: 8px;
+    }
+
+    h1 {
+      /* position: relative;
+      text-align: justify; 
+      justify-content: center; */
+      color: #007bff;
+    }
+
+    body {
+      background-color: #cce5ff;
+    }
+    h1 {
+      width: auto;
+      height: 50%;
+      color: #007bff;
+      text-align: justify;
+    }
+
+    .background-page, #section1 {
+      width: auto;
+      height: 100%;
+      background-color: #99caff;
+      color: #007bff;
+      text-align: justify;
+    }
+    /* Container styles */
+    .container {
+      width: 220px;
+      height: 220px;
+      position: absolute;
+      justify-content: center;
+      background-color:#99caff;
+      /* text-align: justify; */
+    }
+
+    /* Style all of the child divs */
+    /* These styles shared by all children */
+    .container > div {
+      position: absolute;
+      border-radius: 0 50% 50% 50%;
+      border: 2px solid;
+      width: 120px;
+      height: 120px;
+      /* Position these in the center */
+      left: 30px;
+      top: 55px;
+      /* Rotate 45 deg points the point at the top */
+      transform: rotate(45deg);
+      /* Move the point of transformation to the lower right */
+      transform-origin: 80px 80px;
+      animation-duration: 6000ms;
+      animation-iteration-count: 1;
+      /* Important! Without this the elements will snap
+      to their starting positions when the animation ends! */
+      animation-fill-mode: forwards;
+    }
+
+    /* These styles apply to individual children */
+
+    .container > div:nth-child(1) {
+      animation-name: bloom-1;
+      color: #007bff;
+    }
+
+  .container > div:nth-child(2) {
+      animation-name: bloom-2;
+      color: #007bff;
+
+    }
+
+    .container > div:nth-child(3) {
+      color:#007bff
+    }
+
+    .container > div:nth-child(4) {
+      animation-name: bloom-4;
+      color:#007bff
+
+    }
+
+    .container > div:nth-child(5) {
+      animation-name: bloom-5;
+      color: #007bff
+    }
+
+    @keyframes bloom-1 {
+      0% { transform: rotate(45deg); }
+      100% { transform: rotate(-45deg); }
+    }
+
+    @keyframes bloom-2 {
+      0% { transform: rotate(45deg); }
+      100% { transform: rotate(135deg); }
+    }
+
+    @keyframes bloom-4 {
+      0% { transform: rotate(45deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    @keyframes bloom-5 {
+      0% { transform: rotate(45deg); }
+      100% { transform: rotate(90deg); }
+    }
+
+    a {
+      padding-right: 1rem;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    body, html {
+      height: 100%;
+      background-image: radial-gradient(white, #cce5ff, #99caff, #007bff);
+    }
+
+  </style>
 
   </body>
 </html>
