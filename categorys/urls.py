@@ -1,6 +1,6 @@
 from django.urls import path, include
 from . import views
-from .views import New_wiki_form, PageDetailView, PageListView
+from .views import PageDetailView, PageListView, PostCreateView
 # from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -16,11 +16,12 @@ urlpatterns = [
     path('<str:parent_or_child>/<int:pk>/', PageListView.as_view(), name='index'),#views.index_view
     path('listings/<str:parent_or_child>/<int:pk>/',views.listing_view, name='listing'),
     path('post/<int:pk>',PageDetailView.as_view(), name='post'),
-    path('form/', New_wiki_form.as_view(), name='new'),
+    # path('form/', New_wiki_form.as_view(), name='new'),
     path('students/', views.student_view, name='students'),
     path('professionals/', views.professionals_view, name='professionals'),
     path('<int:pk>/edit/', views.Post_edit_view.as_view(), name='edit-post'),
-    path('<int:pk>/delete/', views.Post_delete_view.as_view(), name='delete-post')
+    path('<int:pk>/delete/', views.Post_delete_view.as_view(), name='delete-post'),
+    path('post/new/', PostCreateView.as_view(), name='post-create')
     # path('home/', PageDetailView.as_view(), name='home' )
 ]
 
