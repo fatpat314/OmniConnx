@@ -19,29 +19,24 @@ class UserUpdateForm(forms.ModelForm):
         model = User
         fields = ['username', 'email']
 
-class ProfileUpdateForm(forms.ModelForm):
+class ProfileUpdateFormNone(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['image', 'bio', 'student', 'professional']
-        test = True
-        student = model.objects.values('user')
-        # print(model.objects.values())
-        # print (list(model.objects.get('user_id')))
+
 
 class ProfileUpdateFormStudent(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['image', 'bio', 'student', 'professional', 'test']
-        test = True
-        student = model.objects.values('user_id')
-        # print(model.objects.values())
-        # print (list(model.objects.get('user_id')))
+
 
 class ProfileUpdateFormProfessional(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['image', 'bio', 'student', 'professional', 'test']
-        test = True
-        student = model.objects.values('user_id')
-        # print(model.objects.values())
-        # print (list(model.objects.get('user_id')))
+
+class ProfileUpdateFormBoth(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['image', 'bio', 'student', 'professional', 'test']

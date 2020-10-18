@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, ProfileUpdateFormStudent, ProfileUpdateFormProfessional
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateFormNone, ProfileUpdateFormStudent, ProfileUpdateFormProfessional, ProfileUpdateFormBoth
 from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse, reverse_lazy
@@ -26,24 +26,17 @@ def register(request):
 def profile(request, parent_or_child=None, pk=None):
 
     thisUser = request.user.id
-    # print("THIS USER: ", thisUser)
-    # print("SAME: ", ProfileUpdateForm.Meta.model.objects.values('user_id'))
-    same_user = ProfileUpdateForm.Meta.model.objects.values('user_id')
-    all_users = ProfileUpdateForm.Meta.model.objects.values()
+    same_user = ProfileUpdateFormNone.Meta.model.objects.values('user_id')
+    all_users = ProfileUpdateFormNone.Meta.model.objects.values()
 
-    # Match the current user with the object id
-    for same in same_user:
-        same = int(same['user_id'])
-        thisUser = int(thisUser)
-        # print("SAME: ", same)
-        # Loop through all user objects
-        for all in all_users:
-            # verify the user id
-            if thisUser == same:
-                # Conditional
-                if all['student'] == True:
-                    # print('SUCCESS')
-                    # Generate the student form
+    for all in all_users:
+        all = all
+        if all['student'] == True and all['professional'] == False:
+            for same in same_user:
+                same = int(same['user_id'])
+                thisUser = int(thisUser)
+                if same == thisUser and same == all['user_id']:
+                    print("BEASFEGESGE: ", same, all['user_id'])
                     if request.method =='POST':
                         u_form = UserUpdateForm(request.POST, instance=request.user)
                         p_form = ProfileUpdateFormStudent(request.POST, request.FILES, instance=request.user.profile)
@@ -60,12 +53,12 @@ def profile(request, parent_or_child=None, pk=None):
                         'p_form': p_form
                     }
                     return render(request, 'profile.html', context)
-                else:
-                    pass
-
-                if all['professional'] == True:
-                    # print('SUCCESS')
-                    # Generate the student form
+        elif all['student'] == False and all['professional'] == True:
+            for same in same_user:
+                same = int(same['user_id'])
+                thisUser = int(thisUser)
+                if same == thisUser and same == all['user_id']:
+                    print("BEASFEGESGE: ", same, all['user_id'])
                     if request.method =='POST':
                         u_form = UserUpdateForm(request.POST, instance=request.user)
                         p_form = ProfileUpdateFormProfessional(request.POST, request.FILES, instance=request.user.profile)
@@ -82,28 +75,49 @@ def profile(request, parent_or_child=None, pk=None):
                         'p_form': p_form
                     }
                     return render(request, 'profile.html', context)
-                else:
-                    pass
 
+        elif all['student'] == True and all['professional'] == True:
+            for same in same_user:
+                same = int(same['user_id'])
+                thisUser = int(thisUser)
+                if same == thisUser and same == all['user_id']:
+                    print("BEASFEGESGE: ", same, all['user_id'])
+                    if request.method =='POST':
+                        u_form = UserUpdateForm(request.POST, instance=request.user)
+                        p_form = ProfileUpdateFormBoth(request.POST, request.FILES, instance=request.user.profile)
+                        if u_form.is_valid() and p_form.is_valid():
+                            u_form.save()
+                            p_form.save()
+                            messages.success(request, f'Your account has been updated!')
+                            return redirect('profile')
+                    else:
+                        u_form = UserUpdateForm(instance=request.user)
+                        p_form = ProfileUpdateFormBoth(instance=request.user.profile)
+                    context = {
+                        'u_form': u_form,
+                        'p_form': p_form
+                    }
+                    return render(request, 'profile.html', context)
 
-
-
-
-            if all['student'] == False and all['professional'] == False:
-                if request.method =='POST':
-                    u_form = UserUpdateForm(request.POST, instance=request.user)
-                    p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
-                    if u_form.is_valid() and p_form.is_valid():
-                        u_form.save()
-                        p_form.save()
-                        messages.success(request, f'Your account has been updated!')
-                        return redirect('profile')
-                else:
-                    u_form = UserUpdateForm(instance=request.user)
-                    p_form = ProfileUpdateForm(instance=request.user.profile)
-                context = {
-                    'u_form': u_form,
-                    'p_form': p_form
-                }
-
-                return render(request, 'profile.html', context)
+        else:
+            for same in same_user:
+                same = int(same['user_id'])
+                thisUser = int(thisUser)
+                if same == thisUser and same == all['user_id']:
+                    print("BEASFEGESGE: ", same, all['user_id'])
+                    if request.method =='POST':
+                        u_form = UserUpdateForm(request.POST, instance=request.user)
+                        p_form = ProfileUpdateFormNone(request.POST, request.FILES, instance=request.user.profile)
+                        if u_form.is_valid() and p_form.is_valid():
+                            u_form.save()
+                            p_form.save()
+                            messages.success(request, f'Your account has been updated!')
+                            return redirect('profile')
+                    else:
+                        u_form = UserUpdateForm(instance=request.user)
+                        p_form = ProfileUpdateFormNone(instance=request.user.profile)
+                    context = {
+                        'u_form': u_form,
+                        'p_form': p_form
+                    }
+                    return render(request, 'profile.html', context)
