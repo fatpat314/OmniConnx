@@ -21,7 +21,8 @@ urlpatterns = [
     path('professionals/', views.professionals_view, name='professionals'),
     path('<int:pk>/edit/', views.Post_edit_view.as_view(), name='edit-post'),
     path('<int:pk>/delete/', views.Post_delete_view.as_view(), name='delete-post'),
-    path('post/new/', PostCreateView.as_view(), name='post-create')
+    path('post/new/', PostCreateView.as_view(), name='post-create'),
+    path('post/<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
     # path('home/', PageDetailView.as_view(), name='home' )
 ]
 

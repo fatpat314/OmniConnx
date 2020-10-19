@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Category, SubCategory, Listing
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
 from .models import Listing
+from .forms import CommentForm
 # from .forms import PageForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, View
 from django.http import HttpResponse, HttpResponseRedirect
@@ -13,6 +14,7 @@ from django.template import loader
 
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_list_or_404, get_object_or_404
 
 
 
@@ -170,3 +172,16 @@ class Post_delete_view(DeleteView):
     model = Listing
     template_name = 'categorys/post_delete.html'
     success_url = reverse_lazy('index_all')
+
+def add_comment_to_post(request, pk):
+    post = get_object_or_404(Listing, pk=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return redirect('post', pk=post.pk)
+    else:
+        form = CommentForm()
+    return render(request, 'categorys/add_comment_to_post.html', {'form': form})

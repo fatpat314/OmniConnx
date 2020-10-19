@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Category, SubCategory, Listing
+from .models import Category, SubCategory, Listing, Comment
 
 class SubCategoryInline(admin.TabularInline):
     model = SubCategory
@@ -46,3 +46,5 @@ class SubCategoryAdmin(admin.ModelAdmin):
 admin.site.register(SubCategory, SubCategoryAdmin)
 
 admin.site.register(Listing)
+
+admin.site.register(Comment)
