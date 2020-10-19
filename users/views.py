@@ -5,6 +5,16 @@ from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateFormNone, Prof
 from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse, reverse_lazy
+from django.contrib.auth.models import User
+
+
+def profile_display_view(request):
+    return render(request, "profile-display.html")
+
+def get_user_profile(request, username):
+    print("HEY!!!!!!")
+    user = User.objects.get(username=username)
+    return render(request, 'profile-display.html', {"user":user})
 
 
 def register(request):
