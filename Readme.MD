@@ -1,27 +1,17 @@
 # OmniConnex #
 
-## Next steps:
+![OmniConnx Logo](OmniConnx/staticfiles/img/omni.png)
 
-## Index page - we’re looking for a call to action, something to prompt the user to click, along the lines of the homepage on this site: https://www.magiclinks.com/
+## Our mission is to connect the global healthcare community to crowdsource knowledge, build relationships and create careers.
 
-## Content video for presenting the site - a screencast that mimics exactly what the User Experience will be. Pay attention to detail. 
+## Our users are primarily going to be medical students and medical professionals, both of whom we have surveyed to find out how we might best serve them.
 
-## We need a solid Roadmap and Trello board for the rest of the project. we should also try to be more intentional about our sprints.
+## Our research has revealed that the transition to practice for many new healthcare providers is challenged by:
+      A lack of confidence that generally lasts an average of 5 years into the practice of new healthcare providers.
+      The extreme cultural differences between the academia and the practice setting.
+      Increasingly limited clinical experience caused by less patients in hospitals and increased number of students entering the healthcare field.
 
-## link to our Trello Board: https://trello.com/b/usUjrQVn/omnes-education-backlog
-
-
-## master github repo: https://github.com/fatpat314/OmniConnx.git
-
-## animated_lotus_icon by Gideon: gscrawley.github.io/animated_lotus/lotus.html
-
-## it would be nice to try to integrate the miniaturized logo into the navbar
-
-## Sofiya's suggesting that we consider using Adalo to build the backend faster; it does look cool and is worth checking out but I'm not sure how that would fly with Dan and Kami.
-
-## lshttps://www.adalo.com/
-
-# Note: Please send a team-wide message every time you push your changes to github to let everyone know to pull.
+## Note: the user flow as it is going to happen has not yet been implemented. 
+## In the current iteration of OmniConnx, users create a profile and are then able edit that profile; they can then create postings that include their avatar and a link to view their profile. We've also added commenting on the postings, and will be implementing threaded commenting so that users can interact directly on a post, as well as an in-site messenger so users can communicate with one another privately. We will be adding more questions on the profile edit page, eventually creating many subcategories as we grow our user base. Medicine has so many specialities so we've decided to let the users create the subcategories themselves. 
 
 
-# Installed django-comments-xtd and added dependencies; when it's time to implement comment thread blocks, follow the instructions at https://django-contrib-comments.readthedocs.io/en/latest/quickstart.html#comment-template-tags
