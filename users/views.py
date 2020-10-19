@@ -24,19 +24,19 @@ def register(request):
 
 @login_required
 def profile(request, parent_or_child=None, pk=None):
-
+    # Get ID information of user
     thisUser = request.user.id
     same_user = ProfileUpdateFormNone.Meta.model.objects.values('user_id')
     all_users = ProfileUpdateFormNone.Meta.model.objects.values()
 
     for all in all_users:
-        all = all
         if all['student'] == True and all['professional'] == False:
             for same in same_user:
                 same = int(same['user_id'])
                 thisUser = int(thisUser)
+                # Varifying ID is the same
                 if same == thisUser and same == all['user_id']:
-                    print("BEASFEGESGE: ", same, all['user_id'])
+                    # generate page
                     if request.method =='POST':
                         u_form = UserUpdateForm(request.POST, instance=request.user)
                         p_form = ProfileUpdateFormStudent(request.POST, request.FILES, instance=request.user.profile)
@@ -53,12 +53,14 @@ def profile(request, parent_or_child=None, pk=None):
                         'p_form': p_form
                     }
                     return render(request, 'profile.html', context)
+
         elif all['student'] == False and all['professional'] == True:
             for same in same_user:
                 same = int(same['user_id'])
                 thisUser = int(thisUser)
+                # Varifying ID is the same
                 if same == thisUser and same == all['user_id']:
-                    print("BEASFEGESGE: ", same, all['user_id'])
+                    # generate page
                     if request.method =='POST':
                         u_form = UserUpdateForm(request.POST, instance=request.user)
                         p_form = ProfileUpdateFormProfessional(request.POST, request.FILES, instance=request.user.profile)
@@ -80,8 +82,9 @@ def profile(request, parent_or_child=None, pk=None):
             for same in same_user:
                 same = int(same['user_id'])
                 thisUser = int(thisUser)
+                # Varifying ID is the same
                 if same == thisUser and same == all['user_id']:
-                    print("BEASFEGESGE: ", same, all['user_id'])
+                    # generate page
                     if request.method =='POST':
                         u_form = UserUpdateForm(request.POST, instance=request.user)
                         p_form = ProfileUpdateFormBoth(request.POST, request.FILES, instance=request.user.profile)
@@ -103,8 +106,9 @@ def profile(request, parent_or_child=None, pk=None):
             for same in same_user:
                 same = int(same['user_id'])
                 thisUser = int(thisUser)
+                # Varifying ID is the same
                 if same == thisUser and same == all['user_id']:
-                    print("BEASFEGESGE: ", same, all['user_id'])
+                    # generate page
                     if request.method =='POST':
                         u_form = UserUpdateForm(request.POST, instance=request.user)
                         p_form = ProfileUpdateFormNone(request.POST, request.FILES, instance=request.user.profile)

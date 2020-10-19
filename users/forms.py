@@ -22,21 +22,21 @@ class UserUpdateForm(forms.ModelForm):
 class ProfileUpdateFormNone(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['image', 'bio', 'student', 'professional']
+        fields = ['image', 'location', 'bio', 'student', 'professional']
 
 
 class ProfileUpdateFormStudent(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['image', 'bio', 'student', 'professional', 'test']
+        fields = ['image', 'location', 'bio', 'student', 'professional', 'skills_to_offer', 'looking_for', 'affiliation']
 
 
 class ProfileUpdateFormProfessional(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['image', 'bio', 'student', 'professional', 'test']
+        fields = ['image', 'location','bio', 'student', 'professional', 'skills_to_offer', 'looking_for', 'affiliation']
 
 class ProfileUpdateFormBoth(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['image', 'bio', 'student', 'professional', 'test']
+        fields = ['image', 'location' ,'bio', 'student', 'professional', 'skills_to_offer', 'looking_for', 'affiliation']

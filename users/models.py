@@ -7,9 +7,17 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     bio = models.TextField(blank=True, null=True)
+
     student = models.BooleanField(null=True)
     professional = models.BooleanField(null=True)
-    test = models.TextField(blank=True, null=True)
+
+    skills_to_offer = models.TextField(blank=True, null=True)
+    location = models.CharField(max_length=200, blank=True,null=True)
+    looking_for = models.TextField(blank=True, null=True)
+
+    affiliation = models.BooleanField(null=True)
+
+
 
     def __str__(self):
         return f'{self.user.username} Profile'
