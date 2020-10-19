@@ -12,7 +12,7 @@ def profile_display_view(request):
     return render(request, "profile-display.html")
 
 def get_user_profile(request, username):
-    print("HEY!!!!!!")
+    # print("HEY!!!!!!")
     user = User.objects.get(username=username)
     return render(request, 'profile-display.html', {"user":user})
 
