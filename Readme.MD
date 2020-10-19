@@ -1,6 +1,6 @@
 # OmniConnex #
 
-![OmniConnx Logo](img/omni.png)
+![OmniConnx Logo](OmniConnx/staticfiles/img/omni.png)
 
 ## Our mission is to connect the global healthcare community to crowdsource knowledge, build relationships and create careers.
 
