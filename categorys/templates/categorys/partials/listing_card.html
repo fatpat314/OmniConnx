@@ -4,8 +4,10 @@
         <h6>{{ listing.sub_category }}</h6>
 
     </div>
-  <img class="rounded-circle" style="width:75px;height:75px;" src="{{ listing.author.profile.image.url }}">
+  <a href="/profile/{{ listing.author.username }}"><img class="rounded-circle" style="width:75px;height:75px;" src="{{ listing.author.profile.image.url }}"></a>
+
   <small class="text-muted">Last updated {{ listing.modified|date:"SHORT_DATETIME_FORMAT" }} by <b>{{ listing.author.username }}</b></small>
+  <a class="nav-link" href="/profile/{{ listing.author.username }}">View Profile <span class="sr-only">(current)</span></a>
   <div class="card-body border-dark">
     <p class="card-text text-dark">
           {{ listing.content|truncatewords_html:30 }}
