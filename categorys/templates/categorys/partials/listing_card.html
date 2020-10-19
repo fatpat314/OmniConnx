@@ -11,7 +11,10 @@
           {{ listing.content|truncatewords_html:30 }}
 
       <hr>
-      <div class="text-right"><a href="{% url 'post' pk=listing.id %}" title="Read More">Read More</a></div>
+      <div class="text-right"><a href="{% url 'post' pk=listing.id %}" title="Read More">Read More</a>
+          <!-- <a href="{% url 'post' pk=listing.id %}">Comments: {{ post.comments.count }}</a> -->
+      </div>
+
   <div class="card-footer">
   </div>
 </div>
