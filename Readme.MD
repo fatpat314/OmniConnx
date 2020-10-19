@@ -1,6 +1,6 @@
 # OmniConnex #
 
-![OmniConnx Logo](OmniConnx/staticfiles/img/omni.png)
+![alt text](https://github.com/fatpat314/OmniConnx/blob/master/staticfiles/img/omni.png)
 
 ## Our mission is to connect the global healthcare community to crowdsource knowledge, build relationships and create careers.
 
