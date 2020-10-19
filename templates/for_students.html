@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<html>
+  <body>
 <h3>For Students</h3>
   <hr>
   <a href="{% url 'index_all' %}">All</a>
@@ -17,6 +19,13 @@
         </div>
     </div>
 </div>
+</body>
+</html>
 
-
+<style>
+   body, html {
+      height: 100%;
+      background-image: radial-gradient(white, #cce5ff, #99caff, #007bff);
+    }
+</style>
 {% endblock %}

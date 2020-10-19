@@ -61,21 +61,21 @@
 
 <!-- This is the sidebar menu -->
     <!-- Don't change this -->
-    <!-- {% for category in categories %} -->
-    <!-- <div class="sidebar">
+    {% for category in categories %} -->
+    <div class="sidebar">
 
         <!-- You can change this -->
-        <!-- <h5 class="card-header">{{ category }}</h5>
+        <h5 class="card-header">{{ category }}</h5>
         <div class="card-body border-dark">
           <p class="card-text text-dark">
               {% for sub_cat in category.children.all %}
                       <a href="{% url 'listing' parent_or_child='child' pk=sub_cat.id %}"> {{ sub_cat }} </a>
               <hr>
               <!-- Don't change this -->
-              <!-- {% endfor %} -->
-        <!-- </div> --> 
+              {% endfor %} -->
+        </div> 
     <!-- Don't change this -->
-    <!-- {% endfor %} -->
+    {% endfor %}
 <!-- </div>  -->
 
  

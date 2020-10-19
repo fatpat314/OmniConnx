@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+<html>
+
+<body>
     <div class="content-section">
       <div class="media">
         <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
@@ -34,5 +37,17 @@
         </div>
       </div>
       </div>
+      </body>
+      </html>
 
+      <style>
+          body, html {
+      height: 100%;
+      background-image: radial-gradient(white, #cce5ff, #99caff, #007bff);
+    }
+        .media-body {
+            padding-left: 4rem;
+        }
+        
+      </style>
       {% endblock %}
