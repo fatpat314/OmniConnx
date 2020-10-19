@@ -6,10 +6,21 @@
         <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
         <div class="media-body">
           <h2 class="account-heading">{{ user.username }}</h2>
-          <p class="text-secondary">{{ user.email }}</p>
+          <h3>{{ user.email }}</h3>
 
           <!-- plug in user's location here -->
-          <p class="text-secondary" id="location">{{user.location}}</p>
-            <p class=
+          <h3 id="location">{{user.location}}</h3>
+          <!-- profession -->
+            <h3 id="Profession">  </h3>
+            <!-- skills -->
+            <h3 id="Skills"> </h3>
+            <!-- what are tney looking for? -->
+            <h3 id="Looking_for?"> </h3>
+            <!-- affiliation -->
+            <h3 id="Affiliation">  </h3>
+
         </div>
       </div>
+      </div>
+
+      {% endblock %}
