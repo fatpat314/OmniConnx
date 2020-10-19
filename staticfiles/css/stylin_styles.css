@@ -304,6 +304,11 @@ a {
   border-radius: 25% 25% 25% 25%;
 }
 
+.comment {
+  margin: 20px 0px 20px 20px;
+  border-width: 10px;
+  border-color: black;
+}
 
 button {
   display: inline-block;
