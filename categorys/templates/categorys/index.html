@@ -33,28 +33,163 @@
 
 <!-- This is the sidebar menu -->
     <!-- Don't change this -->
-    {% for category in categories %}
-    <div class="sidebar">
+    <!-- {% for category in categories %} -->
+    <!-- <div class="sidebar">
 
         <!-- You can change this -->
-        <h5 class="card-header">{{ category }}</h5>
+        <!-- <h5 class="card-header">{{ category }}</h5>
         <div class="card-body border-dark">
           <p class="card-text text-dark">
               {% for sub_cat in category.children.all %}
                       <a href="{% url 'listing' parent_or_child='child' pk=sub_cat.id %}"> {{ sub_cat }} </a>
               <hr>
               <!-- Don't change this -->
-              {% endfor %}
-        </div>
+              <!-- {% endfor %} -->
+        <!-- </div> --> 
     <!-- Don't change this -->
-    {% endfor %}
-</div>
+    <!-- {% endfor %} -->
+</div> 
+<!-- sidebar -->
+<!-- <nav class="nav__cont">
+  <ul class="nav">
+    <li class="nav__items ">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+        <use xlink:href="#home"></use>
+      </svg>
+      <a href="">Home</a>
+    </li>
+    
+    <li class="nav__items ">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+        <use xlink:href="#search"></use>
+      </svg>
+      <a href="">Search</a>
+    </li>
+      
+    <li class="nav__items ">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+        <use xlink:href="#map"></use>
+      </svg>
+     <a href="">Map</a>
+    </li>
+      
+    <li class="nav__items ">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 35.6">
+        <use xlink:href="#planner"></use></svg>
+      <a href="">Planner</a>
+    </li>
+        
+  </ul>
+</nav>
+
+  
+  <div class="wrapper">
+    <main>
+      <h1>Fixed Side Drawer Hover Navigation </h1>
+    </main>
+  </div>
+ -->
 
 
 <!-- Help!!! I don't know CSS -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
   
+  .nav__cont {
+  position: fixed;
+  width: 60px;
+  top:0;
+  height: 100vh;
+  z-index: 100;
+  background-color: #202020;
+  overflow:hidden;
+  transition:width .3s ease;
+  cursor:pointer;
+  box-shadow:4px 7px 10px rgba(0,0,0,.4);
+  &:hover {
+    width:200px;
+  }
+  @media screen and (min-width: 600px) {
+    width: 80px;
+  }
+}
+
+.nav {
+  list-style-type: none;
+  color:white;
+  &:first-child {
+    padding-top:1.5rem;
+  }
+}
+
+.nav__items {
+  padding-bottom:4rem;
+  font-family: 'roboto';
+   a {
+    position: relative;
+    display:block;
+    top:-35px;
+    padding-left:25px;
+    padding-right:15px;
+    transition:all .3s ease;
+    margin-left:25px;
+    margin-right:10px;
+    text-decoration: none;
+    color:white;
+    font-family: 'roboto';
+    font-weight: 100;
+    font-size: 1.35em;
+     &:after {
+       content:'';
+       width: 100%;
+       height: 100%;
+       position: absolute;
+       top:0;
+       left:0;
+       border-radius:2px;
+       background:radial-gradient(circle at 94.02% 88.03%, #54a4ff, transparent 100%);
+       opacity:0;
+       transition:all .5s ease;
+       z-index: -10;
+     }
+  }
+  &:hover a:after {
+    opacity:1;
+  }
+   svg{
+    width:26px;
+    height:26px;
+    position: relative;
+    left:-25px;
+    cursor:pointer;
+    @media screen and(min-width:600px) {
+      width:32px;
+    height:32px;
+left:-15px;
+    }
+  }
+}
+
+body {
+  height: 100vh;
+  background: radial-gradient(circle at 94.02% 88.03%, #54a4ff, transparent 100%),radial-gradient(circle at 25.99% 27.79%, #ff94fb, transparent 100%),radial-gradient(circle at 50% 50%, #000000, #000000 100%);
+}
+
+h1 {
+  margin-top: 6rem;
+  margin-left:80px;
+  text-align: center;
+  font-family: 'Roboto';
+  font-weight: 100;
+  font-size: 4rem;
+  text-transform:uppercase;
+  color:white;
+  letter-spacing:6px;
+  text-shadow:10px 10px 10px rgba(0,0,0,.3);
+}
+
+
+
   body, html {
       height: 100%;
       background-image: radial-gradient(white, #cce5ff, #99caff, #007bff) !important;
@@ -68,10 +203,12 @@
   div.card {
   
     position: relative right;
+    
   }
 
   li.list-group-item{
     position: relative;
+    margin-bottom: 4rem;
   }
 
   .list-group-item {
@@ -87,40 +224,40 @@
   .text-muted {
     padding-left:1rem;
   }
-  .sidebar {
+  /* .sidebar {
     margin-top: 1rem;
     /* margin:0; */
-    padding: 0;
+    /* padding: 0;
     width: 200px;
     background-color: #f1f1f1;
     object-position:top;
     position: absolute left;
     height: 100%;
     /* overflow: auto; */
-    float:left;
+    /* float:left; */
 
-  }
+  
 
-  .sidebar a {
+  /* .sidebar a {
     display: block;
     color: black;
     padding: 16px;
     text-decoration: none;
     float:left;
-  }
+  }  */ 
 
-  .sidebar a.active {
+  /* .sidebar a.active {
     background-color: #4CAF50;
     color: white;
-  }
+  } */
 
-  h5.card-header {
+  /* h5.card-header {
     /* padding-top: 1rem; */
-  }
-
+  
+/* 
   .sidebar a:hover:not(.active) {
     background-color: #555;
-    color: white;
+    color: white; */
   }
 
   div.content {
@@ -130,7 +267,7 @@
     overflow: hidden;
   }
 
-  @media screen and (max-width: 700px) {
+  /* @media screen and (max-width: 700px) {
     .sidebar {
       width: 100%;
       height: auto;
@@ -138,15 +275,15 @@
     }
     .sidebar a {float: left;}
     div.content {margin-left: 0;}
-  }
-
+  } */
+/* 
   @media screen and (max-width: 400px) {
     .sidebar a {
       text-align: center;
       float: left;
     }
   }
-  
+   */
 .post-box {
   color: white;
   border: 2px solid black;
