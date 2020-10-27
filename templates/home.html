@@ -9,8 +9,8 @@
 <body>
 <!-- <div class="main" id="section1">
   <a href="#section2"> -->
-  <div class="container">
-<h1><a href="/index">OmniConnx</h1>
+<div class="scrolling-box">
+<section id="home"><h1><a href="/accounts/login/?next=/index/">OmniConnx</h1>
 
 <div class="container">
 
@@ -21,8 +21,10 @@
     <div></div>
   </div>
 </a>
-
+</section>
 </div>
+
+<section id="login"></section>
 
 
 
@@ -33,21 +35,21 @@
 
   <style>
 
-/* html {
-  scroll-behavior: smooth;
-} */
-
- 
-/* 
-#section2 {
-  height: 100%;
-  width: auto;
-  background-color: yellow;
-} */
+  .scrolling-box {
+      display: block;
+      height: 350px;
+      overflow-y: scroll;
+      scroll-behavior: smooth;
+      text-align: center;
+      width: 220px;
+      }
     
-
-
-    
+  section {
+      display: flex;
+      /* align-items: center;
+      justify-content: center; */
+      height: 100%;
+  }
 
     a {
       text-decoration: none;
@@ -65,7 +67,14 @@
 
     body {
       background-color: #cce5ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
     }
+
+    
+
     h1 {
       width: auto;
       height: 50%;

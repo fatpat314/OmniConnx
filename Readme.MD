@@ -14,4 +14,9 @@
 ## Note: the user flow as it is going to happen has not yet been implemented. 
 ## In the current iteration of OmniConnx, users create a profile and are then able edit that profile; they can then create postings that include their avatar and a link to view their profile. We've also added commenting on the postings, and will be implementing threaded commenting so that users can interact directly on a post, as well as an in-site messenger so users can communicate with one another privately. We will be adding more questions on the profile edit page, eventually creating many subcategories as we grow our user base. Medicine has so many specialities so we've decided to let the users create the subcategories themselves. 
 
+## link to our Trello Board: https://trello.com/b/usUjrQVn/omnes-education-backlog
+
+## master github repo: https://github.com/fatpat314/OmniConnx.git
+
+## animated_lotus_icon by Gideon: gscrawley.github.io/animated_lotus/lotus.html
 
