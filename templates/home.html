@@ -7,9 +7,8 @@
 <head>
 
 <body>
-<!-- <div class="main" id="section1">
-  <a href="#section2"> -->
-<div class="scrolling-box">
+
+<div class="container">
     {% if user.is_authenticated %}
         <section id="home"><h1><a href="/index">OmniConnx</h1>
     {% else %}
@@ -31,14 +30,11 @@
 
 
 
-<!-- <div class="container" id="section2"></div> -->
-
-
 
 
   <style>
 
-  .scrolling-box {
+    /* .scrolling-box {
       display: block;
       height: 350px;
       overflow-y: scroll;
@@ -50,10 +46,10 @@
   section {
       display: flex;
       /* align-items: center;
-      justify-content: center; */
+      justify-content: center; 
       height: 100%;
-  }
-
+   } 
+*/
     a {
       text-decoration: none;
       font-size: 38px;
@@ -62,9 +58,9 @@
     }
 
     h1 {
-      /* position: relative;
+      position: relative;
       text-align: justify;
-      justify-content: center; */
+      justify-content: center; 
       color: #007bff;
     }
 
