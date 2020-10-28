@@ -21,6 +21,7 @@ from users import views as user_views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url
+from categorys import views as category_views
 
 urlpatterns = [
     path('', include('categorys.urls')),
@@ -30,7 +31,7 @@ urlpatterns = [
     # path('categorys/', include('categorys.urls')),
     path('admin/', admin.site.urls),
     path('register/', user_views.register, name='register'),
-    path('profile/', user_views.profile, name='profile'),
+    path('profile/', category_views.PageListView.as_view(), name='index_all'),
     #following path is for comments
     path(r'comments/', include('django_comments_xtd.urls')),
     # path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),

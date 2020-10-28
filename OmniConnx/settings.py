@@ -147,7 +147,7 @@ USE_L10N = True
 USE_TZ = True
 
 # Where to redirect during authentication
-LOGIN_REDIRECT_URL = "/profile"
+LOGIN_REDIRECT_URL = "/index"
 LOGOUT_REDIRECT_URL = "/"
 DEFAULT_LOGOUT_URL = "/"
 

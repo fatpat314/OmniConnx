@@ -4,14 +4,19 @@
 {% block content %}
 
 <!-- sidebar menu -->
-
+<div class="main-alt">
 <nav class="menu" tabindex="0">
   <div class="smartphone-menu-trigger"></div>
   {% if user.is_authenticated %}
   <header class="avatar">
-    <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">    
-    <h2>Welcome, {{user.username}}!</h2>
+          <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+          <div class="welcome">
+              <h2>Welcome, {{user.username}}!</h2>
+          </div>
+
     {% endif %}
+    </div>
+
   </header>
 	<!-- <ul>
     <li tabindex="0" class="icon-dashboard"><span>Student Asking/Seeking</span></li>
@@ -20,65 +25,33 @@
     <li tabindex="0" class="icon-settings"><span>Medical Professional Asking/Seeking</span></li>
   </ul> -->
 </nav>
+<div class="main">
+
 
 <main>
   {% if user.is_authenticated %}
   <a href="{% url 'post-create' %}" class="btn btn-success ml-4">New Post</a>
 {% endif %}
   <div class="post">
+      <div class="timeline">
+
     {% for listing in listings %}
         <li class="list-group-item">
-            {% include "categorys/partials/listing_card.html" %}
+            <div class="text_size">
+                {% include "categorys/partials/listing_card.html" %}
+            </div>
         </li>
     {% endfor %}
         </div>
+        </div?
 
 </main>
-
-<!-- You can change this -->
-<!-- {% if user.is_authenticated %}
-    <h3>Welcome {{user.username}}!</h3>
-{% endif %}
-<div class="profile">
-    <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
-    {% if user.is_authenticated %}
-            <a href="{% url 'post-create' %}" class="btn btn-success ml-4">New Post</a>
-    {% endif %}
-
 </div>
 
-<div class="post">
-    {% for listing in listings %}
-        <li class="list-group-item">
-            {% include "categorys/partials/listing_card.html" %}
-        </li>
-    {% endfor %}
-        </div>
-    </div>
-</div>
 
- 
 
-<!-- This is the sidebar menu -->
-    <!-- Don't change this -->
-    {% for category in categories %} 
-    <div class="sidebar">
 
-        <!-- You can change this -->
-        <h5 class="card-header">{{ category }}</h5>
-        <div class="card-body border-dark">
-          <p class="card-text text-dark">
-              {% for sub_cat in category.children.all %}
-                      <a href="{% url 'listing' parent_or_child='child' pk=sub_cat.id %}"> {{ sub_cat }} </a>
-              <hr>
-              <!-- Don't change this -->
-              {% endfor %} 
-        </div> 
-    <!-- Don't change this -->
-    {% endfor %}
-<!-- </div>  -->
 
- 
 
 
 <!-- Help!!! I don't know CSS -->
@@ -89,16 +62,16 @@
       height: 100%;
       background-image: radial-gradient(white, #cce5ff, #99caff, #007bff) !important;
     }
-  
+
     body {
-    
+
     font-family: "Lato", sans-serif;
   }
-  
+
   div.card {
-  
+
     position: relative right;
-    
+
   }
 
   li.list-group-item{
@@ -119,64 +92,6 @@
   .text-muted {
     padding-left:1rem;
   }
-  .sidebar {
-    margin: 0;
-    padding: 0;
-    width: 200px;
-    background-color: #f1f1f1;
-    position: left;
-    height: 100%;
-    overflow: auto;
-
-  }
-
-  .sidebar a {
-    display: block;
-    color: black;
-    padding: 16px;
-    text-decoration: none;
-  }
-
-  .sidebar a.active {
-    background-color: #4CAF50;
-    color: white;
-  }
-
-  .sidebar a:hover:not(.active) {
-    background-color: #555;
-    color: white;
-  }
-
-  div.content {
-    margin-left: 200px;
-    padding: 1px 16px;
-    height: 1000px;
-  }
-
-  @media screen and (max-width: 700px) {
-    .sidebar {
-      width: 100%;
-      height: auto;
-      position: relative;
-    }
-    .sidebar a {float: left;}
-    div.content {margin-left: 0;}
-  }
-
-  @media screen and (max-width: 400px) {
-    .sidebar a {
-      text-align: center;
-      float: left;
-    }
-  }
-  
-
-  div.content {
-    margin-left: 200px;
-    padding: 1px 16px;
-    height: 1000px;
-    overflow: hidden;
-  }
 
 .post-box {
   color: white;
@@ -189,6 +104,147 @@
 
 
 </style>
+
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 150px;
+  position: fixed;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  background: #eee;
+  overflow-x: hidden;
+  margin-top: 55px;
+}
+
+
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 12px;
+  color: #2196F3;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #064579;
+}
+
+.main {
+  margin-left: 200px; /* Same width as the sidebar + left position in px */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 0px;
+}
+
+.main-alt {
+  margin-left: 50px; /* Same width as the sidebar + left position in px */
+  font-size: 12px; /* Increased text to enable scrolling */
+  padding: 0px 0px;
+}
+
+.welcome {
+    margin-left: 20px;
+}
+
+.text_size {
+    font-size: 12px;
+}
+
+.title_size {
+    font-size: 14px;
+}
+
+.timeline {
+    margin-left: -300px;
+    margin-right: 100px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 100%
+}
+
+
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+
+<body>
+
+<div class="sidenav">
+    {% if user.is_authenticated %}
+      <a class="navbar-brand" href="/index">OmniConnx</a>
+     {% else %}
+         <a class="navbar-brand" href="/">OmniConnx</a>
+    {% endif %}
+    {% for category in categories %}
+    <div class="sidebar dropdown">
+        <!-- You can change this -->
+            <h5 class="title_size dropbtn">{{ category }}</h5>
+        <div class="card-body border-dark dropdown-content">
+          <p class="card-text text-dark">
+              {% for sub_cat in category.children.all %}
+                      <a href="{% url 'listing' parent_or_child='child' pk=sub_cat.id %}"> {{ sub_cat }} </a>
+              <hr>
+              <!-- Don't change this -->
+              {% endfor %}
+        </div>
+    </div>
+    <!-- Don't change this -->
+    {% endfor %}
+</div>
+
 
 
 

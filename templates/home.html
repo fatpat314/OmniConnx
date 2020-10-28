@@ -10,8 +10,11 @@
 <!-- <div class="main" id="section1">
   <a href="#section2"> -->
 <div class="scrolling-box">
-<section id="home"><h1><a href="/accounts/login/?next=/index/">OmniConnx</h1>
-
+    {% if user.is_authenticated %}
+        <section id="home"><h1><a href="/index">OmniConnx</h1>
+    {% else %}
+        <section id="home"><h1><a href="{% url 'login' %}">OmniConnx</h1>
+    {% endif %}
 <div class="container">
 
     <div></div>
@@ -43,7 +46,7 @@
       text-align: center;
       width: 220px;
       }
-    
+
   section {
       display: flex;
       /* align-items: center;
@@ -60,7 +63,7 @@
 
     h1 {
       /* position: relative;
-      text-align: justify; 
+      text-align: justify;
       justify-content: center; */
       color: #007bff;
     }
@@ -73,7 +76,7 @@
       flex-direction: column;
     }
 
-    
+
 
     h1 {
       width: auto;
