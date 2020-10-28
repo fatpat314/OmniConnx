@@ -30,7 +30,7 @@
 
 <main>
   {% if user.is_authenticated %}
-  <a href="{% url 'post-create' %}" class="btn btn-success ml-4">New Post</a>
+  <a href="{% url 'post-create' %}" class="btn btn-success ml-4" style="display:grid; padding:0px; margin-left:-4.5rem; background-color: #2fa4e7 !important">New Post</a>
 {% endif %}
   <div class="post">
       <div class="timeline">
@@ -102,23 +102,31 @@
   padding: 20px;
 }
 
+.ml-4, .mx-4 {
+    margin-left: -4.5rem !important ;
+    color: #fff;
+    
+    background-image: #2fa4e7 !important;
+    /* border-color: #2fa4e7; */
+}
 
 </style>
 
 <style>
 body {
   font-family: "Lato", sans-serif;
+  /* overflow: auto; */
 }
 
 .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
   width: 150px;
-  position: fixed;
+  position: absolute;
   z-index: 1;
   top: 0px;
   left: 0px;
-  background: #eee;
-  overflow-x: hidden;
+  background: #cce5ff;
+  /* overflow-x: hidden; */
   margin-top: 55px;
 }
 
@@ -143,7 +151,7 @@ body {
 }
 
 .main-alt {
-  margin-left: 50px; /* Same width as the sidebar + left position in px */
+  margin-left: 110px; /* Same width as the sidebar + left position in px */
   font-size: 12px; /* Increased text to enable scrolling */
   padding: 0px 0px;
 }
@@ -194,7 +202,7 @@ body {
 }
 
 .dropdown:hover .dropbtn {
-  background-color: #3e8e41;
+  background-color: #2196F3;
 }
 
 .dropdown:hover .dropdown-content {
@@ -202,7 +210,7 @@ body {
 }
 
 .dropbtn {
-  background-color: #4CAF50;
+  background-color: #2196F3;
   color: white;
   padding: 16px;
   font-size: 16px;

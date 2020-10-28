@@ -335,7 +335,7 @@ button.press {
   display: inline-block;
   padding: 0.5em 0.75em;
   color: #fff;
-  background-color: #4CAF50;
+  background-color: #2FA4E7;
   border: 1px solid;
   border-radius: 0.5em;
   font-size: 1em;
@@ -348,12 +348,12 @@ button.press {
 }
 
 button.press:hover {
-  background-color: #3e8e41;
+  background-color: #2FA4E7;
   color: var(--bg-color);
 }
 
 button.press:active {
-  background-color: #3e8e41;
+  background-color: #2FA4E7;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
