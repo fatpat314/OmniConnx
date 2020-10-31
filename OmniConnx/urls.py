@@ -23,6 +23,7 @@ from django.conf.urls.static import static
 from django.conf.urls import url
 from categorys import views as category_views
 
+
 urlpatterns = [
     path('', include('categorys.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
@@ -37,6 +38,7 @@ urlpatterns = [
     # path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     # path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path(r'^user/', include('users.urls')),
+    # path(r'^profiles/', include('profiles.urls'))
 
 ]
 
