@@ -11,8 +11,7 @@
 ## once above is implemented, here's how to plug in the comments: https://pythoneatstail.com/en/overview-all-articles/allowing-users-comment-your-site-django-comments-xtd/
 
 ## styling tools stash: 
-## going to use this for sidebar: https://codepen.io/kazzkiq/pen/pvqvxO
-
+## 
 ## currently trying to have home page logo smooth-scroll to the login form at accounts/login/?next=/index/ | following this: https://css-tricks.com/almanac/properties/s/scroll-behavior/
 
 

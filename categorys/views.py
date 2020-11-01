@@ -122,6 +122,7 @@ class PageDetailView(DetailView):
 class PageListView(ListView):
     """ Renders a list of all Pages. """
     model = Listing
+    
 
     def get(self, request, parent_or_child=None, pk=None, *args, **kwargs):
         """ GET a list of Pages. """

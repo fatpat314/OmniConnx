@@ -6,33 +6,72 @@
 <body>
     <div class="content-section">
       <div class="media">
-        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <img class="rounded-circle account-img" src="{{ object.user.profile.image.url }}">
         <div class="media-body">
-          <h2 class="account-heading">{{ user.username }}</h2>
+          <h2 class="account-heading">{{ object.user }}</h2>
 
-          <h3>{{ user.email }}</h3>
+          <h3>{{ object.user.profile.email }}</h3>
 
           <!-- plug in user's location here -->
           <h4>Location</h4>
-              <p>{{user.profile.location}}<p>
+              <p>{{object.user.profile.location}}<p>
 
           <h4>Bio</h4>
-               <p>{{ user.profile.bio }}<p>
+               <p>{{ object.user.profile.bio }}<p>
 
         <h5>Student</h5>
-        <p>{{ user.profile.student }}</p>
+        <p>{{ object.user.profile.student }}</p>
 
         <h5>Professional</h5>
-        <p>{{ user.profile.professional }}</p>
+        <p>{{ object.user.profile.professional }}</p>
 
             <!-- skills -->
         <h6>Skills To Offer</h6>
-        <p>{{ user.profile.skills_to_offer }}</p>
+        <p>{{ object.user.profile.skills_to_offer }}</p>
             <!-- what are tney looking for? -->
         <h6>Skills You Are Looking For</h6>
-        <p>{{ user.profile.looking_for }}</p>
+        <p>{{ object.user.profile.looking_for }}</p>
             <!-- affiliation -->
             <h3 id="Affiliation">  </h3>
+
+        <td>Number of friends</td>
+        <td>{{ object.user.profile.get_friends_number }}</td>
+
+
+<br>
+        <tr>
+            <td>Friends</td>
+            <td>
+                <ul>
+                    {% for friend in user.profile.get_friends %}
+                        <li>{{friend}}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+
+
+            {% if object.user not in rel_receiver and object.user not in rel_sender %}
+                    <form action="{% url 'send-invite' %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="profile_pk" value={{object.pk}}>
+                        <button type="submit" class="ui positive basic button mb-5 w-big"><i class="plus square icon"></i>Add to friends</button>
+                    </form>
+                {% endif %}
+
+                {% if object.user in rel_receiver and request.user not in object.friends.all %}
+                    <button class="ui disabled button mb-5 w-big"><i class="user icon"></i>Waiting for approval</button>
+                {% endif %}
+
+                {% if request.user in object.friends.all %}
+                    <form action="{% url 'remove-friend' %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="profile_pk" value={{object.pk}}>
+                        <button type="submit" class="ui negative basic button mb-5 w-big"><i class="minus square icon"></i>Remove from friends</button>
+                    </form>
+                {% endif %}
+
+
 
         </div>
       </div>
@@ -48,6 +87,7 @@
         .media-body {
             padding-left: 4rem;
         }
-        
+
       </style>
+
       {% endblock %}
