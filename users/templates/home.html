@@ -12,6 +12,7 @@
     {% if user.is_authenticated %}
         <section id="home"><h1><a href="/index">OmniConnx</h1>
     {% else %}
+    <h3>Welcome To</h3>
         <section id="login"><h1><a href="{% url 'login' %}">OmniConnx</h1>
           {% endif %}
 <div class="container">
@@ -55,8 +56,10 @@
       padding-left: 8px;
     }
 
-    h1 {
+    h1 h3 {
       position: relative;
+      width: auto;
+      height: 50%;
       text-align: justify;
       justify-content: center; 
       color: #007bff;
@@ -68,15 +71,6 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-    }
-
-
-
-    h1 {
-      width: auto;
-      height: 50%;
-      color: #007bff;
-      text-align: justify;
     }
 
     .background-page, #section1 {

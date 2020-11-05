@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<html>
+    <body>
+
 
 {% if is_empty %}
-    <h1>No invatations here</h1>
+    <h1>Nothing to see here...</h1>
+        <h3>Go make some connections!</h3>
 {% endif%}
     {% for obj in qs %}
         <div class="ui segment">
@@ -39,6 +43,17 @@
         </div>
         <br>
     {% endfor %}
+</body>
+</html>
 
+<style>
+    body, html {
+        height: 100%;
+        background-image: radial-gradient(white, #cce5ff, #99caff, #007bff);
+        }
 
+    h1 {
+        padding-top: 4rem;
+    }
+</style>
 {% endblock %}
