@@ -16,3 +16,7 @@
 
 
 ## List of Medical Specialties and Subspecialties: https://www.sgu.edu/blog/medical/ultimate-list-of-medical-specialties/
+
+## I've fixed the top navbar in place, but need to figure out how to get the posts to scroll up underneath it like the image does.
+
+## I made the sidenav a tab that stays fixed on the left hand center of the screen; next im going to change the way the tabs look, change the categories, and have the subcategories appear to the right when hovering over the category
