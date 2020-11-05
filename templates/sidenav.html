@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<body>
+
+    <div id="mySidenav" class="sidenav">
+        {% if user.is_authenticated %}
+          <a class="navbar-brand" href="/index">OmniConnx</a>
+         {% else %}
+             <a class="navbar-brand" href="/">OmniConnx</a>
+        {% endif %}
+        {% for category in categories %}3                   3
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Opportunities</a>
+        <a href="#">Mentorship</a>
+        <a href="#">OmniPedia</a>
+    </div>
+    <div id="main">  
+        <h2>Sidenav Push Example</h2>we
+        <p>Click below</p>                                                                                                                                                                                                                                                                                                             `         the side navigation menu, and push this content to the right.</p>dddd
+      
+                <h5 class="title_size dropbtn">{{ category }}</h5>
+            <div class="card-body border-dark dropdown-content">
+              <p class="card-text text-dark">
+                  {% for sub_cat in category.children.all %}
+                          <a href="{% url 'listing' parent_or_child='child' pk=sub_cat.id %}"> {{ sub_cat }} </a>
+                  <hr>
+                  <!-- Don't change this -->
+                  {% endfor %}
+                  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+                </div>
+            </div>
+        </div>
+        <!-- Don't change this -->
+        {% endfor %}
+    </div>
+    <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+        }
+        
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+        }
+        </script>
+        
+    </body>
+    {% endblock %}

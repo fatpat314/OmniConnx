@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+<html>
+    <body>
     <div class="content-section">
-        <form method="POST">
+        <form method="POST" style="width:25%" >
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Log In</legend>
@@ -18,4 +20,13 @@
             </small>
         </div>
     </div>
+</body>
+    </html>
+
+    <style>
+    body, html {
+      height: 100%;
+      background-image: radial-gradient(white, #cce5ff, #99caff, #007bff);
+    }
+    </style>
 {% endblock content %}

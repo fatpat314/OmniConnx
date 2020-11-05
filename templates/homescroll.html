@@ -1,214 +1,215 @@
+
+
+
 {% block content %}
 
-<nav>
-    <a href="/home">1</a>
-    <a href="/%5Euser/login/">2</a>
-    <a href="#3">3</a>
-  </nav>
-  
-  <div class="scrolling-box">
-    <section id="1">This is the first section</section>
-    <section id="2">This is the second section</section>
-    <section id="3">This is the third section</section>
+<!DOCTYPE html>
+<html>
+
+
+<body>
+
+<div class="container">
+    {% if user.is_authenticated %}
+        <section id="home"><h1><a href="/index">OmniConnx</h1>
+    {% else %}
+        <div class="login" section id="first"><h1><a onclick="smoothScroll(document.getElementById('second'))">OmniConnx</h1></div>
+         
+          {% endif %}
+<div class="container">
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
-  
-  
-  
+</a>
+</section>
+</div>
+</div>
+
+<div class="second" id="second" href="{% url 'login' %}"></div>
 
 
-  {% block content %}
+  <style>
 
-  <!DOCTYPE html>
-  <html>
-  <head>
-  
-  <body>
-  <!-- <div class="main" id="section1">
-    <a href="#section2"> -->
-  <div class="scrolling-box">
-      {% if user.is_authenticated %}
-          <section id="home"><h1><a href="/index">OmniConnx</h1>
-      {% else %}
-          <section id="home"><h1><a href="{% url 'login' %}">OmniConnx</h1>
-      {% endif %}
-  <div class="container">
-  
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </a>
-  </section>
-  </div>
-  
-  <section id="login"></section>
-  
-  
-  
-  <!-- <div class="container" id="section2"></div> -->
-  
-  
-  
-  
-    <style>
-  
-      /* .scrolling-box {
-        display: block;
-        height: 350px;
-        overflow-y: scroll;
-        scroll-behavior: smooth;
-        text-align: center;
-        width: 220px;
-        }
-  
-    section {
-        display: flex;
-        /* align-items: center;
-        justify-content: center; */
-        height: 100%;
-    /* }  */ */
-  
-      a {
-        text-decoration: none;
-        font-size: 38px;
-        color: #007bff;
-        padding-left: 8px;
+    /* .scrolling-box {
+      display: block;
+      height: 350px;
+      overflow-y: scroll;
+      scroll-behavior: smooth;
+      text-align: center;
+      width: 220px;
       }
-  
-      h1 {
-        /* position: relative;
-        text-align: justify;
-        justify-content: center; */
-        color: #007bff;
-      }
-  
-      body {
-        background-color: #cce5ff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-      }
-  
-  
-  
-      h1 {
-        width: auto;
-        height: 50%;
-        color: #007bff;
-        text-align: justify;
-      }
-  
-      .background-page, #section1 {
-        width: auto;
-        height: 100%;
-        background-color: #99caff;
-        color: #007bff;
-        text-align: justify;
-      }
-      /* Container styles */
-      .container {
-        width: 220px;
-        height: 220px;
-        position: absolute;
-        justify-content: center;
-        background-color:#99caff;
-        /* text-align: justify; */
-      }
-  
-      /* Style all of the child divs */
-      /* These styles shared by all children */
-      .container > div {
-        position: absolute;
-        border-radius: 0 50% 50% 50%;
-        border: 2px solid;
-        width: 120px;
-        height: 120px;
-        /* Position these in the center */
-        left: 30px;
-        top: 55px;
-        /* Rotate 45 deg points the point at the top */
-        transform: rotate(45deg);
-        /* Move the point of transformation to the lower right */
-        transform-origin: 80px 80px;
-        animation-duration: 6000ms;
-        animation-iteration-count: 1;
-        /* Important! Without this the elements will snap
-        to their starting positions when the animation ends! */
-        animation-fill-mode: forwards;
-      }
-  
-      /* These styles apply to individual children */
-  
-      .container > div:nth-child(1) {
-        animation-name: bloom-1;
-        color: #007bff;
-      }
-  
-    .container > div:nth-child(2) {
-        animation-name: bloom-2;
-        color: #007bff;
-  
-      }
-  
-      .container > div:nth-child(3) {
-        color:#007bff
-      }
-  
-      .container > div:nth-child(4) {
-        animation-name: bloom-4;
-        color:#007bff
-  
-      }
-  
-      .container > div:nth-child(5) {
-        animation-name: bloom-5;
-        color: #007bff
-      }
-  
-      @keyframes bloom-1 {
-        0% { transform: rotate(45deg); }
-        100% { transform: rotate(-45deg); }
-      }
-  
-      @keyframes bloom-2 {
-        0% { transform: rotate(45deg); }
-        100% { transform: rotate(135deg); }
-      }
-  
-      @keyframes bloom-4 {
-        0% { transform: rotate(45deg); }
-        100% { transform: rotate(0deg); }
-      }
-  
-      @keyframes bloom-5 {
-        0% { transform: rotate(45deg); }
-        100% { transform: rotate(90deg); }
-      }
-  
-      a {
-        padding-right: 1rem;
-      }
-  
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-  
-      body, html {
-        height: 100%;
-        background-image: radial-gradient(white, #cce5ff, #99caff, #007bff);
-      }
-  
-    </style>
-  
-    </body>
-  </html>
-   
-  
+
+  section {
+      display: flex;
+      /* align-items: center;
+      justify-content: center; 
+      height: 100%;
+   } 
+*/
+    a {
+      text-decoration: none;
+      font-size: 38px;
+      color: #007bff;
+      padding-left: 8px;
+    }
+
+    h1 {
+      position: relative;
+      text-align: justify;
+      justify-content: center; 
+      color: #007bff;
+    }
+
+    body {
+      background-color: #cce5ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
 
 
-{% endblock % }
+
+    h1 {
+      width: auto;
+      height: 50%;
+      color: #007bff;
+      text-align: justify;
+    }
+
+    .background-page, #section1 {
+      width: auto;
+      height: 100%;
+      background-color: #99caff;
+      color: #007bff;
+      text-align: justify;
+    }
+    /* Container styles */
+    .container {
+      width: 220px;
+      height: 220px;
+      position: absolute;
+      justify-content: center;
+      background-color:#99caff;
+      /* text-align: justify; */
+    }
+
+    /* Style all of the child divs */
+    /* These styles shared by all children */
+    .container > div {
+      position: absolute;
+      border-radius: 0 50% 50% 50%;
+      border: 2px solid;
+      width: 120px;
+      height: 120px;
+      /* Position these in the center */
+      left: 30px;
+      top: 55px;
+      /* Rotate 45 deg points the point at the top */
+      transform: rotate(45deg);
+      /* Move the point of transformation to the lower right */
+      transform-origin: 80px 80px;
+      animation-duration: 6000ms;
+      animation-iteration-count: 1;
+      /* Important! Without this the elements will snap
+      to their starting positions when the animation ends! */
+      animation-fill-mode: forwards;
+    }
+
+    /* These styles apply to individual children */
+
+    .container > div:nth-child(1) {
+      animation-name: bloom-1;
+      color: #007bff;
+    }
+
+  .container > div:nth-child(2) {
+      animation-name: bloom-2;
+      color: #007bff;
+
+    }
+
+    .container > div:nth-child(3) {
+      color:#007bff
+    }
+
+    .container > div:nth-child(4) {
+      animation-name: bloom-4;
+      color:#007bff
+
+    }
+
+    .container > div:nth-child(5) {
+      animation-name: bloom-5;
+      color: #007bff
+    }
+
+    @keyframes bloom-1 {
+      0% { transform: rotate(45deg); }
+      100% { transform: rotate(-45deg); }
+    }
+
+    @keyframes bloom-2 {
+      0% { transform: rotate(45deg); }
+      100% { transform: rotate(135deg); }
+    }
+
+    @keyframes bloom-4 {
+      0% { transform: rotate(45deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    @keyframes bloom-5 {
+      0% { transform: rotate(45deg); }
+      100% { transform: rotate(90deg); }
+    }
+
+    a {
+      padding-right: 1rem;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    body, html {
+      height: 100%;
+      background-image: radial-gradient(white, #cce5ff, #99caff, #007bff);
+    }
+
+  </style>
+</body>
+</html>
+  
+<script>
+window.smoothScroll = function(target) {
+  var scrollContainer = target;
+  do { //find scroll container
+      scrollContainer = scrollContainer.parentNode;
+      if (!scrollContainer) return;
+      scrollContainer.scrollTop += 1;
+  } while (scrollContainer.scrollTop == 0);
+
+  var targetY = 0;
+  do { //find the top of target relatively to the container
+      if (target == scrollContainer) break;
+      targetY += target.offsetTop;
+  } while (target = target.offsetParent);
+
+  scroll = function(c, a, b, i) {
+      i++; if (i > 30) return;
+      c.scrollTop = a + (b - a) / 30 * i;
+      setTimeout(function(){ scroll(c, a, b, i); }, 20);
+  }
+  // start scrolling
+  scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
+}
+</script>
+
+  {% endblock %}

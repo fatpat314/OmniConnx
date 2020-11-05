@@ -15,3 +15,4 @@
 ## currently trying to have home page logo smooth-scroll to the login form at accounts/login/?next=/index/ | following this: https://css-tricks.com/almanac/properties/s/scroll-behavior/
 
 
+## List of Medical Specialties and Subspecialties: https://www.sgu.edu/blog/medical/ultimate-list-of-medical-specialties/

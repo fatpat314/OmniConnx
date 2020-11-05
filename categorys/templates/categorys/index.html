@@ -18,16 +18,9 @@
     </div>
 
   </header>
-	<!-- <ul>
-    <li tabindex="0" class="icon-dashboard"><span>Student Asking/Seeking</span></li>
-    <li tabindex="0" class="icon-customers"><span>Student Answering/Offering</span></li>
-    <li tabindex="0" class="icon-users"><span>Medical Professional Answering/Offering</span></li>
-    <li tabindex="0" class="icon-settings"><span>Medical Professional Asking/Seeking</span></li>
-  </ul> -->
 </nav>
 <div class="main">
                                                 
-
 <main>
   {% if user.is_authenticated %}
   <a href="{% url 'post-create' %}" class="btn ml-4" style="display:grid; padding:0px; margin-left:-4.5rem; background-color: #2196F3">New Post</a>
@@ -43,7 +36,7 @@
         </li>
     {% endfor %}
         </div>
-        </div?
+      </div>
 
 </main>
 </div>
@@ -87,6 +80,7 @@
 
   .rounded-circle {
     margin: 1rem;
+    margin-top: 3rem;;
   }
 
   .text-muted {
