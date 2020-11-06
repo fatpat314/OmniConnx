@@ -6,6 +6,8 @@ Do what ever you want -->
 
 <!-- Don't change this -->
 {% block content %}
+<html>
+    <body>
     <div class="row">
       <div class="col m-4">
          <!-- Don't change this -->
@@ -31,12 +33,6 @@ Do what ever you want -->
 
 
     <hr>
-<!-- 
-    <style media="screen">
-       
-    
-
-    </style> -->
     
 <div class="container" id="comments_section" style="background-color:lightcyan; border-width: 20px; border-color: black">
 
@@ -52,6 +48,18 @@ Do what ever you want -->
     <p>No comments here yet :(</p>
 {% endfor %}
 </div>
+</body>
+</html>
 
+
+<style media="screen">
+    
+    body, html {
+      height: 100%;
+      background-image: radial-gradient(white, #cce5ff, #99caff, #007bff) !important;
+    }
+    
+
+</style> 
     <!-- Don't change this -->
 {% endblock %}
