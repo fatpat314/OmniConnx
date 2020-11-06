@@ -68,14 +68,14 @@
   }
 
   li.list-group-item{
-    position: relative;
+    position: inherit;
     margin-bottom: 4rem;
   }
 
   .list-group-item {
     margin-left: 25%;
     margin-top: 2rem;
-    position: relative right;
+    position: inherit; 
   }
 
   .rounded-circle {
@@ -88,6 +88,7 @@
   }
 
 .post-box {
+  position: inherit;
   color: white;
   border: 2px solid black;
   margin-top: 20px;
@@ -136,16 +137,24 @@ body {
   color: #064579;
 }
 
-.main {
-  margin-left: 200px; /* Same width as the sidebar + left position in px */
+
+main {
+  margin-left: 200px; /*Same width as the sidebar + left position in px */
   font-size: 28px; /* Increased text to enable scrolling */
   padding: 0px 0px;
+  position: inherit;
+}
+
+div.card {
+  position: inherit;
 }
 
 .main-alt {
   margin-left: 110px; /* Same width as the sidebar + left position in px */
   font-size: 12px; /* Increased text to enable scrolling */
   padding: 0px 0px;
+  position: inherit;
+
 }
 
 .welcome {
