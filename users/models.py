@@ -41,7 +41,7 @@ class ProfileManager(models.Manager):
 # Create your models here.
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    slug = models.SlugField(blank=True, null=True, default=user)
+    slug = models.SlugField(blank=True, null=True, default=None)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     bio = models.TextField(blank=True, null=True)
 

@@ -8,19 +8,20 @@
 
 <h3>About OmniConnx</h3>
 
-<p>Finding answers is hard. Whether you’re interested in going to medical school and want to find a solution which suits you, 
-career opportunities, or simply which textbook best suits your learning style… 
-gathering and going through all of the options is time consuming.
-Not only that, but often the answers you find will often be contradictory or non conclusive. 
-We want to share our OmniConnx portal with you, where you’re instantly connected to a global community of learners and leaders 
-who will share their ideas, questions, and even paid opportunities to work together.</p>
+<p><strong>Finding answers can be hard.</strong> Whether you’re interested in going to medical school and want to find a solution which suits you, 
+seeking career opportunities, mentorship, a side gig, or simply which textbook best suits your learning style… 
+gathering and going through all of the options is time consuming, and too often the answers you find are contradictory, vague, or non conclusive. </p>
+
+<p>The global medical community is vast, full of learners and leaders in every medical discipline. 
+We've built the OmniConnx portal to make it easier for you to instantly connect in order to
+share ideas, information, questions, and opportunities to work together.</p>
 
 <p><strong>Our mission is to connect you to the global healthcare community to crowdsource knowledge, build relationships and create careers.</strong></p>
 
 <p><ul>The transition to practice for many new healthcare providers is challenged by:
-<li>A lack of confidence that generally lasts an average of 5 years into the practice of new healthcare providers. </li>
+<li>A lack of confidence that statistically lasts an average of 5 years into the practice of new healthcare providers. </li>
 <li>The extreme cultural differences between the academia and the practice setting.</li>
-<li>Increasingly limited clinical experience caused by less patients in hospitals and increased number of students entering the healthcare field.</li>
+<li>Increasingly limited options to gain clinical experience caused by less patients in hospitals and increased number of students entering the healthcare field.</li>
 </ul></p>
 
 <p>Through our database filled with unique talent, we will gladly welcome you to become another talent who grows and helps others grow 
@@ -32,17 +33,51 @@ by sharing your knowledge and enthusiasm for education. </p>
 
 <style>
     html body {
-    background: radial-gradient(white, #cce5ff, #99caff, #007bff)
+    background: radial-gradient(white, #cce5ff, #99caff, #007bff);
+    /* margin:initial; */
+}
+
+    div#about.container {
+        padding-top: 4rem;
+        margin-top: 4rem;
+        height: auto;
+        position:unset;
+        border-top-width: 10px;
+        /* justify-self: ; */
+        
     }
 
+    h3 {
+        text-align: center;
+        padding-bottom: 2rem;
+        margin-top: -4rem;
+    }
+
+    main.container {
+        padding: 64px;
+        
+    }
     .container {
-        padding: 4rem;
-        border-radius: 25% 25% 25% 25%; 
-        background-color: white;
-        margin-bottom: 2rem;
-    }
+        position: inherit;
 
+        padding: 2rem;
+        width:auto;
+        padding-top: 2rem;
+        border-radius: 25% 25% 25% 25%; 
+        border-top:turquoise
+        background-color: white;
+        /* margin-bottom: 3rem; */
+        margin-top: 6rem;
+        
+    }                  
+
+    @media (min-width: 992px){
+.container, .container-sm, .container-md, .container-lg, .container-xl {
+    /* max-width: 960px; */
+    max-height: 960px;
+                                                                                                                                                                                                                         
+}}
     
-    </style>
+    </style>                            
 
 {% endblock %}
