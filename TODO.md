@@ -45,3 +45,6 @@
 ### GSC rather than scrolling, i'm scoing to make an 'enter' button that when clicked either has a small login form pop up on the same page, or maybe directs the user immediately to 'About Us', and integrate the login/signup on that page. we'll see. 
 
 
+### GSC Button on my-invites page when its empty, that leads to connexions display page
+
+### when clicking on a subcategory on sidebar menu, the page that contains the posts in that subcategory has another sidebar menu. That needs to be changed to the same sidebar as on the index page
