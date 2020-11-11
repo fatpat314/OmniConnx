@@ -7,7 +7,8 @@ Its bear, needs plenty of style-->
 
 <!-- Don't change this -->
 {% block content %}
-
+<html>
+    <body>
 <!-- Don't change this -->
 <form method="POST">
 
@@ -21,6 +22,22 @@ Its bear, needs plenty of style-->
     <input type='submit' value="Post">
 
 </form>
+</body>
+</html>
+
+
+<style>
+    
+    body, html {
+      height: 100%;
+      background-image: radial-gradient(white, #cce5ff, #99caff, #007bff);
+    }
+    .container, .container-sm, .container-md, .container-lg {
+    padding-top: 6rem;
+    max-width: 960px;
+}
+
+    </style>
 
 <!-- Don't change this -->
 {% endblock %}

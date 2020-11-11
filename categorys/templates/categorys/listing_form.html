@@ -1,6 +1,10 @@
 
 {% extends "base.html" %}
+
 {% load crispy_forms_tags %}
+
+<html>
+    <body>
 {% block content %}
     <div class="content-section">
         <form method="POST">
@@ -14,4 +18,18 @@
             </div>
         </form>
     </div>
+    </body>
+    </html>
+<style>
+   
+body, html {
+      height: 100%;
+      background-image: radial-gradient(white, #cce5ff, #99caff, #007bff);
+    }
+
+    .container, .container-sm, .container-md, .container-lg {
+    /* max-width: 960px; */
+    padding-top: 6rem;
+}
+</style>
 {% endblock content %}

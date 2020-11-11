@@ -47,4 +47,4 @@
 
 ### GSC Button on my-invites page when its empty, that leads to connexions display page
 
-### when clicking on a subcategory on sidebar menu, the page that contains the posts in that subcategory has another sidebar menu. That needs to be changed to the same sidebar as on the index page
+### when clicking on a subcategory on sidebar menu, the page that contains the posts in that subcategory has another sidebar menu. We need to change the headings so they reflect where the user is now (if they clicked 'offering' and then the ')
