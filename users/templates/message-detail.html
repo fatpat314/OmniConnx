@@ -1,0 +1,9 @@
+
+
+{% block content %}
+{% for obj in qs %}
+    <h3>{{ obj.user.username }}</h3>
+{% endfor %}
+{{content}}
+
+{% endblock %}

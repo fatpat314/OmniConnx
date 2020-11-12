@@ -44,6 +44,9 @@ urlpatterns = [
     path('to-invite/', user_views.invite_profiles_list_view, name='invite-profiles-view'),
     path('remove-friend/', user_views.remove_from_friends, name='remove-friend'),
 
+    path('messages/', user_views.view_messages, name='messages'),
+    path('message-detail', user_views.message_detail, name='message-detail')
+
 
 
 

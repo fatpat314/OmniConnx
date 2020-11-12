@@ -8,8 +8,55 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
-from users.models import Friend_request, Profile
+from users.models import Friend_request, Profile, Messages
 from django.db.models import Q
+
+
+def view_messages(request):
+    profile = Profile.objects.get(user=request.user)
+    print('Profile: ', profile)
+    message = Messages.objects.all()
+    print("message: ", message.__dict__)
+    qs = Messages.objects.messages_received(profile)
+    print('QS: ', qs[0].text)
+    results = list(map(lambda x: x.sender, qs))
+    content = list(map(lambda x: x.text, qs))
+    # for i in range(len(results)):
+    #     content = list(map(lambda x: x.text, qs))[i]
+    #     content2 = list(map(lambda x: x.text, qs))[0]
+    # content = text
+    print('result: ',results)
+    is_empty = False
+    if len(results) == 0:
+        is_empty = True
+
+    context = {
+        'qs': results,
+        'is_empty': is_empty,
+        'content': content,
+        'message': message
+    }
+
+    return render(request, 'messages.html', context)
+
+def message_detail(request):
+    profile = Profile.objects.get(user=request.user)
+    qs = Messages.objects.messages_received(profile)
+    content = list(map(lambda x: x.text, qs))[0]
+    print('QS: ', qs)
+    results = list(map(lambda x: x.sender, qs))
+    print('result: ',results)
+    is_empty = False
+    if len(results) == 0:
+        is_empty = True
+
+    context = {
+        'qs': results,
+        'is_empty': is_empty,
+        'content': content,
+    }
+
+    return render(request, 'message-detail.html', context)
 
 
 
@@ -176,6 +223,7 @@ def profile(request, parent_or_child=None, pk=None):
                         'confirm': confirm
                     }
                     return render(request, 'profile.html', context)
+
 
 @login_required
 def send_invatation(request):

@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-
 <html>
     <body>
 
 
+
 {% if is_empty %}
+<br><br><br>
     <h1>Nothing to see here...</h1>
         <h3>Go make some connections!</h3>
 {% endif%}
+{{ qs }}
     {% for obj in qs %}
         <div class="ui segment">
             <div class="ui grid">
@@ -19,15 +20,16 @@
                         <img class ="ui small circular image" src={{obj.image.url}}>
                     </div>
                     <div class="thirteen wide column">
-                        <h3>{{ obj.user }}</h3>
-                        <p>{{ obj.bio }}</p>
+                        <h3>{{ obj.user.username }}</h3>
+                        <p>{{ obj }}</p>
                         <a href="/view/{{ obj.user.profile.slug }}"><button class="ui primary button w-big mb-5">See profile</button></a>
-                        <form action="{% url 'accept-invite' %}" method="POST">
+                        <form action="{% url 'message-detail' %}" method="POST">
                             {% csrf_token %}
                             <input type="hidden" name="profile_pk" value={{obj.pk}}>
                             <button type="submit" class="ui positive basic button w-bit mb-5" name="button">
                                 <i class="check icon"></i>
-                                Accept invite
+                                View message
+
                             </button>
                         </form>
                         <form action="{% url 'reject-invite' %}" method="POST">
@@ -44,6 +46,13 @@
             </div>
         </div>
         <br>
+        {% for i in content %}
+            {{ i }}
+        {% endfor %}
+        {{ qs }}
+        <br>
+
+        {{ message }}
     {% endfor %}
 </body>
 </html>

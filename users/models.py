@@ -121,3 +121,20 @@ class Friend_request(models.Model):
 
     def __str__(self):
         return f"{self.sender}-{self.receiver}-{self.status}"
+
+class Messages_manager(models.Manager):
+    def messages_received(self, receiver):
+        qs = Messages.objects.filter(receiver=receiver, status='send')
+        return qs
+
+
+class Messages(models.Model):
+    sender = models.ForeignKey(Profile, related_name='message_sender', on_delete=models.CASCADE, default=None)
+    receiver = models.ForeignKey(Profile, related_name='message_receiver', on_delete=models.CASCADE, default=None)
+    status = models.CharField(max_length=8, choices=STATUS_CHOICES, default=None)
+    text = models.TextField()
+
+    objects = Messages_manager()
+
+    def __str__(self):
+        return f"{self.sender}-{self.receiver}-{self.status}-{self.text}"
