@@ -8,9 +8,9 @@
 {% block content %}
 <html>
   <body>
-<div class="mini-logo">
+<!-- <div class="mini-logo">
 
-</div>
+</div> -->
 <!-- You can change this -->
 {% if user.is_authenticated %}
     <h3>Welcome {{user.username}}!</h3>
@@ -45,6 +45,31 @@
     {% endif %}
         </div>
     </div>
+</div>
+
+
+
+<div class="sidenav">
+  {% if user.is_authenticated %}
+    <a class="navbar-brand" href="/index">OmniConnx</a>
+   {% else %}
+       <a class="navbar-brand" href="/">OmniConnx</a>
+  {% endif %}
+  {% for category in categories %}
+  <div class="sidebar dropdown">
+      <!-- You can change this -->
+          <h5 class="title_size dropbtn">{{ category }}</h5>
+      <div class="card-body border-dark dropdown-content">
+        <p class="card-text text-dark">
+            {% for sub_cat in category.children.all %}
+                    <a href="{% url 'listing' parent_or_child='child' pk=sub_cat.id %}"> {{ sub_cat }} </a>
+            <hr>
+            <!-- Don't change this -->
+            {% endfor %}
+      </div>
+  </div>
+  <!-- Don't change this -->
+  {% endfor %}
 </div>
 
 
@@ -107,6 +132,7 @@
   .ml-4, .mx-4 {
       margin-left: -4.5rem !important;
       color: #fff;
+
 
       background-image: #2fa4e7 !important;
       /* border-color: #2fa4e7; */
@@ -228,12 +254,11 @@
   }
 
 
-
-
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
   }
+
   </style>
 
   <body>

@@ -13,7 +13,7 @@
     {% if user.is_authenticated %}
         <section id="home"><h1><a href="/index">OmniConnx</h1>
     {% else %}
-        <div class="login" section id="first"><h1><a onclick="smoothScroll(document.getElementById('second'))">OmniConnx</h1></div>
+        <div class="scrollContainer" section id="first"><h1><a onclick="smoothScroll(document.getElementById('second'))">OmniConnx</h1></div>
          
           {% endif %}
 <div class="container">
@@ -29,14 +29,14 @@
 </div>
 </div>
 
-<div class="second" id="second" href="{% url 'login' %}"></div>
+<div class="section" id="second" href="{% url 'login' %}"></div>
 
 
   <style>
 
-    /* .scrolling-box {
+  .scrollContainer {
       display: block;
-      height: 350px;
+      height: 220px;
       overflow-y: scroll;
       scroll-behavior: smooth;
       text-align: center;
@@ -45,11 +45,11 @@
 
   section {
       display: flex;
-      /* align-items: center;
+      align-items: center;
       justify-content: center; 
       height: 100%;
    } 
-*/
+
     a {
       text-decoration: none;
       font-size: 38px;
