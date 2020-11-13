@@ -12,6 +12,7 @@ from users.models import Friend_request, Profile, Messages
 from django.db.models import Q
 
 
+
 def view_messages(request):
     profile = Profile.objects.get(user=request.user)
     print('Profile: ', profile)

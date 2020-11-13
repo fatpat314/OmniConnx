@@ -10,6 +10,7 @@ from django.shortcuts import reverse
 
 
 
+
 class ProfileManager(models.Manager):
 
     def get_all_profiles_to_invite(self, sender):

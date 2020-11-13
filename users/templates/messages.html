@@ -46,14 +46,13 @@
             </div>
         </div>
         <br>
+
         {% for i in content %}
             {{ i }}
         {% endfor %}
-        {{ qs }}
         <br>
-
-        {{ message }}
     {% endfor %}
+    <a href="{% url 'pinax_messages:thread_detail' thread.pk %}"><i class="fa fa-envelope"></i> View Message Thread</a>
 </body>
 </html>
 
