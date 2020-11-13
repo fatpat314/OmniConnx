@@ -10,15 +10,6 @@
 
 ## once above is implemented, here's how to plug in the comments: https://pythoneatstail.com/en/overview-all-articles/allowing-users-comment-your-site-django-comments-xtd/
 
-## styling tools stash: 
-## 
-## currently trying to have home page logo smooth-scroll to the login form at accounts/login/?next=/index/ | following this: https://css-tricks.com/almanac/properties/s/scroll-behavior/
-
-
-
-
- <!-- GSC  -->
-## I made the sidenav a tab that stays fixed on the left hand center of the screen; next im going to change the way the tabs look, change the categories, and have the subcategories appear to the right when hovering over the category
 
 <!-- GSC -->
 ##  we don't need to keep the page,where you're sent when clicking “read more” on a post.
@@ -30,7 +21,9 @@
 ###  as in: say the parameters of each post is 200x400; someone posts a long-ass paragraph that would need a space that’s 250x450 to fit, so in that case what we see initially is just part of the paragraph that fits our 200x400 box, with the ‘read more’ link in the bottom right corner of the box.
 
 <!-- GSC -->
-###  when the read more link is clicked, the box should expand to 250x450 to show the entire paragraph at once (or however much space the content needs - we can make it responsive)
+###  when the read more link is clicked, the box should expand to 250x450 to show the entire paragraph at once (or however much space the content needs - we can make it responsive) 
+
+###  https://www.w3schools.com/howto/howto_js_read_more.asp
 
 ### then we need a ‘close’ link to revert the box and its content back to its original size.
 
@@ -45,6 +38,4 @@
 ### GSC rather than scrolling, i'm scoing to make an 'enter' button that when clicked either has a small login form pop up on the same page, or maybe directs the user immediately to 'About Us', and integrate the login/signup on that page. we'll see. 
 
 
-### GSC Button on my-invites page when its empty, that leads to connexions display page
-
-### when clicking on a subcategory on sidebar menu, the page that contains the posts in that subcategory has another sidebar menu. We need to change the headings so they reflect where the user is now (if they clicked 'offering' and then the ')
+### GSC Button on my-invites page when its empty, that leads to profile_list

@@ -1,4 +1,4 @@
-
+/* 
 /* sourceMappingURL=stylin_styles.css.ma                 */ 
 
 
@@ -21,15 +21,15 @@ body {
 
 }
 
-a.nav.navbar {
+/* a.nav.navbar {
 background-color: #CCE5FF;
 border: 5px color=#007BFF;
 border-bottom-color: #007BFF;
-}
+} */
 
 .authed {
   padding-left: 8rem;
-}
+} 
 
 a.btn.btn {
   float: right;
@@ -155,7 +155,7 @@ a {
   letter-spacing: --ltr-space;
   margin-left: 2rem;
   background-color  :#cce5ff
-}
+} 
 
 
 .card {
@@ -325,4 +325,4 @@ textarea {
 }
 
 
-/*# sourceMappingURL=stylin_styles.css.map */
+# sourceMappingURL=stylin_styles.css.map */
