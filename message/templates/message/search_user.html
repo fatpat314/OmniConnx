@@ -3,8 +3,13 @@
 {% load static %}
 
 {% block content %}
+<<<<<<< HEAD
 <html>
   <body>
+=======
+<br>
+<br>
+>>>>>>> 0c0cfdaab1a34df9fbe8a23baca37cf5ec7404d5
  <div class="columns is-mobile">
   <div class="column is-offset-one-fifth">
 
@@ -26,29 +31,30 @@
 
 <div class="column is-one-quarter">
 
-{% for user in users %}
-<div class="box">
-  <article class="media">
-    <div class="media-left">
-      <figure class="image is-64x64">
-          {% if user.profile.picture %}
-            <img src="{{ user.profile.picture.url }}" alt="Placeholder image">
-          {% else %}
-            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-          {% endif %}
+    <form role="form" method="POST" action="{% url 'send_direct' %}">
+      {% csrf_token %}
+    <article class="media">
+      <figure class="media-left">
+
       </figure>
-    </div>
-    <div class="media-content">
-      <div class="content">
-        <p>
-          <strong>{{ user.profile.first_name }} {{ user.profile.last_name }}</strong><small>@{{ user.username }}</small>
-        </p>
-        <a href="{% url 'newconversation' user.username %}" class="button is-info">Send a message!</a>
+      <div class="media-content">
+        <input type="search" name="to_user" value="{{ active_direct }}" placeholder="Enter User">
+        <div class="field">
+          <p class="control">
+              <textarea class="textarea" name="body" placeholder="Write a message..."></textarea>
+
+          </p>
+        </div>
+        <nav class="level">
+          <div class="level-left">
+            <div class="level-item">
+              <button type="submit" name="action" class="button is-info">Send</button>
+            </div>
+          </div>
+        </nav>
       </div>
-    </div>
-  </article>
-</div>
-{% endfor %}
+    </article>
+    </form>
 
 
 </div>
