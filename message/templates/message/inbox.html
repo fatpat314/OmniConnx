@@ -3,18 +3,18 @@
 {% load static %}
 
 {% block content %}
-
+<br>
+<br>
   <div class="columns is-mobile">
 
 
   <div class="column is-one-quarter">
   <aside class="menu">
     <h1 class="title is-2">
-    Messages
+    Inbox
     </h1>
-  <ul style="overflow-y: scroll; height: 500px" class="menu-list">
+  <ul style="overflow-y: scroll; height: 150px" class="menu-list">
 {% for message in messages %}
-    AYE
 
 <a class="{% if active_direct == message.user.username %}is-active{% endif %}" href="{% url 'directs' message.user.username %}">
 <div class="box">
@@ -22,40 +22,14 @@
     <div class="media-left">
       <figure class="image is-64x64">
           {% if message.user.profile.image %}
-            <img src="{{ message.user.profile.image.url }}" alt="Placeholder image">
+            <img src="{{ message.user.profile.image.url }}" alt="Placeholder image" style="width:75px;height:75px;">
           {% else %}
-            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" style="width:75px;height:75px;">
           {% endif %}
       </figure>
     </div>
     <div class="media-content">
-
-      <div class="content">
-        <p>
-          <strong>{{ message.user.profile.user }} </strong> <small>@{{ message.user.username }}</small>
-          {% for direct in directs %}
-              {% if message.user.profile.user == direct.sender.profile.user %}
-                  <strong>{{ message.sender.profile.user }} {{ direct.sender.profile.user }}</strong> <small>@{{ direct.sender.username }}</small> on: <strong><small>{{ direct.date|date:'N d G:i'}}</small></strong>
-                  <p>{{ direct.body }}</p>
-                {% endif %}
-
-                {% if message.user.profile.user == direct.receiver.profile.user %}
-                    <strong>{{ message.sender.profile.user }} {{ direct.sender.profile.user }}</strong> <small>@{{ direct.sender.username }}</small> on: <strong><small>{{ direct.date|date:'N d G:i'}}</small></strong>
-                    <p>{{ direct.body }}</p>
-                  {% endif %}
-            {% endfor %}
-
-        </p>
-      </div>
-
-      <div class="content">
-        {% if message.unread %}
-        <p style="font-weight: bold; color: red;">
-          <i class="material-icons">mark_chat_unread</i> {{ message.unread }}
-        </p>
-        {% endif %}
-      </div>
-
+        <h3>{{ message.user.profile.user }}<h3>
     </div>
   </article>
 </div>
@@ -65,60 +39,63 @@
   </ul>
   </aside>
 <br>
+<h3 class="title is-2">
+Message
+</h3>
 <a href="{% url 'usersearch' %}" class="button is-success">New message</a>
 
 </div>
-
 <div class="column">
+    <div style="overflow-y: scroll; height: 500px">
+        {% for direct in directs %}
+            {% for message in messages %}
+                {% if direct.recipient.profile.user == message.user.profile.user  %}
 
-<div style="overflow-y: scroll; height: 500px">
-
-{% for message in directs %}
-<div class="box">
-  <article class="media">
-    <div class="media-left">
-    </div>
-    <div class="media-content">
-      <div class="content">
-        <p>
-          <strong>{{ message.sender.profile.user }} {{ message.sender.profile.user }}</strong> <small>@{{ message.sender.username }}</small> on: <strong><small>{{ message.date|date:'N d G:i'}}</small></strong>
-        </p>
-        {{ message.body }}
-      </div>
-    </div>
-  </article>
-</div>
-{% endfor %}
-
-
-</div>
-
-
+                    <div class="box">
+                      <article class="media">
+                        <div class="media-left">
+                        </div>
+                        <div class="media-content">
+                          <div class="content">
+                            <p>
+                                <img src="{{ direct.sender.profile.image.url }}" alt="Placeholder image" style="width:75px;height:75px;">
+                              <strong>{{ direct.sender.profile.user }} {{ direct.receiver.profile.user }}</strong> <small>@{{ direct.sender.username }}</small> on: <strong><small>{{ direct.date|date:'N d G:i'}}</small></strong>
+                              <br>
+                              {{ direct.body }}
+                            </p>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
 <form role="form" method="POST" action="{% url 'send_direct' %}">
   {% csrf_token %}
 <article class="media">
   <figure class="media-left">
-    <p class="image is-64x64">
-      <img src="https://bulma.io/images/placeholders/128x128.png">
-    </p>
+
   </figure>
   <div class="media-content">
-    <input type="hidden" name="to_user" value="{{ active_direct }}">
+    <input type="search" name="to_user" value="{{ active_direct }}" placeholder="Enter User">
     <div class="field">
       <p class="control">
-        <textarea class="textarea" name="body" placeholder="Add a comment..."></textarea>
+          <textarea class="textarea" name="body" placeholder="Write a message..."></textarea>
+
       </p>
     </div>
     <nav class="level">
       <div class="level-left">
         <div class="level-item">
-          <button type="submit" name="action" class="button is-info">Send</buttom>
+          <button type="submit" name="action" class="button is-info">Send</button>
         </div>
       </div>
     </nav>
   </div>
 </article>
 </form>
+</div>
+
 
 </div>
 </div>
