@@ -1,5 +1,5 @@
-/* 
-/* sourceMappingURL=stylin_styles.css.ma                 */ 
+/*
+/* sourceMappingURL=stylin_styles.css.ma                 */
 
 
 .header {
@@ -29,7 +29,7 @@ border-bottom-color: #007BFF;
 
 .authed {
   padding-left: 8rem;
-} 
+}
 
 a.btn.btn {
   float: right;
@@ -155,7 +155,7 @@ a {
   letter-spacing: --ltr-space;
   margin-left: 2rem;
   background-color  :#cce5ff
-} 
+}
 
 
 .card {
@@ -167,7 +167,7 @@ a {
 }
 
 #about.container {
-  padding-top:4rem; 
+  padding-top:4rem;
   padding-left:4rem;
   padding-right:4rem;
   padding-bottom:4rem;
