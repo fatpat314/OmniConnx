@@ -19,7 +19,7 @@
         right: 28px;
         width: 280px;
         }
-        
+
     .bootstrap-overrides .form-popup {
         display: none;
         position: fixed;
@@ -28,7 +28,7 @@
         border: 3px solid #f1f1f1;
         z-index: 9;
         }
-    
+
     .bootstrap-overrides .form-container {
         max-width: 400px;
         padding: 10px;
@@ -42,7 +42,7 @@
         border: none;
         background: #f1f1f1;
         }
-    
+
     .bootstrap-overrides .form-container .btn {
         background-color: #4CAF50;
         color: white;
@@ -53,7 +53,7 @@
         margin-bottom:10px;
         opacity: 0.8;
         }
-    
+
     .bootstrap-overrides .form-container .btn:hover, .open-button:hover {
         opacity: 1;
         }
@@ -75,15 +75,13 @@
   <div class="card-body border-dark">
     <p class="card-text text-dark">
 
-          <span id="dots">{{ listing.content | truncatewords_html:10}}...</span>  
-          <span id="more"> {{ listing.content }}  
-    
+          <span id="dots">{{ listing.content | truncatewords_html:10}}...</span>
+          <span id="more"> {{ listing.content }}
+
       <hr>
       <a onclick="myFunction()" id="myBtn" style="justify-content: right;">Read more</a>
-            <div>
-        
-    </div>
-    
+<hr>
+
   <!-- <div class="card-footer">
     <button class="open-button" onclick="openForm()">Open Form</button>
 
@@ -101,14 +99,18 @@
 
 {% for comment in listing.comments.all %}
         <div class="date">{{ comment.created_date }}</div>
-        <strong>{{ comment.author }}</strong>
+        <h6><strong>{{ comment.author }}</strong></h6>
         <strong><p>{{ comment.text }}</p></strong>
+        <hr>
 {% empty %}
     <p>No comments here yet :(</p>
 {% endfor %}
 </span>
 </p>
   </div>
+          <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=listing.id %}">Add comment</a>
+
+
   </div>
 
 
@@ -117,14 +119,14 @@
       var dots = document.getElementById("dots");
       var moreText = document.getElementById("more");
       var btnText = document.getElementById("myBtn");
-    
+
       if (dots.style.display === "none") {
         dots.style.display = "inline";
-        btnText.innerHTML = "Read more"; 
+        btnText.innerHTML = "Read more";
         moreText.style.display = "none";
       } else {
         dots.style.display = "none";
-        btnText.innerHTML = "Read less"; 
+        btnText.innerHTML = "Read less";
         moreText.style.display = "inline";
       }
     }
@@ -138,7 +140,6 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none"; !important
 }
     </script> -->
-    
+
 </body>
 </html>
-

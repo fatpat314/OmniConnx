@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Category, SubCategory, Listing
+from users.models import Profile
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -122,7 +123,7 @@ class PageDetailView(DetailView):
 class PageListView(ListView):
     """ Renders a list of all Pages. """
     model = Listing
-    
+
 
     def get(self, request, parent_or_child=None, pk=None, *args, **kwargs):
         """ GET a list of Pages. """
@@ -181,6 +182,9 @@ def add_comment_to_post(request, pk):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
+            comment.author = Profile.objects.get(user=request.user)
+            comment.author = comment.author.user
+            print(comment.author.user)
             comment.save()
             return redirect('post', pk=post.pk)
     else:
