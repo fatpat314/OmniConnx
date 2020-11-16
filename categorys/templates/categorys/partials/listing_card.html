@@ -1,3 +1,67 @@
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    #more {display: none;}
+    * {box-sizing: border-box;}
+
+   .bootstrap-overrides .open-button {
+        background-color: #555;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+        position: fixed;
+        bottom: 23px;
+        right: 28px;
+        width: 280px;
+        }
+        
+    .bootstrap-overrides .form-popup {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        right: 15px;
+        border: 3px solid #f1f1f1;
+        z-index: 9;
+        }
+    
+    .bootstrap-overrides .form-container {
+        max-width: 400px;
+        padding: 10px;
+        background-color: white;
+        }
+
+    .bootstrap-overrides .form-container input[type=text] {
+        width: 100%;
+        padding: 15px;
+        margin: 22px;
+        border: none;
+        background: #f1f1f1;
+        }
+    
+    .bootstrap-overrides .form-container .btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom:10px;
+        opacity: 0.8;
+        }
+    
+    .bootstrap-overrides .form-container .btn:hover, .open-button:hover {
+        opacity: 1;
+        }
+
+    </style>
+    </head>
+
+<body id="bootstrap-overrides">
 <div class="card mb-3">
     <div class="card-header">
         <h5>{{ listing.title }}</h5>
@@ -10,36 +74,71 @@
   <a class="nav-link" href="/view/{{ listing.author.profile.slug }}">View Profile <span class="sr-only">(current)</span></a>
   <div class="card-body border-dark">
     <p class="card-text text-dark">
-          {{ listing.content|truncatewords_html:30 }}
 
+          <span id="dots">{{ listing.content | truncatewords_html:10}}...</span>  
+          <span id="more"> {{ listing.content }}  
+    
       <hr>
-
-      <div class="text-right"><a href="{% url 'post' pk=listing.id %}" title="Read More">Read More</a>
-        <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=listing.id %}">Add comment</a>
-
-        {% for comment in post.comments.all %}
-        <div class="comment">
-            <div class="date">{{ comment.created_date }}</div>
-            <strong>{{ comment.author }}</strong>
-            <p>{{ comment.text|linebreaks }}</p>
-        </div>
-    {% empty %}
-        <p>No comments here yet :(</p>
-    {% endfor %}
+      <a onclick="myFunction()" id="myBtn" style="justify-content: right;">Read more</a>
+            <div>
+        
     </div>
-      </div>
-      <a href="{% url 'post' pk=listing.id %}">Comments: {{ post.comments.all }}</a>
+    
+  <!-- <div class="card-footer">
+    <button class="open-button" onclick="openForm()">Open Form</button>
 
-      {% for comment in post.comments.all %}
-          <div class="comment">
-              <div class="date">{{ comment.created_date }}</div>
-              <strong>{{ comment.author }}</strong>
-              <p>{{ comment.text|linebreaks }}</p>
-          </div>
-      {% empty %}
-          <p>No comments here yet :(</p>
-      {% endfor %}
+    <div class="form-popup" id="myForm">
+      <form action="/action_page.php" class="post-form">{% csrf_token %}
+        <h5 style="color:black">New comment</h5>
+    <input type="text" placeholder="Enter Comment" name="comment" required>
+    <button type="submit" class="btn" >Send</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
+    <!-- <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=listing.id %}">Add comment</a> -->
 
-  <div class="card-footer">
+<!-- </div> -->
+<a href="{% url 'post' pk=listing.id %}">Comments: {{ post.comments.all }}</a>
+
+
+{% for comment in listing.comments.all %}
+        <div class="date">{{ comment.created_date }}</div>
+        <strong>{{ comment.author }}</strong>
+        <strong><p>{{ comment.text }}</p></strong>
+{% empty %}
+    <p>No comments here yet :(</p>
+{% endfor %}
+</span>
+</p>
   </div>
-</div>
+  </div>
+
+
+<script>
+    function myFunction() {
+      var dots = document.getElementById("dots");
+      var moreText = document.getElementById("more");
+      var btnText = document.getElementById("myBtn");
+    
+      if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Read more"; 
+        moreText.style.display = "none";
+      } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Read less"; 
+        moreText.style.display = "inline";
+      }
+    }
+</script>
+<!-- <script>
+    function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none"; !important
+}
+    </script> -->
+    
+</body>
+</html>
+
