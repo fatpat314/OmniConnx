@@ -57,7 +57,7 @@
     .bootstrap-overrides .form-container .btn:hover, .open-button:hover {
         opacity: 1;
         }
-        
+
     bootstrap-overrides .box {
         width: 40%;
         margin: 0 auto;
@@ -159,14 +159,15 @@
     <p class="card-text text-dark">
 
           <span id="dots">{{ listing.content | truncatewords_html:10}}...</span>
-          <span id="more"> {{ listing.content }}
+          <span id="more"> {{ listing.content }}</span>
+          </p>
 
       <hr>
       <a onclick="myFunction()" id="myBtn" style="justify-content: right;">Read more</a>
 <hr>
 
   <!-- <div class="card-footer">
-   
+
     <!-- <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=listing.id %}">Add comment</a> -->
 
 <!-- </div> -->
@@ -183,8 +184,7 @@
 {% empty %}
     <p>No comments here yet :(</p>
 {% endfor %}
-</span>
-</p>
+
   </div>
           <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=listing.id %}">Add comment</a>
 

@@ -15,6 +15,7 @@
 {% if user.is_authenticated %}
     <h3>Welcome {{user.username}}!</h3>
 {% endif %}
+
 <div class="">
     <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
     {% if user.is_authenticated %}
@@ -30,22 +31,25 @@
 </div>
 
   <!-- <a href="{% url 'index_all' %}"></a> -->
-<div class="">
-    {% if listings %}
-    <div class="">
-        <!-- Don't change this -->
-        {% for listing in listings %}
-        <li class="list-group-item">
-            {% include "categorys/partials/listing_card.html" %}
-        </li>
-        {% endfor %}
-    </div>
-    {% else %}
-        <div class="alert alert-primary" role="alert">No pages to display.</div>
-    {% endif %}
+  <main>
+    {% if user.is_authenticated %}
+    <a href="{% url 'post-create' %}" class="btn ml-4" style="display:grid; padding:0px; margin-left:-4.5rem; background-color: #2196F3">New Post</a>
+  {% endif %}
+    <div class="post">
+        <div class="timeline">
+
+      {% for listing in listings %}
+          <li class="list-group-item">
+              <div class="text_size">
+                  {% include "categorys/partials/listing_card.html" %}
+              </div>
+          </li>
+      {% endfor %}
+          </div>
         </div>
-    </div>
-</div>
+
+  </main>
+
 
 
 
@@ -65,7 +69,7 @@
                     <a href="{% url 'listing' parent_or_child='child' pk=sub_cat.id %}"> {{ sub_cat }} </a>
             <hr>
             <!-- Don't change this -->
-            
+
             {% endfor %}
       </div>
   </div>
@@ -121,13 +125,8 @@
     }
 
   .post-box {
-    position: inherit;
-    color: white;
-    border: 2px solid black;
-    margin-top: 20px;
-    margin-left: 200px;
-    margin-right: 20px;
-    padding: 20px;
+
+    font-size: 12px;
   }
 
   .ml-4, .mx-4 {
