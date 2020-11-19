@@ -33,10 +33,10 @@ Do what ever you want -->
 
 
     <hr>
-    
+
 <div class="container" id="comments_section" style="background-color:lightcyan; border-width: 20px; border-color: black">
 
-     <!-- <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a> -->
+     <!--  <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a> -->
 
 {% for comment in post.comments.all %}
     <div class="comment">
@@ -47,20 +47,20 @@ Do what ever you want -->
 <!-- {% empty %}
     <p>No comments here yet :(</p>
 {% endfor %} -->
-</div> 
+</div>
 </body>
 </html>
 
 
 <style>
-    
+
     body, html {
       height: 100%;
       background-image: radial-gradient(white, #cce5ff, #99caff, #007bff) !important;
     }
-    
-   
 
-</style> 
+
+
+</style>
     <!-- Don't change this -->
 {% endblock %}

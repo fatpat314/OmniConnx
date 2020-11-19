@@ -186,7 +186,7 @@ def add_comment_to_post(request, pk):
             comment.author = comment.author.user
             print(comment.author.user)
             comment.save()
-            return redirect('post', pk=post.pk)
+            return redirect('index_all')
     else:
         form = CommentForm()
     return render(request, 'categorys/add_comment_to_post.html', {'form': form})
