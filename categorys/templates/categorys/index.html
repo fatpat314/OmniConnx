@@ -3,15 +3,7 @@
 
 {% block content %}
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-  </head>
-
-  <body>
 <!-- sidebar menu -->
 <div class="main-alt">
 <nav class="menu" tabindex="0">
@@ -29,6 +21,7 @@
   </header>
 </nav>
 <div class="main">
+
 <main>
   {% if user.is_authenticated %}
   <a href="{% url 'post-create' %}" class="btn ml-4" style="display:grid; padding:0px; margin-left:-4.5rem; background-color: #2196F3">New Post</a>
@@ -51,41 +44,48 @@
 </main>
 </div>
 
+<body>
 
-<!-- Help!!! I don't know CSS -->
+  <div class="sidenav">
+      {% if user.is_authenticated %}
+        <a class="navbar-brand" href="/index">OmniConnx</a>
+       {% else %}
+           <a class="navbar-brand" href="/">OmniConnx</a>
+      {% endif %}
+      {% for category in categories %}
+      <div class="sidebar dropdown">
+          <!-- You can change this -->
+              <h5 class="title_size dropbtn">{{ category }}</h5>
+          <div class="card-body border-dark dropdown-content">
+            <p class="card-text text-dark">
+                {% for sub_cat in category.children.all %}
+                        <a href="{% url 'listing' parent_or_child='child' pk=sub_cat.id %}"> {{ sub_cat }} </a>
+                <hr>
+                <!-- Don't change this -->
+                {% endfor %}
+          </div>
+      </div>
+      <!-- Don't change this -->
+      {% endfor %}
+  </div>
+  
+  </body>
 
-<div class="sidenav">
-    {% if user.is_authenticated %}
-      <a class="navbar-brand" href="/index">OmniConnx</a>
-     {% else %}
-         <a class="navbar-brand" href="/">OmniConnx</a>
-    {% endif %}
-    {% for category in categories %}
-    <div class="sidebar dropdown">
-        <!-- You can change this -->
-            <h5 class="title_size dropbtn">{{ category }}</h5>
-        <div class="card-body border-dark dropdown-content">
-          <p class="card-text text-dark">
-              {% for sub_cat in category.children.all %}
-                      <a href="{% url 'listing' parent_or_child='child' pk=sub_cat.id %}"> {{ sub_cat }} </a>
-              <hr>
-              <!-- Don't change this -->
-              {% endfor %}
-        </div>
-    </div>
-    <!-- Don't change this -->
-    {% endfor %}
-</div>
-
-</body>
-
-<style>
+  
+  </html>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
 
   body, html {
-    font-family: "Lato", sans-serif;
       height: 100%;
       background-image: radial-gradient(white, #cce5ff, #99caff, #007bff) !important;
     }
+
+    body {
+
+    font-family: "Lato", sans-serif;
+  }
 
   div.card {
 
@@ -131,6 +131,9 @@
     /* border-color: #2fa4e7; */
 }
 
+</style>
+
+<style>
 body {
   font-family: "Lato", sans-serif;
   /* overflow: auto; */
@@ -251,6 +254,5 @@ div.card {
 
 </style>
 
-</html>
-
-{% endblock %}
+  {% endblock %}
+  
