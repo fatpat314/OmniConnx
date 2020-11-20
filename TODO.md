@@ -24,4 +24,8 @@
 
 ### add 'reply', 'edit' and 'delete' capabilities to messaging AND comments
 
+### collapsible panel to toggle comments section - https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_collapsible_panel&stacked=h
 
+###  try this one for the readmore in the body of the posts - https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_collapse_simple&stacked=h
+
+### ^^^ I already put the necessary bootstrap and jquery links in tbe index and listing_card templates. need to play around with it to figure it out

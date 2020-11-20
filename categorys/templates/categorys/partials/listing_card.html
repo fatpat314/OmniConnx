@@ -3,148 +3,12 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-    #more {display: none;}
-    * {box-sizing: border-box;}
-
-   .bootstrap-overrides .open-button {
-        background-color: #555;
-        color: white;
-        padding: 16px 20px;
-        border: none;
-        cursor: pointer;
-        opacity: 0.8;
-        position: fixed;
-        bottom: 23px;
-        right: 28px;
-        width: 280px;
-        }
-
-    .bootstrap-overrides .form-popup {
-        display: none;
-        position: fixed;
-        bottom: 0;
-        right: 15px;
-        border: 3px solid #f1f1f1;
-        z-index: 9;
-        }
-
-    .bootstrap-overrides .form-container {
-        max-width: 400px;
-        padding: 10px;
-        background-color: white;
-        }
-
-    .bootstrap-overrides .form-container input[type=text] {
-        width: 100%;
-        padding: 15px;
-        margin: 22px;
-        border: none;
-        background: #f1f1f1;
-        }
-
-    .bootstrap-overrides .form-container .btn {
-        background-color: #4CAF50;
-        color: white;
-        padding: 16px 20px;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-        margin-bottom:10px;
-        opacity: 0.8;
-        }
-
-    .bootstrap-overrides .form-container .btn:hover, .open-button:hover {
-        opacity: 1;
-        }
-
-    bootstrap-overrides .box {
-        width: 40%;
-        margin: 0 auto;
-        background: rgba(255,255,255,0.2);
-        padding: 35px;
-        border: 2px solid #fff;
-        border-radius: 20px/50px;
-        background-clip: padding-box;
-        text-align: center;
-        }
-
-    .comment_button {
-        font-size: 1em;
-        padding: 10px;
-        color: #fff;
-        border: 2px solid #06D85F;
-        border-radius: 20px/50px;
-        text-decoration: none;
-        cursor: pointer;
-        transition: all 0.3s ease-out;
-        }
-    .comment_button:hover {
-        background: #06D85F;
-        }
-
-.overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  transition: opacity 500ms;
-  visibility: hidden;
-  opacity: 0;
-}
-
-.overlay:target {
-  visibility: visible;
-  opacity: 1;
-}
-
-.popup {
-  margin: 70px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 5px;
-  width: 30%;
-  position: relative;
-  transition: all 5s ease-in-out;
-}
-
-.popup h2 {
-  margin-top: 0;
-  color: #333;
-  font-family: Tahoma, Arial, sans-serif;
-}
-.popup .close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  transition: all 200ms;
-  font-size: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #333;
-}
-.popup .close:hover {
-  color: #06D85F;
-}
-.popup .content {
-  max-height: 30%;
-  overflow: auto;
-}
-
-@media screen and (max-width: 700px){
-  .box{
-    width: 70%;
-  }
-  .popup{
-    width: 70%;
-  }
-}
-    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
 
-<body id="bootstrap-overrides">
+<body>
 
 <div class="card mb-3">
     <div class="card-header">
@@ -172,44 +36,32 @@
           <!-- <span id="dots">{{ listing.content | truncatewords_html:10}}...</span> -->
           <!-- <span id="more">{{ listing.content }}</span> -->
 
-          <script>
-              function myFunction() {
-                  var num = 1;
-                  var dots = document.getElementById("dots");
-                  var moreText = document.getElementById("more");
-                  var btnText = document.getElementById("myBtn");
-
-                if (dots.style.display === "none") {
-                  dots.style.display = "inline";
-                  btnText.innerHTML = "Read more";
-                  moreText.style.display = "none";
-                } else {
-                  dots.style.display = "none";
-                  btnText.innerHTML = "Read less";
-                  moreText.style.display = "inline";
-                }
-              }
-          </script>
-
-
-
       <hr>
       <!-- <a onclick="myFunction()" id="myBtn" style="justify-content: right;">Read more</a> -->
       <!-- <button onclick="<?= 'myFunction(' . $post->id . ')' ?>" id="<?= 'myBtn_' . $post->id ?>" > more info </button> -->
 <hr>
 
-  <!-- <div class="card-footer">
-
-    <!-- <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=listing.id %}">Add comment</a> -->
-
 <!-- </div> -->
+<div class="container">
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle ="collapse" href="#collapse1" aria-expanded="false">Read Comments</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse" aria-expanded="true">
+        <div class="panel-body"><a href="{% url 'post' pk=listing.id %}">Comments: {{ post.comments.all }}</a></div>
+        <div class="panel-footer"><button class="btn btn-default" href="{% url 'add_comment_to_post' pk=listing.id %}">Add comment</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
 
-<details>
+<!-- <details> -->
 <!-- <a href="{% url 'post' pk=listing.id %}">Comments: {{ post.comments.all }}</a> -->
-<summary>Read Comments</summary>
-
-
-
+<!-- <summary>Read Comments</summary> -->
 
 {% for comment in listing.comments.all %}
         <div class="date">{{ comment.created_date }}</div>
@@ -219,25 +71,180 @@
 {% empty %}
     <p>No comments here yet :(</p>
 {% endfor %}
-</details>
+<!-- </details> -->
 
   </div>
-          <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=listing.id %}">Add comment</a>
+          <!-- <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=listing.id %}">Add comment</a> -->
 
 
   </div>
 
+  <script>
+    function myFunction() {
+        var num = 1;
+        var dots = document.getElementById("dots");
+        var moreText = document.getElementById("more");
+        var btnText = document.getElementById("myBtn");
 
+      if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Read more";
+        moreText.style.display = "none";
+      } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Read less";
+        moreText.style.display = "inline";
+      }
+    }
+</script>
 
-<!-- <script>
-    function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-  document.getElementById("myForm").style.display = "none"; !important
-}
-    </script> -->
+<script>
+$(document).ready(function() {
+  $(".data-toggle").click(function() {
+    $(".collapse").collapse('toggle')
+  })
+});
+</script> 
 
 </body>
+
+<style>
+  #more {display: none;}
+  * {box-sizing: border-box;}
+
+ .open-button {
+      background-color: #555;
+      color: white;
+      padding: 16px 20px;
+      border: none;
+      cursor: pointer;
+      opacity: 0.8;
+      position: fixed;
+      bottom: 23px;
+      right: 28px;
+      width: 280px;
+      }
+
+  .form-popup {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      right: 15px;
+      border: 3px solid #f1f1f1;
+      z-index: 9;
+      }
+
+  .form-container {
+      max-width: 400px;
+      padding: 10px;
+      background-color: white;
+      }
+
+  .form-container input[type=text] {
+      width: 100%;
+      padding: 15px;
+      margin: 22px;
+      border: none;
+      background: #f1f1f1;
+      }
+
+  .form-container .btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px 20px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom:10px;
+      opacity: 0.8;
+      }
+
+  .form-container .btn:hover, .open-button:hover {
+      opacity: 1;
+      }
+
+   .box {
+      width: 40%;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.2);
+      padding: 35px;
+      border: 2px solid #fff;
+      border-radius: 20px/50px;
+      background-clip: padding-box;
+      text-align: center;
+      }
+
+  .comment_button {
+      font-size: 1em;
+      padding: 10px;
+      color: #fff;
+      border: 2px solid #06D85F;
+      border-radius: 20px/50px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease-out;
+      }
+  .comment_button:hover {
+      background: #06D85F;
+      }
+
+.overlay {
+position: fixed;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+background: rgba(0, 0, 0, 0.7);
+transition: opacity 500ms;
+visibility: hidden;
+opacity: 0;
+}
+
+.overlay:target {
+visibility: visible;
+opacity: 1;
+}
+
+.popup {
+margin: 70px auto;
+padding: 20px;
+background: #fff;
+border-radius: 5px;
+width: 30%;
+position: relative;
+transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+margin-top: 0;
+color: #333;
+font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+position: absolute;
+top: 20px;
+right: 30px;
+transition: all 200ms;
+font-size: 30px;
+font-weight: bold;
+text-decoration: none;
+color: #333;
+}
+.popup .close:hover {
+color: #06D85F;
+}
+.popup .content {
+max-height: 30%;
+overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+.box{
+  width: 70%;
+}
+.popup{
+  width: 70%;
+}
+}
+  </style>
 </html>
