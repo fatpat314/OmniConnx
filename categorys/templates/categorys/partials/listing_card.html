@@ -47,10 +47,10 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle ="collapse" href="#collapse1" aria-expanded="false">Read Comments</a>
+          <a data-toggle ="collapse" href="#collapse1" class="collapsed" aria-expanded="false">Read Comments</a>
         </h4>
       </div>
-      <div id="collapse1" class="panel-collapse collapse" aria-expanded="true">
+      <div id="collapse1" data-toggle ="collapse(toggle)" class="panel-collapse collapse" aria-expanded="true">
         <div class="panel-body"><a href="{% url 'post' pk=listing.id %}">Comments: {{ post.comments.all }}</a></div>
         <div class="panel-footer"><button class="btn btn-default" href="{% url 'add_comment_to_post' pk=listing.id %}">Add comment</button></div>
       </div>
@@ -101,7 +101,7 @@
 <script>
 $(document).ready(function() {
   $(".data-toggle").click(function() {
-    $(".collapse").collapse('toggle')
+    $(".collapse").collapse("toggle")
   })
 });
 </script> 
