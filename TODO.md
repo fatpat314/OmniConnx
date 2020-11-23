@@ -3,13 +3,9 @@
 <!-- GSC -->
 ##  user still gets routed to separate page after making new comment, we need to get rid of that 
 
-## incorporate Comment system into 'read more' toggle
 
 ###  https://www.w3schools.com/howto/howto_js_read_more.asp
 
-### new comment form should pop up when 'comment' button is clicked
-
-## when 'add comment' is clicked, we can have the add comment text box pop up right there and once a comment is added, the indicator will go up one (i.e."comments: 1"), and when the indicator is clicked, the comment_view field can also pop up right there over the post, where it can be read and have more comments added to the thread.
 
 
 ### Add 'Enter' button to logo on home page
@@ -24,8 +20,9 @@
 
 ### add 'reply', 'edit' and 'delete' capabilities to messaging AND comments
 
-### collapsible panel to toggle comments section - https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_collapsible_panel&stacked=h
 
 ###  try this one for the readmore in the body of the posts - https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_collapse_simple&stacked=h
 
 ### ^^^ I already put the necessary bootstrap and jquery links in tbe index and listing_card templates. need to play around with it to figure it out
+=
+
