@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url 'index_all' %}">All</a>
+<div class="card-columns">
+
+{% for category in categories %}
+
+            {% include "categorys/partials/index_card.html" %}
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

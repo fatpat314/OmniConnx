@@ -119,6 +119,39 @@ class PageDetailView(DetailView):
           'post': post
         })
 
+class GridView(ListView):
+    """ Renders a list of all Pages. """
+    model = Listing
+
+
+    def get(self, request, parent_or_child=None, pk=None, *args, **kwargs):
+        """ GET a list of Pages. """
+        categories = Category.objects.filter(parent=None)
+
+        if parent_or_child is None:
+            listings = Listing.objects.all().order_by("-created")
+
+        elif parent_or_child == 'child':
+            sub_cat = SubCategory.objects.get(pk=pk)
+            listings = sub_cat.listing_set.all().order_by("-created")
+
+        elif parent_or_child == 'parent':
+            listings = []
+            sub_cats = Category.objects.get(pk=pk).children.all().order_by("-created")
+
+            for sub_cat in sub_cats:
+                prds = sub_cat.listing_set.all().order_by("-created")
+                listings += prds
+        else:
+            listings = []
+
+
+        return render(
+            request,
+            'grid.html',
+            {'categories': categories, 'listings': listings}
+        )
+
 @method_decorator([login_required], name='dispatch')
 class PageListView(ListView):
     """ Renders a list of all Pages. """
