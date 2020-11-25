@@ -161,6 +161,16 @@ class PostCreateView(CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+class SubCreate(CreateView):
+    model = SubCategory
+    fields = ['name', 'parent']
+    success_url = reverse_lazy('index_all')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
 @method_decorator([login_required], name='dispatch')
 class Post_edit_view(UpdateView):
     model = Listing

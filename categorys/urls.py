@@ -1,6 +1,6 @@
 from django.urls import path, include
 from . import views
-from .views import PageDetailView, PageListView, PostCreateView
+from .views import PageDetailView, PageListView, PostCreateView, SubCreate
 # from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -24,6 +24,7 @@ urlpatterns = [
     path('post/new/', PostCreateView.as_view(), name='post-create'),
     path('post/<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
     # path('home/', PageDetailView.as_view(), name='home' )
+    path('sub/new', SubCreate.as_view(), name='sub-create')
 ]
 
 urlpatterns += staticfiles_urlpatterns()
