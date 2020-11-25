@@ -24,5 +24,9 @@
 ###  try this one for the readmore in the body of the posts - https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_collapse_simple&stacked=h
 
 ### ^^^ I already put the necessary bootstrap and jquery links in tbe index and listing_card templates. need to play around with it to figure it out
-=
+
+### make sidebar its own template
+
+### make background fixed so it doesn't scroll with postings
+
 

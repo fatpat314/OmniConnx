@@ -3,9 +3,10 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
     </head>
 
 <body>
@@ -23,34 +24,33 @@
   <div class="card-body border-dark">
 
 
-<p>{{ listing.content | truncatewords_html:10}}</p>
+<!-- <p>{{ listing.content | truncatewords_html:10}}</p>
     <details>
 
     <summary>Read More...</summary>
 
           <p>{{ listing.content }}</p>
-      </details>
+      </details> -->
 
-          <!-- <span id="dots">{{ listing.content | truncatewords_html:10}}...</span> -->
-          <!-- <span id="more">{{ listing.content }}</span> -->
+        <span class="dots">{{ listing.content | truncatewords_html:10}}...</span>
+          <span class="more">{{ listing.content }}</span>
 
       <hr>
-      <!-- <a onclick="myFunction()" id="myBtn" style="justify-content: right;">Read more</a> -->
-      <!-- <button onclick="myFunction(' . $post->id . ')' ?>" id="<?= 'myBtn_' . $post->id ?>" > more info </button> -->
+       <a onclick="myFunction()" class="myBtn" style="justify-content: right;">Read more</a>
 <hr>
 
-<div id="root">
+<div>
 
   <button 
   class="btn btn-primary btn__first" 
   data-toggle="collapse"
-  data-target=".collapse"
+  data-target="#post-{{listing.id}}"
   data-text="Collapse"
   >
   Read Comments
 </button>
 
-<div class="block collapse">
+<div class="block collapse" id="post-{{listing.id}}">
   <div class="block__content">
     <a href="{% url 'post' pk=listing.id %}">Comments: {{ post.comments.all }}</a>
 
@@ -63,7 +63,34 @@
 <p>No comments here yet :(</p>
 {% endfor %}
     <hr>
-    <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=listing.id %}">Add comment</a>
+    <!-- <button type="button" class="btn btn-primary" onclick='openModal()'>
+      Add comment
+  </button>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true"
+    role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" aria-label="Close" onclick="closeModal()">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+              <h1>New comment</h1>
+              <form method="POST" class="post-form">{% csrf_token %}
+                  {{ form.as_p }}
+                  <button type="submit" class="save btn btn-default" name="send-button">Send</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div> -->
+    <!-- <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=listing.id %}">Add comment</a> -->
   </div>
 </div>
 
@@ -72,19 +99,15 @@
 
 </div> 
     
-
-
-
-
       
   </div>
 
   <script>
     function myFunction(elem) {
         var num = 1;
-        var dots = document.getElementById("dots");
-        var moreText = document.getElementById("more");
-        var btnText = document.getElementById("myBtn");
+        var dots = document.getElementsByName("dots");
+        var moreText = document.getElementsByName("more");
+        var btnText = document.getElementsByName("myBtn");
 
       if (dots.style.display === "none") {
         dots.style.display = "inline";
@@ -100,30 +123,55 @@
 
 <script>
 
-const triggers = Array.from(document.querySelectorAll('[data-toggle="collapse"]'));
+  const triggers = Array.from(document.querySelectorAll('[data-toggle="collapse"]'));
+  
+  window.addEventListener('click', (ev) => {
+    const elm = ev.target;
+    if (triggers.includes(elm)) {
+      const selector = elm.getAttribute('data-target');
+      collapse(selector, 'toggle');
+    }
+  }, false);
+  
+  
+  const fnmap = {
+    'toggle': 'toggle',
+    'show': 'add',
+    'hide': 'remove'
+  };
+  const collapse = (selector, cmd) => {
+    const targets = Array.from(document.querySelectorAll(selector));
+    targets.forEach(target => {
+      target.classList[fnmap[cmd]]('show hide');
+    });
+  };
+  </script>  
+  
+  <!-- <script>
+  $('.collapse').collapse();
+  </script> -->
 
-window.addEventListener('click', (ev) => {
-  const elm = ev.target;
-  if (triggers.includes(elm)) {
-    const selector = elm.getAttribute('data-target');
-    collapse(selector, 'toggle');
-  }
-}, false);
-
-
-const fnmap = {
-  'toggle': 'toggle',
-  'show': 'add',
-  'hide': 'remove'
-};
-const collapse = (selector, cmd) => {
-  const targets = Array.from(document.querySelectorAll(selector));
-  targets.forEach(target => {
-    target.classList[fnmap[cmd]]('show');
-  });
+<!-- <script>
+  function openModal() {
+    document.getElementById("backdrop").style.display = "block"
+    document.getElementById("exampleModal").style.display = "block"
+    document.getElementById("exampleModal").className += "show"
 }
-</script> 
+function closeModal() {
+    document.getElementById("backdrop").style.display = "none"
+    document.getElementById("exampleModal").style.display = "none"
+    document.getElementById("exampleModal").className += document.getElementById("exampleModal").className.replace("show", "")
+}
+// Get the modal
+var modal = document.getElementById('exampleModal');
 
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    if (event.target == modal) {
+        closeModal()
+    }
+};
+</script> -->
 </body>
 
 <style>
