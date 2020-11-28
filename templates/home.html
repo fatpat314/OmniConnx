@@ -10,7 +10,7 @@
 
 <div class="container">
     {% if user.is_authenticated %}
-        <section id="home"><h1><a href="/index">OmniConnx</h1>
+        <section id="home"><h1><a href="/grid">OmniConnx</h1>
     {% else %}
         <section id="login"><h1><a href="{% url 'login' %}">OmniConnx</h1>
           {% endif %}
@@ -42,7 +42,7 @@
     h1 {
       position: relative;
       text-align: justify;
-      justify-content: center; 
+      justify-content: center;
       color: #007bff;
     }
 
@@ -86,7 +86,7 @@
       position: absolute;
       border-radius: 0 50% 50% 50%;
       border: 2px solid;
-      width: 120px;           
+      width: 120px;
       height: 120px;
       /* Position these in the center */
       left: 30px;

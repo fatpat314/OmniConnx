@@ -1,0 +1,192 @@
+<body>
+
+  <div class="sidenav">
+      {% if user.is_authenticated %}
+        <a class="navbar-brand" href="/index">OmniConnx</a>
+       {% else %}
+           <a class="navbar-brand" href="/">OmniConnx</a>
+      {% endif %}
+      <a href="/grid">All</a>
+      {% if user.is_authenticated %}
+          <a href="{% url 'sub-create' %}">Category Creates</a>
+          <a href="/all-profiles">Connect</a>
+          <a href="/my-invites">Requests</a>
+      {% endif %}
+
+
+          </div>
+
+  </body>
+
+  <style>
+
+  body, html {
+      height: 100%;
+      margin-top: 15px;
+      background-image: radial-gradient(white, #cce5ff, #99caff, #007bff) !important;
+      background: fixed;
+    }
+
+    body {
+
+    font-family: "Lato", sans-serif;
+  }
+
+  div.card {
+
+    position: relative right;
+
+  }
+
+  li.list-group-item{
+    position: inherit;
+    margin-bottom: 4rem;
+  }
+
+  .list-group-item {
+    margin-left: 25%;
+    margin-top: 2rem;
+    position: inherit;
+  }
+
+  .rounded-circle {
+    margin: 1rem;
+    margin-top: 3rem;;
+  }
+
+  .text-muted {
+    padding-left:1rem;
+  }
+
+.post-box {
+  position: inherit;
+  color: white;
+  border: 2px solid black;
+  margin-top: 20px;
+  margin-left: 200px;
+  margin-right: 20px;
+  padding: 20px;
+}
+
+.ml-4, .mx-4 {
+    margin-left: -4.5rem !important;
+    color: #fff;
+
+    background-image: #2fa4e7 !important;
+    /* border-color: #2fa4e7; */
+}
+
+.sidenav {
+  height: 50%; /* Full-height: remove this if you want "auto" height */
+  width: 100px;
+  position: fixed;
+  top: 35%;
+  left: 0;
+  background: #cce5ff;
+  border-radius: 0px 10% 10% 0px;
+}
+
+
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 12px;
+  color: #2196F3;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #064579;
+}
+
+
+main {
+  margin-left: 200px; /*Same width as the sidebar + left position in px */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 0px;
+  position: inherit;
+}
+
+div.card {
+  position: inherit;
+}
+
+ .main-alt {
+  margin-left: 110px; /* Same width as the sidebar + left position in px */
+  font-size: 12px; /* Increased text to enable scrolling */
+  padding: 0px 0px;
+  position: inherit;
+
+}  */
+
+.welcome {
+    margin-left: 20px;
+}
+
+.text_size {
+    font-size: 12px;
+}
+
+.title_size {
+    font-size: 14px;
+}
+
+.timeline {
+    margin-left: -300px;
+    margin-right: 100px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #2196F3;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropbtn {
+  background-color: white ;
+  color: #2196F3;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 100%
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+</style>

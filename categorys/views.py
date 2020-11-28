@@ -197,7 +197,7 @@ class PostCreateView(CreateView):
 class SubCreate(CreateView):
     model = SubCategory
     fields = ['name', 'parent']
-    success_url = reverse_lazy('index_all')
+    success_url = reverse_lazy('grid')
 
     def form_valid(self, form):
         form.instance.author = self.request.user

@@ -44,7 +44,7 @@
             <td>
                 <ul>
                     {% for friend in user.profile.get_friends %}
-                        <li>{{friend}}</li>
+                        <li>{{friend.username}}</li>
                     {% endfor %}
                 </ul>
             </td>
@@ -69,9 +69,35 @@
                         <input type="hidden" name="profile_pk" value={{object.pk}}>
                         <button type="submit" class="ui negative basic button mb-5 w-big"><i class="minus square icon"></i>Remove from friends</button>
                     </form>
+
+                    <form role="form" method="POST" action="{% url 'send_direct' %}">
+                      {% csrf_token %}
+                    <article class="media">
+                      <figure class="media-left">
+
+                      </figure>
+                      <div class="media-content">
+                        <input type="search" name="to_user" value="{{ object.user }}" placeholder="Enter User">
+                        <div class="field">
+                          <p class="control">
+                              <textarea class="textarea" name="body" placeholder="Write a message..."></textarea>
+
+                          </p>
+                        </div>
+                        <nav class="level">
+                          <div class="level-left">
+                            <div class="level-item">
+                              <button type="submit" name="action" class="button is-info">Send</button>
+                            </div>
+                          </div>
+                        </nav>
+                      </div>
+                    </article>
+                    </form>
+
                 {% endif %}
 
-        
+
 
 
         </div>
@@ -85,7 +111,7 @@
       height: 100%;
       background-image: radial-gradient(white, #cce5ff, #99caff, #007bff);
     }
-    
+
     main.container {
         margin-top:8rem;
         }

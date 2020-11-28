@@ -1,0 +1,26 @@
+<div class="column">
+    TEST
+    <div style="overflow-y: scroll; height: 500px">
+        {% for direct in directs %}
+            {% for message in messages %}
+                {% if direct.recipient.profile.user == message.user.profile.user  %}
+
+                    <div class="box">
+                      <article class="media">
+                        <div class="media-left">
+                        </div>
+                        <div class="media-content">
+                          <div class="content">
+                            <p>
+                                <img src="{{ direct.sender.profile.image.url }}" alt="Placeholder image" style="width:75px;height:75px;">
+                              <strong>{{ direct.sender.profile.user }} {{ direct.receiver.profile.user }}</strong> <small>@{{ direct.sender.username }}</small> on: <strong><small>{{ direct.date|date:'N d G:i'}}</small></strong>
+                              <br>
+                              {{ direct.body }}
+                            </p>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}

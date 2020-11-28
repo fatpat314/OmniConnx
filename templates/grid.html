@@ -1,15 +1,46 @@
 {% extends "base.html" %}
 
 {% block content %}
-<a href="{% url 'index_all' %}">All</a>
-<div class="card-columns">
+<html>
 
-{% for category in categories %}
+<!-- sidebar menu -->
+<div class="main-alt">
+<nav class="menu" tabindex="0">
+  <div class="smartphone-menu-trigger"></div>
+  {% if user.is_authenticated %}
+  <header class="avatar">
+          <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+          <div class="welcome">
+              <h2>Welcome, {{user.username}}!</h2>
+          </div>
 
-            {% include "categorys/partials/index_card.html" %}
+    {% endif %}
+    </div>
 
-{% endfor %}
+  </header>
+</nav>
+<div class="main">
 
+<main>
+  {% if user.is_authenticated %}
+  <a href="{% url 'post-create' %}" class="btn ml-4" style="display:grid; padding:0px; margin-left:-4.5rem; background-color: #2196F3">New Post</a>
+{% endif %}
+<div class="">
+    <a href="{% url 'index_all' %}">View All Posts</a>
+    <div class="card-columns">
+
+    {% for category in categories %}
+
+                {% include "categorys/partials/index_card.html" %}
+
+    {% endfor %}
+
+    </div>
+    </div>
+
+</main>
 </div>
+
+{% include 'sidebar.html' %}
 
 {% endblock %}
