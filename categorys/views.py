@@ -7,6 +7,7 @@ from django.views.generic.detail import DetailView
 
 from .models import Listing
 from .forms import CommentForm
+from message.models import Message
 # from .forms import PageForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, View
 from django.http import HttpResponse, HttpResponseRedirect
@@ -124,7 +125,23 @@ class GridView(ListView):
     model = Listing
 
 
+
     def get(self, request, parent_or_child=None, pk=None, *args, **kwargs):
+
+        messages = Message.get_messages(user=request.user)
+        active_direct = None
+        directs = None
+
+
+        if messages:
+            message = messages[0]
+            active_direct = message['user'].username
+            directs = Message.objects.filter(user=request.user, recipient=message['user'])
+            # directs.update(is_read=True)
+            for message in messages:
+                if message['user'].username == active_direct:
+                    message['unread'] = 0
+
         """ GET a list of Pages. """
         categories = Category.objects.filter(parent=None)
 
@@ -145,12 +162,14 @@ class GridView(ListView):
         else:
             listings = []
 
+        print("AAAAAAAA: ", messages[0]['unread'])
 
         return render(
             request,
             'grid.html',
-            {'categories': categories, 'listings': listings}
+            {'categories': categories, 'listings': listings, 'messages': messages, 'directs':directs}
         )
+
 
 @method_decorator([login_required], name='dispatch')
 class PageListView(ListView):

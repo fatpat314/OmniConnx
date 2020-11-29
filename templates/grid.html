@@ -35,6 +35,7 @@
 
     {% endfor %}
 
+
     </div>
     </div>
 
@@ -42,5 +43,18 @@
 </div>
 
 {% include 'sidebar.html' %}
+
+    <div class="fixed-right">
+        {% for direct in directs %}
+            {% if direct.is_read == False %}
+
+                        <div class="text_size" style="margin-right: 2">
+                            <a href="{% url 'inbox' %}" class="btn btn-danger ml-2">Unread Message From: {{ direct.sender.profile.user }} </a>
+                        </div>
+
+            {% endif %}
+        {% endfor %}
+    </div>
+
 
 {% endblock %}
