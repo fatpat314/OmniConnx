@@ -1,0 +1,67 @@
+/*
+/* sourceMappingURL=custom.css.ma                 */
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+  gap: 10px 10px;
+  grid-template-areas:
+    "Acute-Medicine Allergy- Audiovestibular-medicine Cardiology- Clinical-pharmacology-and-therapeutics-"
+    "Dermatology- Endocrinology-and-diabetes Gastroenterology- General-\\\\\\\(internal\\\\\\\)-medicine- Genito-urinary-medicine-"
+    "Geriatric-medicine- Haematology- Immunology- Infectious-diseases- Medical-oncology-"
+    "Neurology- Nuclear-medicine Paediatric-cardiology Palliative-medicine Pharmaceutical-medicine"
+    "Rehabilitation-medicine Renal-medicine Respiratory-medicine Rheumatology Sport-and-exercise-medicine";
+}
+
+.Acute-Medicine { grid-area: Acute-Medicine; }
+
+.Allergy- { grid-area: Allergy-; }
+
+.Audiovestibular-medicine { grid-area: Audiovestibular-medicine; }
+
+.Cardiology- { grid-area: Cardiology-; }
+
+.Clinical-pharmacology-and-therapeutics- { grid-area: Clinical-pharmacology-and-therapeutics-; }
+
+.Dermatology- { grid-area: Dermatology-; }
+
+.Endocrinology-and-diabetes { grid-area: Endocrinology-and-diabetes; }
+
+.Gastroenterology- { grid-area: Gastroenterology-; }
+
+.General-\\\\\\\(internal\\\\\\\)-medicine- { grid-area: General-\\\\\\\(internal\\\\\\\)-medicine-; }
+
+.Genito-urinary-medicine- { grid-area: Genito-urinary-medicine-; }
+
+.Geriatric-medicine- { grid-area: Geriatric-medicine-; }
+
+.Haematology- { grid-area: Haematology-; }
+
+.Immunology- { grid-area: Immunology-; }
+
+.Infectious-diseases- { grid-area: Infectious-diseases-; }
+
+.Medical-oncology- { grid-area: Medical-oncology-; }
+
+.Neurology- { grid-area: Neurology-; }
+
+.Nuclear-medicine { grid-area: Nuclear-medicine; }
+
+.Paediatric-cardiology { grid-area: Paediatric-cardiology; }
+
+.Palliative-medicine { grid-area: Palliative-medicine; }
+
+.Pharmaceutical-medicine { grid-area: Pharmaceutical-medicine; }
+
+.Rehabilitation-medicine { grid-area: Rehabilitation-medicine; }
+
+.Renal-medicine { grid-area: Renal-medicine; }
+
+.Respiratory-medicine { grid-area: Respiratory-medicine; }
+
+.Rheumatology { grid-area: Rheumatology; }
+
+.Sport-and-exercise-medicine { grid-area: Sport-and-exercise-medicine; }
+
