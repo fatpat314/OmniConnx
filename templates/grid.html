@@ -2,7 +2,12 @@
 
 {% block content %}
 <html>
-
+<head>
+  ​
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/style.css" rel="stylesheet">
+  ​
+</head>
 <!-- sidebar menu -->
 <div class="main-alt">
 <nav class="menu" tabindex="0">
@@ -19,13 +24,12 @@
 
   </header>
 </nav>
-<div class="main">
 
-<main>
+<body>
   {% if user.is_authenticated %}
-  <a href="{% url 'post-create' %}" class="btn ml-4" style="display:grid; padding:0px; margin-left:-4.5rem; background-color: #2196F3">New Post</a>
+  <!-- <a href="{% url 'post-create' %}" class="btn ml-4" style="display:grid; padding:0px; margin-left:-4.5rem; background-color: #2196F3">New Post</a> -->
 {% endif %}
-<div class="">
+<!-- <div class="">
     <a href="{% url 'index_all' %}">View All Posts</a>
     <div class="card-columns">
 
@@ -37,10 +41,41 @@
 
 
     </div>
-    </div>
+    </div> -->
 
-</main>
-</div>
+
+
+​
+    <div class="container-fluid">
+	<div class="row">
+		<div class="card col-lg-2" style="margin:5px">
+			<h3 class="text-center">
+				Acute 
+			</h3><img src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" class="rounded-circle center">
+		</div>
+		<div class="card col-lg-2" style="margin:5px">
+			<h3 class="text-center">Allergy
+			</h3>
+			<img src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" class="rounded-circle center">
+		</div>
+		<div class="card col-lg-2" style="margin:5px">
+			<h3 class="text-center">
+				Audiovestibular
+			</h3><img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" class="rounded-circle center">
+		</div>
+		<div class="card col-lg-2" style="margin:5px">
+			<h3 class="text-center">Cardiology
+			</h3>
+			<img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" class="rounded-circle center">
+		</div>
+		
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+
+
+
 
 {% include 'sidebar.html' %}
 
