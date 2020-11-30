@@ -17,6 +17,8 @@
           <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
           <div class="welcome">
               <h2>Welcome, {{user.username}}!</h2>
+              <!-- New Message Notifications -->
+              {% include 'msg-note.html' %}
           </div>
 
     {% endif %}
@@ -29,9 +31,9 @@
   {% if user.is_authenticated %}
   <!-- <a href="{% url 'post-create' %}" class="btn ml-4" style="display:grid; padding:0px; margin-left:-4.5rem; background-color: #2196F3">New Post</a> -->
 {% endif %}
-<!-- <div class="">
+<div class="">
     <a href="{% url 'index_all' %}">View All Posts</a>
-    <div class="card-columns">
+    <div class="card-columns" style="column-count: 4">
 
     {% for category in categories %}
 
@@ -41,16 +43,16 @@
 
 
     </div>
-    </div> -->
+    </div>
 
 
 
 ​
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
 	<div class="row">
 		<div class="card col-lg-2" style="margin:5px">
 			<h3 class="text-center">
-				Acute 
+				Acute
 			</h3><img src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" class="rounded-circle center">
 		</div>
 		<div class="card col-lg-2" style="margin:5px">
@@ -68,28 +70,25 @@
 			</h3>
 			<img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" class="rounded-circle center">
 		</div>
-		
+
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
-  </body>
+  </body> -->
 
 
 
 
 {% include 'sidebar.html' %}
 
-    <div class="fixed-right">
-        {% for direct in directs %}
-            {% if direct.is_read == False %}
 
-                        <div class="text_size" style="margin-right: 2">
-                            <a href="{% url 'inbox' %}" class="btn btn-danger ml-2">Unread Message From: {{ direct.sender.profile.user }} </a>
-                        </div>
-
-            {% endif %}
-        {% endfor %}
-    </div>
 
 
 {% endblock %}
+<style>
+
+
+
+
+
+</style>
