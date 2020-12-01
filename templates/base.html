@@ -15,7 +15,6 @@ are the href's and jinja brackets you can litterally do whatever-->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://kit.fontawesome.com/e7c15fdb77.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
@@ -29,10 +28,10 @@ are the href's and jinja brackets you can litterally do whatever-->
 
     {% include './navbar.html' %}
 
+    {% block content %}
 
-
-      <main role="main" class="container" style="margin-top: 6rem;">
-        {% block content %}
+      <main class="container>
+        
           <div class="row">
             <div class="col m-4">
               <div class="alert alert-warning" role="alert">
@@ -40,23 +39,27 @@ are the href's and jinja brackets you can litterally do whatever-->
               </div>
             </div>
           </div>
-        {% endblock %}
       </main>
 
 
+      {% endblock %}
 
 
 
 
       <!-- I am not sure what this is, you can change it all to what ever bootstrap or whatever -->
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
       </script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-      </script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        <!-- integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+      </script>  -->
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-      </script>
+      </script> 
     </body>
   </html>
+
+  <style>
+
+  </style>
