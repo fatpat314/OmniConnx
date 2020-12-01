@@ -11,6 +11,7 @@ from .managers import CategoryManager, SubCategoryManager
 # Create your models here.
 class Node(models.Model):
     name = models.CharField(max_length=150)
+    # image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     parent = models.ForeignKey(
         'self',
         on_delete=models.CASCADE,
@@ -19,6 +20,8 @@ class Node(models.Model):
         blank=True
     )
     _id = models.IntegerField(null=True, blank=True)
+    # image = models.ImageField(default='default.jpg', upload_to='profile_pics', null=True, blank=True)
+
 
 
     def __str__(self):
@@ -29,10 +32,13 @@ class Node(models.Model):
         verbose_name_plural = 'Nodes'
 
 class Category(Node):
+    # image = models.ImageField(default='default.jpg', upload_to='profile_pics', null=True, blank=True)
+    # test = models.TextField(blank=True, null=True)
     objects = CategoryManager()
     class Meta:
         proxy = True
         verbose_name_plural = 'Categories'
+
 
 class SubCategory(Node):
     objects = SubCategoryManager()

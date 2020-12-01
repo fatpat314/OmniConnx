@@ -7,7 +7,8 @@ class SubCategoryInline(admin.TabularInline):
     model = SubCategory
     extra = 3
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name', 'parent')
+    fields = ['name', 'parent',]
+    list_display = ('name', 'parent',)
     list_editable = ('parent',)
     feildsets = (
         (
@@ -19,6 +20,7 @@ class CategoryAdmin(admin.ModelAdmin):
     inlines = (SubCategoryInline,)
 
 admin.site.register(Category, CategoryAdmin)
+
 
 
 class ListingInline(admin.TabularInline):
