@@ -5,7 +5,7 @@
   <body>
     <div class="content-section">
       <div class="media">
-        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <img class="rounded-circle account-img" style="width:175px; height:175px; margin:1rem;" src="{{ user.profile.image.url }}">
         <div class="media-body">
           <h2 class="account-heading">{{ user.username }}</h2>
           <p class="text-secondary">{{ user.email }}</p>
@@ -32,12 +32,18 @@
     </div>
     </body>
     </html>
-
     <style>
        body, html {
       height: 100%;
-      background-image: radial-gradient(white, #cce5ff, #99caff, #007bff);
+      background: fixed radial-gradient(white, #cce5ff, #99caff, #007bff);
     }
+
+    .content-section {
+      margin-top:8rem;
+      margin-left: 8rem;
+    }
+
+
     .container, .container-sm, .container-md, .container-lg {
     padding-top: 6rem;
     max-width: 960px;
