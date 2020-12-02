@@ -188,7 +188,7 @@ class PageListView(ListView):
 
         elif parent_or_child == 'parent':
             listings = []
-            sub_cats = Category.objects.get(pk=pk).children.all().order_by("-created")
+            sub_cats = Category.objects.get(pk=pk).children.all().order_by()#"-created"
 
             for sub_cat in sub_cats:
                 prds = sub_cat.listing_set.all().order_by("-created")
