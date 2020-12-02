@@ -72,18 +72,7 @@ class Profile(models.Model):
         return reverse("profile-detail-view", kwargs={"slug": self.slug})
 
     def save(self, *args, **kwargs):
-        # ex = False
-        # to_slug = self.slug
-        # if self.user:# != self.__initial_first_name or self.last_name != self.__initial_last_name or self.slug=="":
-        #     if self.user:
-        #         to_slug = slugify(str(self.user))
-        #         ex = Profile.objects.filter(slug=to_slug).exists()
-        #         while ex:
-        #             to_slug = slugify(to_slug + " " + str(get_random_code()))
-        #             ex = Profile.objects.filter(slug=to_slug).exists()
-        #     else:
-        #         to_slug = str(self.user)
-        # self.slug = to_slug
+
         super().save()
 
         img = Image.open(self.image.path)

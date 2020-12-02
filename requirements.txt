@@ -7,3 +7,5 @@ gunicorn
 dj-database-url
 psycopg2-binary
 django_comments_xtd
+boto3
+django-storages

@@ -41,8 +41,8 @@
 
 <div>
 
-  <button 
-  class="btn btn-primary btn__first" 
+  <button
+  class="btn btn-primary btn__first"
   data-toggle="collapse"
   data-target="#post-{{listing.id}}"
   data-text="Collapse"
@@ -94,12 +94,12 @@
   </div>
 </div>
 
-</div> 
+</div>
 
 
-</div> 
-    
-      
+</div>
+
+
   </div>
 
   <script>
@@ -124,7 +124,7 @@
 <script>
 
   const triggers = Array.from(document.querySelectorAll('[data-toggle="collapse"]'));
-  
+
   window.addEventListener('click', (ev) => {
     const elm = ev.target;
     if (triggers.includes(elm)) {
@@ -132,8 +132,8 @@
       collapse(selector, 'toggle');
     }
   }, false);
-  
-  
+
+
   const fnmap = {
     'toggle': 'toggle',
     'show': 'add',
@@ -145,8 +145,8 @@
       target.classList[fnmap[cmd]]('show hide');
     });
   };
-  </script>  
-  
+  </script>
+
   <!-- <script>
   $('.collapse').collapse();
   </script> -->
@@ -180,7 +180,7 @@ window.onclick = function (event) {
  html, body {
 	 font-family: 'Encode Sans Expanded', sans-serif;
 	 height: 100%;
-	 
+
 }
 *, ::after, ::before {
 	 box-sizing: border-box;

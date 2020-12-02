@@ -124,8 +124,6 @@ class GridView(ListView):
     """ Renders a list of all Pages. """
     model = Listing
 
-
-
     def get(self, request, parent_or_child=None, pk=None, *args, **kwargs):
 
         messages = Message.get_messages(user=request.user)
@@ -162,7 +160,7 @@ class GridView(ListView):
         else:
             listings = []
 
-        print("AAAAAAAA: ", messages[0]['unread'])
+        # print("AAAAAAAA: ", messages[0]['unread'])
 
         return render(
             request,

@@ -11,7 +11,7 @@ from .managers import CategoryManager, SubCategoryManager
 # Create your models here.
 class Node(models.Model):
     name = models.CharField(max_length=150)
-    # image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    image = models.ImageField(default='default.jpg', upload_to='media/profile_pics')
     parent = models.ForeignKey(
         'self',
         on_delete=models.CASCADE,
