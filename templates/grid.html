@@ -1,74 +1,66 @@
 {% extends "base.html" %}
-
-
 {% block content %}
 <html>
-  <body>
-<!-- <div class="container" style="margin-top:5rem; margin-left:10rem"> -->
-
+<div class="main-alt">
+<nav class="menu" tabindex="0">
+  <div class="smartphone-menu-trigger"></div>
   {% if user.is_authenticated %}
-  <header class="avatar" style="margin-top:5rem; margin-left:10rem">
-      <div class="Welcome" style="color:black">
-          <h2>Welcome, {{user.username}}!</h2>
-      </div>
-          <img class="rounded-circle account-img" style="width:150px; height:150px; margin-left:-5rem;" src="{{ user.profile.image.url }}">
-  </header>
+  <header class="avatar">
+      <!-- <div class="card" id="welcome" style="margin-top:5rem; margin-left:2rem; width:200px;">
+          <h5>Welcome, {{user.username}}!</h5>
+      </div> -->
+          <img class="rounded-circle sm account-img img-fluid" alt="Responsive image" style="width:200px; height:200; margin-left:2rem;" src="{{ user.profile.image.url }}">
     {% endif %}
     </div>
-
-
-
-
-<!-- <div class="main"> -->
-
-
+<div class="main" style="margin-left:-10rem; margin-top:5rem;">
+<main>
   {% if user.is_authenticated %}
-
 {% endif %}
-
-    <div class="grid" style="padding-left:4rem; margin-top:5rem;">
-        <a href="{% url 'index_all' %}">View All Posts</a>
-        <a href="{% url 'post-create' %}" class="btn" style="width:100px; background-color: #2196F3">New Post</a>
+    <div class="">
+        
         <div class="card-columns" style="column-count:4;">
-
         {% for category in categories %}
-
-
-
-            <a href="{% url 'index' parent_or_child='parent' pk=category.id %}">
+            <!-- <a href="{% url 'index' parent_or_child='parent' pk=category.id %}"> -->
                     {% include "categorys/partials/index_card.html" %}
             </a>
-
+            
         {% endfor %}
-
-
         </div>
+        <a href="{% url 'index_all' %}">View All Posts</a>
+        <a href="{% url 'post-create' %}" class="btn" style="width:100px; background-color: #2196F3; color:white;">New Post</a>
     </div>
-
-
+</main>
 </div>
-</div>
-
-
-
+<body>
     {% include 'sidebar.html' %}
-
-
-
-
 {% if direct  %}
     <h1>HELLO!!!!!!!!!!</h1>
 {% endif %}
-
-</body>
-
   </html>
-
 <style>
-
   .card-columns {
        width: 1000px;
        /* margin-left: 100px; */
    }
+   #welcome {
+    margin: 2rem;
+    margin-bottom: -2rem;
+    background-color:  #2196F3;
+   }
+   h5 {
+     color:#2196F3;
+     padding:1rem;
+   }
+
+   .avatar {
+     margin-left: -6rem;
+     margin-top:5rem;
+     inline-size: 150%;
+   }
+
+    div.main {
+      padding-top:4rem;
+    }
+   
 </style>
   {% endblock %}
