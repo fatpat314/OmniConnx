@@ -24,13 +24,14 @@
   <div class="card-body border-dark">
 
 
-<!-- <p>{{ listing.content | truncatewords_html:10}}</p>
-    <details>
+<!-- <p>{{ listing.content | truncatewords_html:10}}</p> -->
+    <!-- <details>
 
     <summary>Read More...</summary>
 
           <p>{{ listing.content }}</p>
       </details> -->
+
 
         <span class="dots">{{ listing.content | truncatewords_html:10}}...</span>
           <span class="more">{{ listing.content }}</span>
@@ -45,8 +46,7 @@
   class="btn btn-primary btn__first"
   data-toggle="collapse"
   data-target="#post-{{listing.id}}"
-  data-text="Collapse"
-  >
+  data-text="Collapse">
   Read Comments
 </button>
 
@@ -62,7 +62,7 @@
 {% empty %}
 <p>No comments here yet :(</p>
 {% endfor %}
-    <hr>
+    
     <!-- <button type="button" class="btn btn-primary" onclick='openModal()'>
       Add comment
   </button>

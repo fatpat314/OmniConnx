@@ -82,6 +82,22 @@ def professionals_view(request, parent_or_child=None, pk=None):
 
 def listing_view(request, parent_or_child=None, pk=None):
 
+    def add_comment_to_post(request, pk):
+        post = get_object_or_404(Listing, pk=pk)
+        if request.method == "POST":
+            form = CommentForm(request.POST)
+            if form.is_valid():
+                comment = form.save(commit=False)
+                comment.post = post
+                comment.author = Profile.objects.get(user=request.user)
+                comment.author = comment.author.user
+                print(comment.author.user)
+                comment.save()
+                return redirect('index_all')
+        else:
+            form = CommentForm()
+        return render(request, 'categorys/add_comment_to_post.html', {'form': form})
+
     categories = Category.objects.filter(parent=None)
 
     if parent_or_child is None:
