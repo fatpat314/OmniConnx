@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+
+<html>
+    <body>
+
     <div class="content-section">
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Join Today</legend>
+                <legend class="border-bottom mb-4">Sign up & Connect!</legend>
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
@@ -19,4 +23,19 @@
         </div>
         </form>
     </div>
+
+    </body>
+    </html>
+
+    <style>
+        html body {
+            height: 100%;
+            background: fixed radial-gradient(white, #cce5ff, #99caff, #007bff);
+        }
+
+        body {
+        margin-left: 30%;
+        margin-top: 8rem;     
+        }
+    </style>
 {% endblock content %}
