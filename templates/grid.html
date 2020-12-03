@@ -3,30 +3,30 @@
 
 {% block content %}
 <html>
-<div class="main-alt">
-<nav class="menu" tabindex="0">
-  <div class="smartphone-menu-trigger"></div>
+  <body>
+<!-- <div class="container" style="margin-top:5rem; margin-left:10rem"> -->
+
   {% if user.is_authenticated %}
-  <header class="avatar">
-      <div class="card" style="margin-top:5rem; margin-left:-5rem; width:200px;">
+  <header class="avatar" style="margin-top:5rem; margin-left:10rem">
+      <div class="Welcome" style="color:black">
           <h2>Welcome, {{user.username}}!</h2>
       </div>
-          <img class="rounded-circle account-img" style="width:200px; height:200; margin-left:-5rem;" src="{{ user.profile.image.url }}">
-
+          <img class="rounded-circle account-img" style="width:150px; height:150px; margin-left:-5rem;" src="{{ user.profile.image.url }}">
+  </header>
     {% endif %}
     </div>
 
 
 
 
-<div class="main" style="margin-left:-10rem; margin-top:5rem;">
+<!-- <div class="main"> -->
 
-<main>
+
   {% if user.is_authenticated %}
 
 {% endif %}
 
-    <div class="">
+    <div class="grid" style="padding-left:4rem; margin-top:5rem;">
         <a href="{% url 'index_all' %}">View All Posts</a>
         <a href="{% url 'post-create' %}" class="btn" style="width:100px; background-color: #2196F3">New Post</a>
         <div class="card-columns" style="column-count:4;">
@@ -35,7 +35,7 @@
 
 
 
-            <!-- <a href="{% url 'index' parent_or_child='parent' pk=category.id %}"> -->
+            <a href="{% url 'index' parent_or_child='parent' pk=category.id %}">
                     {% include "categorys/partials/index_card.html" %}
             </a>
 
@@ -46,10 +46,10 @@
     </div>
 
 
-</main>
+</div>
 </div>
 
-<body>
+
 
     {% include 'sidebar.html' %}
 
@@ -60,9 +60,12 @@
     <h1>HELLO!!!!!!!!!!</h1>
 {% endif %}
 
+</body>
 
   </html>
+
 <style>
+
   .card-columns {
        width: 1000px;
        /* margin-left: 100px; */

@@ -3,8 +3,8 @@
 {% block content %}
 <html>
     <body>
-    <h1>New Category</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
+    
+    <form method="POST" class="post-form"><h3>My Specialization is: </h3>{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default" name="send-button">Send</button>
     </form>
@@ -12,8 +12,16 @@
     </html>
 
     <style>
-        html body {
-          
-        }
+
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  body, html {
+    height: 100%;
+    background: fixed radial-gradient(white, #cce5ff, #99caff, #007bff);
+  }
     </style>
 {% endblock %}
