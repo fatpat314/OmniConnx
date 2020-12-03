@@ -4,7 +4,7 @@
 <html>
     <body>
     <div class="content-section">
-        <form method="POST" style="width:25%" >
+        <form method="POST" style="width:80%" >
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Log In</legend>
@@ -30,7 +30,9 @@
     }
 
     .content-section {
-        padding-top: 8rem;
+        margin-left: 40%;
+        padding-top: 10rem;
+        margin-top: 8rem;        
     }
     </style>
 {% endblock content %}
