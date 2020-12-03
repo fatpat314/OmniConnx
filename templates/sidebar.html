@@ -6,9 +6,11 @@
        {% else %}
            <a class="navbar-brand" href="/">OmniConnx</a>
       {% endif %}
-      <a href="/grid">All</a>
+      <a href="/grid">Main Categories</a>
+      <a href="{% url 'index_all' %}">View All Posts</a>
       {% if user.is_authenticated %}
-          <a href="{% url 'sub-create' %}">Category Creates</a>
+          <a href="{% url 'post-create' %}">New Post</a>
+          <a href="{% url 'sub-create' %}">New Specialization</a>
           <a href="/all-profiles">Connect</a>
           <a href="/my-invites">Requests</a>
       {% endif %}

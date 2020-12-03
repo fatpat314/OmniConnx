@@ -3,10 +3,10 @@
   <div class="smartphone-menu-trigger"></div>
   {% if user.is_authenticated %}
   <header class="avatar">
-      <div class="card" style="margin-top:5rem; margin-left:-5rem; width:200px;">
-          <h2>Welcome, {{user.username}}!</h2>
-      </div>
-          <img class="rounded-circle account-img" style="width:200px; height:200; margin-left:-5rem;" src="{{ user.profile.image.url }}">
-
+      <div class="card" style="margin-top:8rem; margin-left:5rem; width:200px;">  
+          <img class="rounded-circle account-img img-fluid" style="max-width:100% height=auto margin-left=-5rem;" src="{{ user.profile.image.url }}">
+          <h4>Welcome, {{user.username}}!</h4>
+        </div>
     {% endif %}
     </div>
+   

@@ -9,10 +9,7 @@
 <html>
   <body>
       {% include 'header.html' %}
-<!-- <div class="mini-logo">
 
-</div> -->
-<!-- You can change this -->
 
 
 
@@ -32,9 +29,7 @@
 
   <!-- <a href="{% url 'index_all' %}"></a> -->
   <main>
-    {% if user.is_authenticated %}
-    <a href="{% url 'post-create' %}" class="btn ml-4" style="display:grid; padding:0px; margin-left:-4.5rem; background-color: #2196F3">New Post</a>
-  {% endif %}
+
     <div class="post">
         <div class="timeline" style="width:1000px;">
 
@@ -49,6 +44,9 @@
         </div>
 
   </main>
+
+</body>
+</html>
 
 
 
