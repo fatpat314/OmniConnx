@@ -29,13 +29,13 @@
     <div class="">
         <a href="{% url 'index_all' %}">View All Posts</a>
         <a href="{% url 'post-create' %}" class="btn" style="width:100px; background-color: #2196F3">New Post</a>
-        <div class="card-columns" style="column-count:4">
+        <div class="card-columns" style="column-count:4;">
 
         {% for category in categories %}
 
 
 
-            <a href="{% url 'index' parent_or_child='parent' pk=category.id %}">
+            <!-- <a href="{% url 'index' parent_or_child='parent' pk=category.id %}"> -->
                     {% include "categorys/partials/index_card.html" %}
             </a>
 
@@ -62,8 +62,10 @@
 
 
   </html>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
+<style>
+  .card-columns {
+       width: 1000px;
+       /* margin-left: 100px; */
+   }
+</style>
   {% endblock %}

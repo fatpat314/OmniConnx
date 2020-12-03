@@ -11,10 +11,10 @@
 
 <br>
 <br>
-  <div class="columns is-mobile">
+  <div class="columns is-mobile" style="margin-top:5rem; margin-left:50rem;">
 
 
-  <div class="column is-one-quarter">
+  <div class="column">
   <aside class="menu">
     <h1 class="title is-2">
     Inbox
@@ -52,7 +52,7 @@ Message
 
 </div>
 <div class="column">
-    <div style="overflow-y: scroll; height: 500px">
+    <div style="overflow-y: scroll; height: 500px;">
         {% for direct in directs %}
             {% for message in messages %}
                 {% if direct.recipient.profile.user == message.user.profile.user  %}
