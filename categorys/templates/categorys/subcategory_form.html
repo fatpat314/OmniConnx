@@ -1,9 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<html>
+    <body>
     <h1>New Category</h1>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default" name="send-button">Send</button>
     </form>
+    </body>
+    </html>
+
+    <style>
+        html body {
+          
+        }
+    </style>
 {% endblock %}
