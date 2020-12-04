@@ -151,7 +151,7 @@ USE_L10N = True
 USE_TZ = True
 
 # Where to redirect during authentication
-LOGIN_REDIRECT_URL = "/index"
+LOGIN_REDIRECT_URL = "/grid"
 LOGOUT_REDIRECT_URL = "/"
 DEFAULT_LOGOUT_URL = "/"
 

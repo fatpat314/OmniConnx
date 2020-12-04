@@ -30,7 +30,7 @@
     <summary>Read More...</summary>
 
           <p>{{ listing.content }}</p>
-          
+
       </details> -->
 
 
@@ -55,19 +55,29 @@
   <div class="block__content">
     <a href="{% url 'post' pk=listing.id %}">Comments: {{ post.comments.all }}</a>
 
-{% for comment in listing.comments.all %}
-<div class="date">{{ comment.created_date }}</div>
-<h6><strong>{{ comment.author }}</strong></h6>
-<strong><p>{{ comment.text }}</p></strong>
-<hr>
-{% empty %}
-<p>No comments here yet :(</p>
-{% endfor %}
+        {% for comment in listing.comments.all %}
+            <div class="date">{{ comment.created_date }}</div>
+                <h6><strong>{{ comment.author }}</strong></h6>
+                <strong><p>{{ comment.text }}</p></strong>
+                <hr>
+        {% empty %}
+            <p>No comments here yet :(</p>
+        {% endfor %}
 
-    <!-- <button type="button" class="btn btn-primary" onclick='openModal()'>
+    <a href="{% url 'add_comment_to_post' pk=listing.id %}"><button type="button" class="btn btn-primary" onclick='openModal()'>
       Add comment
-  </button>
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true"
+  </button></a>
+<!-- {% include "add_comment_to_post.html" %} -->
+  <!-- <div class="post-form" style="margin-top:5rem; margin-left:5rem;">
+      <h1>New comment</h1>
+          <form method="POST" class="post-form">{% csrf_token %}
+              <label for="text">Your name: </label>
+                <input id="text" type="text" name="text" maxlength="100" required>
+
+              <button type="submit" class="save btn btn-primary" name="send-button">Send</button>
+          </form>
+  </div> -->
+  <!--<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true"
     role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
