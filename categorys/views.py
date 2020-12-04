@@ -82,21 +82,21 @@ def professionals_view(request, parent_or_child=None, pk=None):
 
 def listing_view(request, parent_or_child=None, pk=None):
 
-    def add_comment_to_post(request, pk):
-        post = get_object_or_404(Listing, pk=pk)
-        if request.method == "POST":
-            form = CommentForm(request.POST)
-            if form.is_valid():
-                comment = form.save(commit=False)
-                comment.post = post
-                comment.author = Profile.objects.get(user=request.user)
-                comment.author = comment.author.user
-                print(comment.author.user)
-                comment.save()
-                return redirect('index_all')
-        else:
-            form = CommentForm()
-        return render(request, 'categorys/add_comment_to_post.html', {'form': form})
+    # def add_comment_to_post(request, pk):
+    #     post = get_object_or_404(Listing, pk=pk)
+    #     if request.method == "POST":
+    #         form = CommentForm(request.POST)
+    #         if form.is_valid():
+    #             comment = form.save(commit=False)
+    #             comment.post = post
+    #             comment.author = Profile.objects.get(user=request.user)
+    #             comment.author = comment.author.user
+    #             print(comment.author.user)
+    #             comment.save()
+    #             return redirect('index_all')
+    #     else:
+    #         form = CommentForm()
+    #     return render(request, 'categorys/add_comment_to_post.html', {'form': form})
 
     categories = Category.objects.filter(parent=None)
 
@@ -119,10 +119,24 @@ def listing_view(request, parent_or_child=None, pk=None):
     else:
         listings = []
 
+    messages = Message.get_messages(user=request.user)
+    active_direct = None
+    directs = None
+
+
+    if messages:
+        message = messages[0]
+        active_direct = message['user'].username
+        directs = Message.objects.filter(user=request.user, recipient=message['user'])
+        # directs.update(is_read=True)
+        for message in messages:
+            if message['user'].username == active_direct:
+                message['unread'] = 0
+
     return render(
         request,
         'categorys/listings.html',
-        {'categories': categories, 'listings': listings}
+        {'categories': categories, 'listings': listings, 'messages': messages, 'directs':directs}
     )
 
 class PageDetailView(DetailView):
@@ -178,6 +192,7 @@ class GridView(ListView):
 
         # print("AAAAAAAA: ", messages[0]['unread'])
 
+
         return render(
             request,
             'grid.html',
@@ -189,7 +204,6 @@ class GridView(ListView):
 class PageListView(ListView):
     """ Renders a list of all Pages. """
     model = Listing
-
 
     def get(self, request, parent_or_child=None, pk=None, *args, **kwargs):
         """ GET a list of Pages. """
@@ -212,11 +226,25 @@ class PageListView(ListView):
         else:
             listings = []
 
+        messages = Message.get_messages(user=request.user)
+        active_direct = None
+        directs = None
+
+
+        if messages:
+            message = messages[0]
+            active_direct = message['user'].username
+            directs = Message.objects.filter(user=request.user, recipient=message['user'])
+            # directs.update(is_read=True)
+            for message in messages:
+                if message['user'].username == active_direct:
+                    message['unread'] = 0
+
 
         return render(
             request,
             'categorys/index.html',
-            {'categories': categories, 'listings': listings}
+            {'categories': categories, 'listings': listings, 'messages': messages, 'directs':directs}
         )
 
 class PostCreateView(CreateView):
@@ -241,7 +269,7 @@ class SubCreate(CreateView):
 class Post_edit_view(UpdateView):
     model = Listing
     fields = ['title', 'content']
-    template_name = 'categorys/post_edit.html'
+    template_name = 'categorys/index.html'
     success_url = reverse_lazy('index_all')
 
 @method_decorator([login_required], name='dispatch')

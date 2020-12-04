@@ -4,4 +4,4 @@ from .models import Profile, Friend_request, Messages
 # Register your models here.
 admin.site.register(Profile)
 admin.site.register(Friend_request)
-admin.site.register(Messages)
+# admin.site.register(Messages)

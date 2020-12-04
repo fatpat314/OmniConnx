@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -151,7 +152,7 @@ USE_L10N = True
 USE_TZ = True
 
 # Where to redirect during authentication
-LOGIN_REDIRECT_URL = "/index"
+LOGIN_REDIRECT_URL = "/grid"
 LOGOUT_REDIRECT_URL = "/"
 DEFAULT_LOGOUT_URL = "/"
 
@@ -187,3 +188,7 @@ WIKI_PAGE_TITLE_MAX_LENGTH = 600
 # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # AWS_S3_SIGNATURE_VERSION = 's3v4'
+
+if 'DATABASE_URL' in os.environ:
+    import dj_database_url
+    DATABASES = {'default': dj_database_url.config()}

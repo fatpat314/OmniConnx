@@ -18,7 +18,7 @@
 
 <div>
     <!-- <img class="rounded-circle account-img" src="{{ user.profile.image.url }}"> -->
-    
+
     <!-- <form class="post-box" method="POST"> -->
         <!-- Don't change this -->
         {% csrf_token %}
@@ -52,4 +52,14 @@
 
 
 {% include 'sidebar.html' %}
+<!-- New Message Notifications -->
+    <div class="fixed-right">
+        {% for direct in directs %}
+            {% if direct.is_read == False %}
+                        <div class="text_size" style="margin-right: 2">
+                            <a href="{% url 'inbox' %}" class="btn btn-danger ml-2">Unread Message From: {{ direct.sender.profile.user }} </a>
+                        </div>
+            {% endif %}
+        {% endfor %}
+    </div>
 {% endblock %}

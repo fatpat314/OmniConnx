@@ -17,24 +17,23 @@
   {% if user.is_authenticated %}
 {% endif %}
     <div class="">
-        
+
         <div class="card-columns" style="column-count:4;">
         {% for category in categories %}
             <!-- <a href="{% url 'index' parent_or_child='parent' pk=category.id %}"> -->
                     {% include "categorys/partials/index_card.html" %}
             </a>
-            
+
         {% endfor %}
         </div>
-        
+
     </div>
 </main>
 </div>
 <body>
     {% include 'sidebar.html' %}
-{% if direct  %}
-    <h1>HELLO!!!!!!!!!!</h1>
-{% endif %}
+
+
   </html>
 <style>
   .card-columns {
@@ -60,6 +59,6 @@
     div.main {
       padding-top:4rem;
     }
-   
+
 </style>
   {% endblock %}

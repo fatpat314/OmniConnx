@@ -8,7 +8,8 @@ Do what ever you want -->
 {% block content %}
 <html>
     <body>
-    <div class="row">
+
+    <div class="row" style="margin-top:5rem; margin-left:50px;">
       <div class="col m-4">
          <!-- Don't change this -->
         <h3>{{ post.title }} <small class="text-muted">Last updated {{ post.modified|date:"SHORT_DATETIME_FORMAT" }} by <b>{{ post.author.username }}</b></small></h3>
@@ -24,30 +25,33 @@ Do what ever you want -->
 
       </div>
     </div>
-    {% if user.is_authenticated %}
-        {% if user.username == post.author.username %}
-            <a class="btn btn-primary" href="{% url 'edit-post' post.id %}"  role="button">Edit</a>
-            <a class="btn btn-primary" href="{% url 'delete-post' post.id %}"  role="button">Delete</a>
+
+        {% if user.is_authenticated %}
+            {% if user.username == post.author.username %}
+                <a class="btn btn-primary" style="margin-top:5rem; margin-left:50px; height:40px;" href="{% url 'edit-post' post.id %}">Edit</a>
+                <a class="btn btn-primary" style="margin-top:5rem; margin-left:50px; height:40px;" href="{% url 'delete-post' post.id %}">Delete</a>
+            {% endif %}
         {% endif %}
-    {% endif %}
+
+
 
 
     <hr>
 
-<div class="container" id="comments_section" style="background-color:lightcyan; border-width: 20px; border-color: black">
+<!-- <div class="container" id="comments_section" style="background-color:lightcyan; border-width: 20px; border-color: black"> -->
 
      <!--  <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a> -->
 
-{% for comment in post.comments.all %}
-    <div class="comment">
+<!-- {% for comment in post.comments.all %} -->
+    <!-- <div class="comment">
         <div class="date">{{ comment.created_date }}</div>
         <strong>{{ comment.author }}</strong>
         <p>{{ comment.text|linebreaks }}</p>
-    </div>
+    </div> -->
 <!-- {% empty %}
     <p>No comments here yet :(</p>
 {% endfor %} -->
-</div>
+
 </body>
 </html>
 
@@ -56,7 +60,7 @@ Do what ever you want -->
 
     body, html {
       height: 100%;
-    
+
       background: fixed radial-gradient(white, #cce5ff, #99caff, #007bff) !important;
     }
 

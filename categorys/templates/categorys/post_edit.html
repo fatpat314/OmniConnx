@@ -9,6 +9,19 @@ Its bear, needs plenty of style-->
 {% block content %}
 <html>
     <body>
+        <div class="">
+            <!-- Don't change this -->
+            <form method="POST">
+
+                <!-- Don't change this -->
+                {% csrf_token %}
+
+                <!-- Don't change this -->
+                {{ form.as_p }}
+
+                <!-- Don't change this -->
+                <input type='submit' value="Post">
+        </div>
 <!-- Don't change this -->
 <form method="POST">
 
@@ -27,7 +40,7 @@ Its bear, needs plenty of style-->
 
 
 <style>
-    
+
     body, html {
       height: 100%;
       background: fixed radial-gradient(white, #cce5ff, #99caff, #007bff);
