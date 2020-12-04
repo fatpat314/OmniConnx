@@ -43,7 +43,6 @@
 
 <div>
   <a type="button" class="btn" data-toggle="modal" data-target="#newComment"> New Comment</a>
-
   <div class="modal fade" id="newComment" tabindex="-1" aria-labelledby="commentsModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -54,15 +53,14 @@
           </button>
         </div>
         <div class="modal-body">
-            <div class="form-group">
-              <label for="comments-text" class="col-form-label">Your Comment:</label>
-              <textarea class="form-control" id="comments-text"></textarea>
+        <div class="post-form" style="margin-top:5rem; margin-left:5rem;">
+          <h1>New comment</h1>
+              <form method="POST" class="post-form">{% csrf_token %}
+                  {{ form.as_p }}
+                  <button type="submit" class="save btn btn-primary" name="send-button">Send</button>
+              </form>
             </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Send Comment</button>
+      </div>
         </div>
       </div>
     </div>
@@ -79,7 +77,6 @@
   <div class="block__content">
     <a href="{% url 'post' pk=listing.id %}">Comments: {{ post.comments.all }}</a>
 
-<<<<<<< HEAD
 {% for comment in listing.comments.all %}
 <div class="date">{{ comment.created_date }}</div>
 <h6><strong>{{ comment.author }}</strong></h6>
@@ -91,54 +88,6 @@
     
    
 <!-- <div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div> --> -->
-=======
-        {% for comment in listing.comments.all %}
-            <div class="date">{{ comment.created_date }}</div>
-                <h6><strong>{{ comment.author }}</strong></h6>
-                <strong><p>{{ comment.text }}</p></strong>
-                <hr>
-        {% empty %}
-            <p>No comments here yet :(</p>
-        {% endfor %}
-
-    <a href="{% url 'add_comment_to_post' pk=listing.id %}"><button type="button" class="btn btn-primary" onclick='openModal()'>
-      Add comment
-  </button></a>
-<!-- {% include "add_comment_to_post.html" %} -->
-  <!-- <div class="post-form" style="margin-top:5rem; margin-left:5rem;">
-      <h1>New comment</h1>
-          <form method="POST" class="post-form">{% csrf_token %}
-              <label for="text">Your name: </label>
-                <input id="text" type="text" name="text" maxlength="100" required>
-
-              <button type="submit" class="save btn btn-primary" name="send-button">Send</button>
-          </form>
-  </div> -->
-  <!--<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true"
-    role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" aria-label="Close" onclick="closeModal()">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-              <h1>New comment</h1>
-              <form method="POST" class="post-form">{% csrf_token %}
-                  {{ form.as_p }}
-                  <button type="submit" class="save btn btn-default" name="send-button">Send</button>
-              </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="closeModal()">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div> -->
->>>>>>> b0c3a3feb971c47dac9e3f698ba6863d697681c5
     <!-- <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=listing.id %}">Add comment</a> -->
   </div>
 </div>
