@@ -269,7 +269,7 @@ class SubCreate(CreateView):
 class Post_edit_view(UpdateView):
     model = Listing
     fields = ['title', 'content']
-    template_name = 'categorys/post_edit.html'
+    template_name = 'categorys/index.html'
     success_url = reverse_lazy('index_all')
 
 @method_decorator([login_required], name='dispatch')
