@@ -41,14 +41,38 @@
 <hr>
 
 <div>
+  <a type="button" class="btn" data-toggle="modal" data-target="#newComment"> New Comment</a>
 
-  <button
-  class="btn btn-primary btn__first"
+  <div class="modal fade" id="newComment" tabindex="-1" aria-labelledby="commentsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="commentsModalLabel">New Comment</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+              <label for="comments-text" class="col-form-label">Your Comment:</label>
+              <textarea class="form-control" id="comments-text"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Send Comment</button>
+        </div>
+      </div>
+    </div>
+    </div>
+  <a
+  class="btn"
   data-toggle="collapse"
   data-target="#post-{{listing.id}}"
   data-text="Collapse">
-  Read Comments
-</button>
+  - Comments -
+</a>
 
 <div class="block collapse" id="post-{{listing.id}}">
   <div class="block__content">
@@ -63,33 +87,8 @@
 <p>No comments here yet :(</p>
 {% endfor %}
     
-    <!-- <button type="button" class="btn btn-primary" onclick='openModal()'>
-      Add comment
-  </button>
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true"
-    role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" aria-label="Close" onclick="closeModal()">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-              <h1>New comment</h1>
-              <form method="POST" class="post-form">{% csrf_token %}
-                  {{ form.as_p }}
-                  <button type="submit" class="save btn btn-default" name="send-button">Send</button>
-              </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="closeModal()">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div> -->
+   
+<!-- <div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div> --> -->
     <!-- <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=listing.id %}">Add comment</a> -->
   </div>
 </div>
@@ -147,31 +146,18 @@
   };
   </script>
 
-  <!-- <script>
-  $('.collapse').collapse();
-  </script> -->
 
-<!-- <script>
-  function openModal() {
-    document.getElementById("backdrop").style.display = "block"
-    document.getElementById("exampleModal").style.display = "block"
-    document.getElementById("exampleModal").className += "show"
-}
-function closeModal() {
-    document.getElementById("backdrop").style.display = "none"
-    document.getElementById("exampleModal").style.display = "none"
-    document.getElementById("exampleModal").className += document.getElementById("exampleModal").className.replace("show", "")
-}
-// Get the modal
-var modal = document.getElementById('exampleModal');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
-        closeModal()
-    }
-};
-</script> -->
+<script>
+  $('#newComment').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  modal.find('.modal-title').text('New message to ' + recipient)
+  modal.find('.modal-body input').val(recipient)
+});
+</script>
 </body>
 
 <style>
