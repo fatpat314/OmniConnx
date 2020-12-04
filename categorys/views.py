@@ -119,10 +119,24 @@ def listing_view(request, parent_or_child=None, pk=None):
     else:
         listings = []
 
+    messages = Message.get_messages(user=request.user)
+    active_direct = None
+    directs = None
+
+
+    if messages:
+        message = messages[0]
+        active_direct = message['user'].username
+        directs = Message.objects.filter(user=request.user, recipient=message['user'])
+        # directs.update(is_read=True)
+        for message in messages:
+            if message['user'].username == active_direct:
+                message['unread'] = 0
+
     return render(
         request,
         'categorys/listings.html',
-        {'categories': categories, 'listings': listings}
+        {'categories': categories, 'listings': listings, 'messages': messages, 'directs':directs}
     )
 
 class PageDetailView(DetailView):
@@ -190,7 +204,6 @@ class PageListView(ListView):
     """ Renders a list of all Pages. """
     model = Listing
 
-
     def get(self, request, parent_or_child=None, pk=None, *args, **kwargs):
         """ GET a list of Pages. """
         categories = Category.objects.filter(parent=None)
@@ -212,11 +225,25 @@ class PageListView(ListView):
         else:
             listings = []
 
+        messages = Message.get_messages(user=request.user)
+        active_direct = None
+        directs = None
+
+
+        if messages:
+            message = messages[0]
+            active_direct = message['user'].username
+            directs = Message.objects.filter(user=request.user, recipient=message['user'])
+            # directs.update(is_read=True)
+            for message in messages:
+                if message['user'].username == active_direct:
+                    message['unread'] = 0
+
 
         return render(
             request,
             'categorys/index.html',
-            {'categories': categories, 'listings': listings}
+            {'categories': categories, 'listings': listings, 'messages': messages, 'directs':directs}
         )
 
 class PostCreateView(CreateView):
