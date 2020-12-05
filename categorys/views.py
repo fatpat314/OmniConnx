@@ -133,6 +133,7 @@ def listing_view(request, parent_or_child=None, pk=None):
             if message['user'].username == active_direct:
                 message['unread'] = 0
 
+
     return render(
         request,
         'categorys/listings.html',
@@ -250,6 +251,7 @@ class PageListView(ListView):
 class PostCreateView(CreateView):
     model = Listing
     fields = ['title', 'content', 'sub_category']
+    success_url = reverse_lazy('index_all')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
