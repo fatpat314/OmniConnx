@@ -8,30 +8,35 @@
 {% block content %}
 <html>
   <body>
-      {% include 'header.html' %}
+
+<!-- Note: I think it looks way better without the avatar header on the listings pages; 
+we already have the avatar in the posting itself, it's redundant to repeat it and looks awkward on the page.
+In addition, let's add the name of the subcategory centered at the top of the page. -->
+
+
+<h3>{{ listing.sub_category }} postings</h3>
 
 
 
-
-<div style="margin-top:5rem;">
+<!-- <div style="margin-top:5rem;">
     <!-- <img class="rounded-circle account-img" src="{{ user.profile.image.url }}"> -->
-    {% if user.is_authenticated %}
+    <!-- {% if user.is_authenticated %}
         <a href="{% url 'post-create' %}" class="btn btn-success ml-4">New Post</a>
-    {% endif %}
+    {% endif %} -->
     <!-- <form class="post-box" method="POST"> -->
         <!-- Don't change this -->
-        {% csrf_token %}
+        <!-- {% csrf_token %} -->
         <!-- Don't change this -->
-        {{ form.as_p }}
+        <!-- {{ form.as_p }} -->
         <!-- Don't change this -->
-        <!-- <input type='submit' value="Post"> -->
-</div>
+        <!-- <input type='submit' value="Post">
+</div> -->
 
   <!-- <a href="{% url 'index_all' %}"></a> -->
   <main>
 
     <div class="post">
-        <div class="timeline" style="width:1000px; margin-top:5rem;">
+        <div class="timeline" style="width:1200px; margin-top:5rem;">
 
       {% for listing in listings %}
           <li class="list-group-item">

@@ -55,11 +55,13 @@
         <div class="modal-body">
         <div class="post-form" style="margin-top:5rem; margin-left:5rem;">
           <h1>New comment</h1>
-              <form method="POST" class="post-form">{% csrf_token %}
-                  {{ form.as_p }}
-                  <button type="submit" class="save btn btn-primary" name="send-button">Send</button>
-              </form>
-            </div>
+                <form method="POST" class="post-form">{% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="save btn btn-primary" name="send-button">Send</button>
+                </form>
+        </div>
+          </a>
+            <!-- {% include 'com.html' %} -->
       </div>
         </div>
       </div>

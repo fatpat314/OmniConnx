@@ -6,11 +6,13 @@
   <div class="smartphone-menu-trigger"></div>
   {% if user.is_authenticated %}
   <header class="avatar">
-      <!-- <div class="card" id="welcome" style="margin-top:5rem; margin-left:2rem; width:200px;">
-          <h5>Welcome, {{user.username}}!</h5>
-      </div> -->
-          <img class="rounded-circle sm account-img img-fluid" alt="Responsive image" style="width:200px; height:200; margin-left:2rem;" src="{{ user.profile.image.url }}">
-    {% endif %}
+          <img class="rounded-circle sm account-img img-fluid" alt="Responsive image" style="width:150px; height:150; margin-left:2rem; position:absolute" src="{{ user.profile.image.url }}">
+          <div id="welcome">
+            <h5>{{user.username}}</h5>
+        </div>
+      </header>
+          {% endif %}
+  
     </div>
 <div class="main" style="margin-left:-10rem; margin-top:5rem;">
 <main>
@@ -41,13 +43,17 @@
        /* margin-left: 100px; */
    }
    #welcome {
-    margin: 2rem;
-    margin-bottom: -2rem;
-    background-color:  #2196F3;
+    /* margin-left: 2rem; */
+    margin-top: 6rem;
+    position: relative;
+    
    }
-   h5 {
-     color:#2196F3;
-     padding:1rem;
+
+   #welcome h5 {
+    color:whitesmoke;
+    padding:2rem;
+    padding-left:2.5rem;
+    padding-top:11.5rem;
    }
 
    .avatar {

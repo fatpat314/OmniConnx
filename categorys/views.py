@@ -295,4 +295,4 @@ def add_comment_to_post(request, pk):
             return redirect('index_all')
     else:
         form = CommentForm()
-    return render(request, 'categorys/add_comment_to_post.html', {'form': form})
+    return render(request, 'templates/com.html', {'form': form})
