@@ -25,12 +25,11 @@
   <a class="nav-link" href="/view/{{ listing.author.profile.slug }}">View Profile <span class="sr-only">(current)</span></a>
   
   <div class="card-body border-dark">
-  
 
 <span class="truncated-paragraph-1" style="display:none; pointer-events: none;">
   {{ listing.content | truncatewords_html:20}}...</span>
 <span class="normal-paragraph-1" style="display:inline;">
-  {{ listing.content }}</span> 
+  {{ listing.content }}</span>
 
       <hr>
 </a>
@@ -74,8 +73,9 @@ return elClassName[elClassName.length - 1]
         <div class="modal-body">
         <div class="post-form" style="margin-top:5rem; margin-left:5rem;">
           <h1>New comment</h1>
-                <form method="POST" class="post-form">{% csrf_token %}
-                    {{ form.as_p }}
+                <form method="POST" id="csrf_token" action="."  class="post-form">
+                  {% csrf_token %}
+                    {{ form.as_table }}
                     <button type="submit" class="save btn btn-primary" name="send-button">Send</button>
                 </form>
         </div>
