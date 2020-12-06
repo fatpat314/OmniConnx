@@ -11,7 +11,7 @@
 
 <br>
 <br>
-  <div class="columns is-mobile" style="margin-top:5rem; margin-left:50rem;">
+  <div class="columns is-mobile" style="margin-top:6rem; margin-left:20rem;">
 
 
   <div class="column">
@@ -19,7 +19,7 @@
     <h1 class="title is-2">
     Inbox
     </h1>
-  <ul style="overflow-y: scroll; height: 150px" class="menu-list">
+  <ul style="overflow-y: scroll; height: 75px" class="menu-list">
 {% for message in messages %}
 
 <a class="{% if active_direct == message.user.username %}is-active{% endif %}" href="{% url 'directs' message.user.username %}">
@@ -48,7 +48,7 @@
 <h3 class="title is-2">
 Message
 </h3>
-<a href="{% url 'usersearch' %}" class="button is-success">New message</a>
+<a href="{% url 'usersearch' %}" class="button is-success">Search Users</a>
 
 </div>
 <div class="column">
@@ -112,7 +112,7 @@ Message
 <style>
    body, html {
         height: 100%;
-        background-image: radial-gradient(white, #cce5ff, #99caff, #007bff);
+        background: fixed radial-gradient(white, #cce5ff, #99caff, #007bff);
         }
 
 

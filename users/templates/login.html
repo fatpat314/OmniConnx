@@ -28,8 +28,44 @@
       height: 100%;
       background-image: radial-gradient(white, #cce5ff, #99caff, #007bff);
     }
+    .form-control {
+        display: block;
+        width: 100%;
+        height: calc(1.5em + 0.75rem + 2px);
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 2px solid #007bff;
+        
+    }
+        fieldset {
+            display: block;
+            margin-inline-start: 2px;
+            margin-inline-end: 2px;
+            padding-block-start: 0.35em;
+            padding-inline-start: 0.75em;
+            padding-inline-end: 0.75em;
+            padding-block-end: 0.625em;
+            min-inline-size: min-content;
+            border-width: 2px;
+            border-style:solid;
+            border-color: #007bff
+            /* border-image: initial; */
+    }
 
+        legend {
+            border-width: 2px;
+            border-style:solid;
+            border-color: #007bff
+            ;}
     .content-section {
+        border-width: thick;
+        border-color: #007bff;
+        width:25%;
         margin-left: 40%;
         padding-top: 10rem;
         margin-top: 8rem;        
