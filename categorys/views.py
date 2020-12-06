@@ -138,7 +138,7 @@ def listing_view(request, parent_or_child=None, pk=None):
             if message['user'].username == active_direct:
                 message['unread'] = 0
 
-    post = Listing.objects.get()
+    post = sub_cat.listing_set.all().order_by("-created")
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -152,12 +152,10 @@ def listing_view(request, parent_or_child=None, pk=None):
 
 
 
-
-
     return render(
         request,
         'categorys/listings.html',
-        {'categories': categories, 'listings': listings, 'messages': messages, 'directs':directs, 'form':form}
+        {'categories': categories, 'listings': listings, 'messages': messages, 'directs':directs}
     )
 
 class PageDetailView(DetailView):
