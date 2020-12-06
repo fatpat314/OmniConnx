@@ -18,6 +18,7 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_list_or_404, get_object_or_404
 
+"""git test"""
 
 
 def home_view(request):
