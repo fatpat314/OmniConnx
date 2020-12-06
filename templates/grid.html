@@ -5,16 +5,17 @@
 <nav class="menu" tabindex="0">
   <div class="smartphone-menu-trigger"></div>
   {% if user.is_authenticated %}
-  <header class="avatar">
+  <!-- <header class="avatar">
           <img class="rounded-circle sm account-img img-fluid" alt="Responsive image" style="width:150px; height:150; margin-left:2rem; position:absolute" src="{{ user.profile.image.url }}">
           <div id="welcome">
             <h5>{{user.username}}</h5>
         </div>
-      </header>
+      </header> -->
+      {% include 'header.html' %}
           {% endif %}
   
     </div>
-<div class="main" style="margin-left:-10rem; margin-top:5rem;">
+<div class="main" style="margin-left:-10rem; margin-top:6rem;">
 <main>
   {% if user.is_authenticated %}
 {% endif %}

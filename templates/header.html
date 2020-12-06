@@ -3,9 +3,9 @@
   <div class="smartphone-menu-trigger"></div>
   {% if user.is_authenticated %}
   <header class="avatar">
-      <div class="card" style="margin-top:8rem; margin-left:5rem; width:200px;">  
-          <img class="rounded-circle account-img img-fluid" style="max-width:100% height=auto margin-left=-5rem;" src="{{ user.profile.image.url }}">
-          <h4>Welcome, {{user.username}}!</h4>
+      <div class="container" style="margin-top:4rem; margin-left:-1rem; width:175px;">  
+          <img class="rounded-circle account-img img-fluid" style="width:100% height=auto margin-left=1rem;" src="{{ user.profile.image.url }}">
+          <h4 style="color:whitesmoke; margin-left:2rem">Welcome, {{user.username}}!</h4>
         </div>
     {% endif %}
     </div>

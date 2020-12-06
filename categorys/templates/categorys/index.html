@@ -1,42 +1,25 @@
 {% extends "base.html" %}
 
 <!-- listings.html -->
-<!-- just an index for listings of that SubCategory -->
 
 
 
 {% block content %}
 <html>
   <body>
-      {% include 'header.html' %}
-<!-- <div class="mini-logo">
-
-</div> -->
-<!-- You can change this -->
+      <!-- {% include 'header.html' %} -->
 
 
 
-<div>
-    <!-- <img class="rounded-circle account-img" src="{{ user.profile.image.url }}"> -->
 
-    <!-- <form class="post-box" method="POST"> -->
-        <!-- Don't change this -->
-        {% csrf_token %}
-        <!-- Don't change this -->
-        {{ form.as_p }}
-        <!-- Don't change this -->
-        <!-- <input type='submit' value="Post"> -->
-</div>
-
-  <!-- <a href="{% url 'index_all' %}"></a> -->
   <main>
-    {% if user.is_authenticated %}
-    <a href="{% url 'post-create' %}" class="btn ml-4" style="display:grid; padding:0px; margin-left:-4.5rem; background-color: #2196F3">New Post</a>
-  {% endif %}
+
     <div class="post">
-        <div class="timeline" style="width:1000px;">
+
+        <div class="timeline" style="width:1200px; margin-top:5rem;">
 
       {% for listing in listings %}
+
           <li class="list-group-item">
               <div class="text_size">
                   {% include "categorys/partials/listing_card.html" %}

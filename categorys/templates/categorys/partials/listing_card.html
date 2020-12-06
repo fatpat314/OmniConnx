@@ -7,9 +7,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
-    </head>
+  </head>
+
 
 <body>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <div class="card mb-3">
     <div class="card-header">
@@ -22,24 +24,34 @@
   <small class="text-muted">Last updated {{ listing.modified|date:"SHORT_DATETIME_FORMAT" }} by <b>{{ listing.author.username }}</b></small>
   <a class="nav-link" href="/view/{{ listing.author.profile.slug }}">View Profile <span class="sr-only">(current)</span></a>
   <div class="card-body border-dark">
-
-
-<!-- <p>{{ listing.content | truncatewords_html:10}}</p> -->
-    <!-- <details>
-
-    <summary>Read More...</summary>
-
-          <p>{{ listing.content }}</p>
-
-      </details> -->
-
-
-        <span class="dots">{{ listing.content | truncatewords_html:10}}...</span>
-          <span class="more">{{ listing.content }}</span>
+    
+<span class="truncated-paragraph-1" style="display:none; pointer-events: none;">
+  {{ listing.content | truncatewords_html:20}}...</span>
+<span class="normal-paragraph-1" style="display:inline;">
+  {{ listing.content }}</span> 
 
       <hr>
-       <a onclick="myFunction()" class="myBtn" style="justify-content: right;">Read more</a>
+       <a href="#" class="read-more-1" style="justify-content: right;">Read more</a>
+       <a href="#" class="read-less-1" style="justify-content: right;">Read Less</a>
 <hr>
+<script type="text/javascript">
+  $('[class^="read-more"]').click(function(element) {
+element.preventDefault()
+$(`.truncated-paragraph-${elId($(this))}`).hide()
+$(`.normal-paragraph-${elId($(this))}`).show()
+})
+
+$('[class^="read-less"]').click(function(element) {
+element.preventDefault()
+$(`.normal-paragraph-${elId($(this))}`).hide()
+$(`.truncated-paragraph-${elId($(this))}`).show()
+})
+
+function elId(element) {
+let elClassName = element.attr('class').split('-')
+return elClassName[elClassName.length - 1]
+}
+</script> -->
 
 <div>
   <a type="button" class="btn" data-toggle="modal" data-target="#newComment"> New Comment</a>
@@ -100,24 +112,23 @@
 </div>
 
 
-  <script>
-    function myFunction(elem) {
-        var num = 1;
-        var dots = document.getElementsByName("dots");
-        var moreText = document.getElementsByName("more");
-        var btnText = document.getElementsByName("myBtn");
+  <!-- <script>
+    //     var num = 1;
+    //     var dots = document.getElementsByName("dots");
+    //     var moreText = document.getElementsByName("more");
+    //     var btnText = document.getElementsByName("myBtn");
 
-      if (dots.style.display === "none") {
-        dots.style.display = "inline";
-        btnText.innerHTML = "Read more";
-        moreText.style.display = "none";
-      } else {
-        dots.style.display = "none";
-        btnText.innerHTML = "Read less";
-        moreText.style.display = "inline";
-      }
-    }
-</script>
+    //   if (dots.style.display === "none") {
+    //     dots.style.display = "inline";
+    //     btnText.innerHTML = "Read more";
+    //     moreText.style.display = "none";
+    //   } else {
+    //     dots.style.display = "none";
+    //     btnText.innerHTML = "Read less";
+    //     moreText.style.display = "inline";
+    //   }
+  //  }
+   </script> -->
 
 <script>
 
