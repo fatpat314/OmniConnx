@@ -23,6 +23,7 @@
 
   <small class="text-muted">Last updated {{ listing.modified|date:"SHORT_DATETIME_FORMAT" }} by <b>{{ listing.author.username }}</b></small>
   <a class="nav-link" href="/view/{{ listing.author.profile.slug }}">View Profile <span class="sr-only">(current)</span></a>
+  
   <div class="card-body border-dark">
 
 <span class="truncated-paragraph-1" style="display:none; pointer-events: none;">
@@ -31,10 +32,13 @@
   {{ listing.content }}</span>
 
       <hr>
+</a>
        <a href="#" class="read-more-1" style="justify-content: right;">Read more</a>
-       <a href="#" class="read-less-1" style="justify-content: right;">Read Less</a>
-<hr>
-<script type="text/javascript">
+       <a href="#" class="read-less-1" style="justify-content: right;">Read Less</a> 
+  </div>
+       <hr>
+
+<script type="text/javascript">                                                                                        
   $('[class^="read-more"]').click(function(element) {
 element.preventDefault()
 $(`.truncated-paragraph-${elId($(this))}`).hide()
@@ -48,10 +52,12 @@ $(`.truncated-paragraph-${elId($(this))}`).show()
 })
 
 function elId(element) {
+  
 let elClassName = element.attr('class').split('-')
 return elClassName[elClassName.length - 1]
 }
-</script> -->
+
+</script> 
 
 <div>
   <a type="button" class="btn" data-toggle="modal" data-target="#newComment"> New Comment</a>
@@ -62,7 +68,7 @@ return elClassName[elClassName.length - 1]
           <h5 class="modal-title" id="commentsModalLabel">New Comment</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
-          </button>
+          </button>2
         </div>
         <div class="modal-body">
         <div class="post-form" style="margin-top:5rem; margin-left:5rem;">
@@ -74,7 +80,6 @@ return elClassName[elClassName.length - 1]
                 </form>
         </div>
           </a>
-            <!-- {% include 'com.html' %} -->
       </div>
         </div>
       </div>
@@ -102,18 +107,13 @@ return elClassName[elClassName.length - 1]
 {% endfor %}
 
 
-<!-- <div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div> --> -->
-    <!-- <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=listing.id %}">Add comment</a> -->
-  </div>
-</div>
 
 </div>
-
 
 </div>
 
 
-  <!-- <script>
+   <script>
     //     var num = 1;
     //     var dots = document.getElementsByName("dots");
     //     var moreText = document.getElementsByName("more");
@@ -124,12 +124,12 @@ return elClassName[elClassName.length - 1]
     //     btnText.innerHTML = "Read more";
     //     moreText.style.display = "none";
     //   } else {
-    //     dots.style.display = "none";
+    //     dots.style.display = "none";3
     //     btnText.innerHTML = "Read less";
     //     moreText.style.display = "inline";
     //   }
   //  }
-   </script> -->
+   </script> 
 
 <script>
 
