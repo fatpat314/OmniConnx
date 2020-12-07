@@ -23,7 +23,7 @@
 
   <small class="text-muted">Last updated {{ listing.modified|date:"SHORT_DATETIME_FORMAT" }} by <b>{{ listing.author.username }}</b></small>
   <a class="nav-link" href="/view/{{ listing.author.profile.slug }}">View Profile <span class="sr-only">(current)</span></a>
-  
+
   <div class="card-body border-dark">
 
 <span class="truncated-paragraph-1" style="display:inline; pointer-events: none;">
@@ -34,11 +34,11 @@
       <hr>
 </a>
        <a href="#" class="read-more-1" style="justify-content: right;">Read more</a>
-       <a href="#" class="read-less-1" style="justify-content: right;">Read Less</a> 
+       <a href="#" class="read-less-1" style="justify-content: right;">Read Less</a>
   </div>
        <hr>
 
-<script type="text/javascript">                                                                                        
+<script type="text/javascript">
   $('[class^="read-more"]').click(function(element) {
 element.preventDefault()
 $(`.truncated-paragraph-${elId($(this))}`).hide()
@@ -52,15 +52,16 @@ $(`.truncated-paragraph-${elId($(this))}`).show()
 })
 
 function elId(element) {
-  
+
 let elClassName = element.attr('class').split('-')
 return elClassName[elClassName.length - 1]
 }
 
-</script> 
+</script>
 
 <div>
-  <a type="button" class="btn" data-toggle="modal" data-target="#newComment"> New Comment</a>
+  <!-- <a type="button" class="btn" data-toggle="modal" data-target="#newComment"> New Comment</a> -->
+  <a href="{% url 'add_comment_to_post' pk=listing.id %}" type="button" class="btn"> New Comment</a>
   <div class="modal fade" id="newComment" tabindex="-1" aria-labelledby="commentsModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -129,7 +130,7 @@ return elClassName[elClassName.length - 1]
     //     moreText.style.display = "inline";
     //   }
   //  }
-   </script> 
+   </script>
 
 <script>
 
