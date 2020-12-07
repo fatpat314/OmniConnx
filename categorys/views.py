@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
-from .models import Listing, Comment
+from .models import Listing
 from .forms import CommentForm
 from message.models import Message
 # from .forms import PageForm
@@ -17,8 +17,6 @@ from django.template import loader
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_list_or_404, get_object_or_404
-
-from django.views.decorators.csrf import csrf_exempt
 
 
 
@@ -81,25 +79,24 @@ def professionals_view(request, parent_or_child=None, pk=None):
         {'categories': categories, 'listings': listings}
     )
 
-@csrf_exempt
+
 def listing_view(request, parent_or_child=None, pk=None):
 
     # def add_comment_to_post(request, pk):
-    # post = get_object_or_404(Listing, pk=pk)
-    # if request.method == "POST":
-    #     form = CommentForm(request.POST)
-    #     if form.is_valid():
-    #         comment = form.save(commit=False)
-    #         comment.post = post
-    #         comment.author = Profile.objects.get(user=request.user)
-    #         comment.author = comment.author.user
-    #         print(comment.author.user)
-    #         comment.save()
-    #         return redirect('index_all')
-    # else:
-    #     form = CommentForm()
+    #     post = get_object_or_404(Listing, pk=pk)
+    #     if request.method == "POST":
+    #         form = CommentForm(request.POST)
+    #         if form.is_valid():
+    #             comment = form.save(commit=False)
+    #             comment.post = post
+    #             comment.author = Profile.objects.get(user=request.user)
+    #             comment.author = comment.author.user
+    #             print(comment.author.user)
+    #             comment.save()
+    #             return redirect('index_all')
+    #     else:
+    #         form = CommentForm()
     #     return render(request, 'categorys/add_comment_to_post.html', {'form': form})
-
 
     categories = Category.objects.filter(parent=None)
 
@@ -122,8 +119,6 @@ def listing_view(request, parent_or_child=None, pk=None):
     else:
         listings = []
 
-
-
     messages = Message.get_messages(user=request.user)
     active_direct = None
     directs = None
@@ -138,26 +133,11 @@ def listing_view(request, parent_or_child=None, pk=None):
             if message['user'].username == active_direct:
                 message['unread'] = 0
 
-    post = Listing.objects.get()
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            obj = form.save(commit=False)
-            obj.post = post
-            obj.save()
-
-            return redirect('.', pk = post.pk)
-    else:
-        form = CommentForm()
-
-
-
-
 
     return render(
         request,
         'categorys/listings.html',
-        {'categories': categories, 'listings': listings, 'messages': messages, 'directs':directs, 'form':form}
+        {'categories': categories, 'listings': listings, 'messages': messages, 'directs':directs}
     )
 
 class PageDetailView(DetailView):
@@ -315,4 +295,4 @@ def add_comment_to_post(request, pk):
             return redirect('index_all')
     else:
         form = CommentForm()
-    return render(request, 'templates/com.html', {'form': form})
+    return render(request, 'categorys/add_comment_to_post.html', {'form': form})

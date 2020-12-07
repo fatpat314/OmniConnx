@@ -16,7 +16,7 @@ class SubCategoryManager(models.Manager):
     )
 
     def get_queryset(self):
-        return super().get_queryset().exclude(parent=None)
+        return super().get_queryset().exclude(parent_id=None)
 
     def get_absolute_url(self):
         """ Returns a fully-qualified path for a page (/my-new-wiki-page). """
