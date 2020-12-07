@@ -2,16 +2,19 @@
 
 {% block content %}
 
+<html>
+    <body>
+
     {% if is_empty %}
         <h1>No profiles to show</h1>
     {% endif %}
-<ul>
+<div class="profiles">
     {% for obj in object_list %}
         <div class="ui segment">
             <div class="ui grid">
                 <div class="row">
                     <div class="three wide column">
-                        <img class ="ui small circular image" src={{obj.image.url}}>
+                        <img class="rounded-circle account-img" style="width:150px; height:150px; margin:1rem;" src={{obj.image.url}}>
 
                     </div>
                     <div class="thirteen wide column">
@@ -22,17 +25,17 @@
                             <form action="{% url 'send-invite' %}" method="POST">
                                 {% csrf_token %}
                                 <input type="hidden" name="profile_pk" value={{obj.pk}}>
-                                    <button type="submit" name="button" class="ui positive basic button"><i class="plus square icon"</i>Add to friends</button>
+                                    <button type="submit" name="button"  class="ui primar">Connect</button>
                             </form>
                         {% endif %}
                         {% if obj.user in rel_receiver and request.user not in obj.friends.all %}
-                            <button class="ui disabled button"><i class=" user icon"></i>Waiting for approval</button>
+                            <a class="ui disabled button"><i class=" user icon"></i>Waiting for approval</a>
                         {% endif %}
                         {% if request.user in obj.friends.all %}
                             <form action="{% url 'remove-friend'  %}" method="POST">
                                 {% csrf_token %}
                                 <input type="hidden" name="profile_pk" value={{obj.pk}}>
-                                    <button type="submit" name="button" class="ui negative basic button"><i class="minus square icon"</i>Remove from friends</button>
+                                    <button type="submit" name="button" class="ui negative basic button"><i class="minus square icon"></i>Remove from friends</button>
                             </form>
                         {% endif %}
 
@@ -44,5 +47,34 @@
         </div>
         <br>
     {% endfor %}
-</ul>
+</div>
+
+</body>
+</html>
+
+<style>
+    body, html {
+      height: auto;
+      background: fixed radial-gradient(white, #cce5ff, #99caff, #007bff);
+    }
+
+    .profiles {
+        margin-top: 6rem;
+        margin-left: 4rem;
+    }
+
+    button {
+        color: white;
+        background-color: #007bff;
+        border-radius: 20% 20% 20% 20%;
+        padding: 2px;
+        margin: 2px;
+    }
+
+    button:hover {
+        color: #007bff;
+        background-color: #99caff;
+        
+    }
+</style>
 {% endblock %}

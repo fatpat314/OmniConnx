@@ -8,24 +8,31 @@
 
 
 {% if is_empty %}
+<div class="empty">
     <h1>Nothing to see here...</h1>
         <h3>Go make some connections!</h3>
+        <a href="/all-profiles">
+            <button class="ui primary" type="button" style="color:white">
+            Connect!
+        </button></a>
+    </div>
 {% endif%}
     {% for obj in qs %}
+    <div class="invites">
         <div class="ui segment">
             <div class="ui grid">
                 <div class="row">
                     <div class="three wide column">
-                        <img class ="ui small circular image" src={{obj.image.url}}>
+                        <img class="rounded-circle account-img" style="width:150px; height:150px; margin:1rem;" src={{obj.image.url}}>
                     </div>
                     <div class="thirteen wide column">
                         <h3>{{ obj.user }}</h3>
                         <p>{{ obj.bio }}</p>
-                        <a href="/view/{{ obj.user.profile.slug }}"><button class="ui primary button w-big mb-5">See profile</button></a>
+                        <a href="/view/{{ obj.user.profile.slug }}"><button class="ui primary">See profile</button></a>
                         <form action="{% url 'accept-invite' %}" method="POST">
                             {% csrf_token %}
                             <input type="hidden" name="profile_pk" value={{obj.pk}}>
-                            <button type="submit" class="ui positive basic button w-bit mb-5" name="button">
+                            <button type="submit" class="ui positive" name="button">
                                 <i class="check icon"></i>
                                 Accept invite
                             </button>
@@ -33,13 +40,13 @@
                         <form action="{% url 'reject-invite' %}" method="POST">
                             {% csrf_token %}
                             <input type="hidden" name="profile_pk" value={{obj.pk}}>
-                            <button type="submit" class="ui negative basic button w-bit mb-5" name="button">
+                            <button type="submit" class="ui negative" name="button">
                                 <i class="close icon"></i>
                                 Reject invite
                             </button>
                         </form>
                     </div>
-
+                </div>
                 </div>
             </div>
         </div>
@@ -51,11 +58,30 @@
 <style>
     body, html {
         height: 100%;
-        background-image: radial-gradient(white, #cce5ff, #99caff, #007bff);
+        background: fixed radial-gradient(white, #cce5ff, #99caff, #007bff);
         }
 
-    h1 {
+    .empty {
         padding-top: 4rem;
+        margin: 4rem;
+    }
+
+    .invites {
+        margin-top: 6rem;
+        margin-left: 4rem;
+    }
+    button {
+        color: white;
+        background-color: #007bff;
+        border-radius: 20% 20% 20% 20%;
+        padding: 2px;
+        margin: 2px;
+    }
+
+    button:hover {
+        color: #007bff;
+        background-color: #99caff;
+        
     }
 </style>
 {% endblock %}
