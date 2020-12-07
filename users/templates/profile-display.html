@@ -4,9 +4,9 @@
 <html>
 
 <body>
-    <div class="content-section" style="margin-top:5rem;">
+    <div class="content-card" style="margin-top:5rem;">
       <div class="media">
-        <img class="rounded-circle account-img" src="{{ object.user.profile.image.url }}">
+        <img class="rounded-circle account-img" style="width:150px; height:150px; margin:1rem;"  src="{{ object.user.profile.image.url }}">
         <div class="media-body">
           <h2 class="account-heading">{{ object.user }}</h2>
 
@@ -108,16 +108,16 @@
 
       <style>
           body, html {
-      height: 100%;
-      background-image: radial-gradient(white, #cce5ff, #99caff, #007bff);
+      height: auto;
+      background: fixed radial-gradient(white, #cce5ff, #99caff, #007bff);
     }
 
     main.container {
         margin-top:8rem;
         }
 
-        .media-body {
-            padding-left: 4rem;
+        .media {
+            margin-left: 4rem;
         }
 
       </style>

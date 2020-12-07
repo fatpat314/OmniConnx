@@ -11,44 +11,16 @@
 
 <br>
 <br>
-  <div class="columns is-mobile" style="margin-top:5rem; margin-left:50rem;">
+<div class="columns is-mobile" style="margin-top:6rem; margin-left:20rem;">
+ <div class="box">
+  <!-- <ul style="overflow-y: scroll; height: 75px" class="menu-list">
 
 
-  <div class="column">
-  <aside class="menu">
-    <h1 class="title is-2">
-    Inbox
-    </h1>
-  <ul style="overflow-y: scroll; height: 150px" class="menu-list">
-{% for message in messages %}
-
-<a class="{% if active_direct == message.user.username %}is-active{% endif %}" href="{% url 'directs' message.user.username %}">
-<div class="box">
-  <article class="media">
-    <div class="media-left">
-      <figure class="image is-64x64">
-          {% if message.user.profile.image %}
-            <img src="{{ message.user.profile.image.url }}" alt="Placeholder image" style="width:75px;height:75px;">
-          {% else %}
-            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" style="width:75px;height:75px;">
-          {% endif %}
-      </figure>
-    </div>
-    <div class="media-content">
-        <h3>{{ message.user.profile.user }}<h3>
-    </div>
-  </article>
-</div>
-</a>
-{% endfor %}
-
-  </ul>
-  </aside>
-<br>
+  </ul> -->
+<!-- <br> -->
 <h3 class="title is-2">
-Message
+Messages
 </h3>
-<a href="{% url 'usersearch' %}" class="button is-success">New message</a>
 
 </div>
 <div class="column">
@@ -64,10 +36,11 @@ Message
                         <div class="media-content">
                           <div class="content">
                             <p>
-                                <img src="{{ direct.sender.profile.image.url }}" alt="Placeholder image" style="width:75px;height:75px;">
-                              <strong>{{ direct.sender.profile.user }} {{ direct.receiver.profile.user }}</strong> <small>@{{ direct.sender.username }}</small> on: <strong><small>{{ direct.date|date:'N d G:i'}}</small></strong>
+                                <img class="rounded-circle account-img" style="width:80px; height:80px; margin:1rem;" src="{{ direct.sender.profile.image.url }}" alt="Placeholder image">
+                                {{ direct.body }}
+                                <strong>From: {{ direct.sender.profile.user }} To: {{ direct.receiver.profile.user }}</strong> <small>@{{ direct.sender.username }}on: {{ direct.date|date:'N d G:i'}}</small>
                               <br>
-                              {{ direct.body }}
+                              
                             </p>
                           </div>
                         </div>
@@ -76,6 +49,9 @@ Message
                 {% endif %}
             {% endfor %}
         {% endfor %}
+        <br>
+        <a href="{% url 'usersearch' %}" class="button is-success">Search Users</a>
+<br>
 <form role="form" method="POST" action="{% url 'send_direct' %}">
   {% csrf_token %}
 <article class="media">
@@ -112,7 +88,7 @@ Message
 <style>
    body, html {
         height: 100%;
-        background-image: radial-gradient(white, #cce5ff, #99caff, #007bff);
+        background: fixed radial-gradient(white, #cce5ff, #99caff, #007bff);
         }
 
 
