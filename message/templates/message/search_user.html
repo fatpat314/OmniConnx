@@ -5,24 +5,24 @@
 {% block content %}
 <html>
   <body>
- <div class="columns is-mobile">
-  <div class="column is-offset-one-fifth">
+ <!-- <div class="columns is-mobile">
+  <div class="column is-offset-one-fifth"> -->
 
 
 <div class="field has-addons">
-<form>
+
   <div class="control">
+    <form>
     <input class="input is-large" name="q" type="text" placeholder="Search users..." value="{{ request.GET.q }}">
-  </div>
-  <div class="control">
   	<button type="submit" class="button is-success">Search</button>
-  </div>
+  
   </form>
 </div>
+</div>
 
 
-</div>
-</div>
+<!-- </div>
+</div> -->
 
 <div class="column is-one-quarter">
 
@@ -56,4 +56,16 @@
 
   </body>
 </html>
+
+<style>
+ 
+   body, html {
+        height: 100%;
+        background: fixed radial-gradient(white, #cce5ff, #99caff, #007bff);
+        }
+  .control {
+    margin-top: 6rem;
+    margin-left: 4rem;
+  }
+</style>
 {% endblock %}
