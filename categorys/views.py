@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
-from .models import Listing
+from .models import Listing, Comment
 from .forms import CommentForm
 from message.models import Message
 # from .forms import PageForm
@@ -281,7 +281,29 @@ class Post_delete_view(DeleteView):
     template_name = 'categorys/post_delete.html'
     success_url = reverse_lazy('index_all')
 
-def add_comment_to_post(request, pk):
+def add_comment_to_post(request, parent_or_child=None, pk=None):
+
+    categories = Category.objects.filter(parent=None)
+
+    if parent_or_child is None:
+        listings = Listing.objects.all().order_by("-created")
+
+    elif parent_or_child == 'child':
+        sub_cat = SubCategory.objects.get(pk=pk)
+        listings = sub_cat.listing_set.all().order_by("-created")
+
+
+    elif parent_or_child == 'parent':
+        listings = []
+        sub_cats = Category.objects.get(pk=pk).children.all().order_by("-created")
+
+
+        for sub_cat in sub_cats:
+            prds = sub_cat.listing_set.all().order_by("-created")
+            listings += prds
+    else:
+        listings = []
+
     post = get_object_or_404(Listing, pk=pk)
     if request.method == "POST":
         form = CommentForm(request.POST)
@@ -295,4 +317,4 @@ def add_comment_to_post(request, pk):
             return redirect('index_all')
     else:
         form = CommentForm()
-    return render(request, 'categorys/add_comment_to_post.html', {'form': form})
+    return render(request, 'categorys/com.html', {'categories': categories, 'listings': listings, 'form': form})
