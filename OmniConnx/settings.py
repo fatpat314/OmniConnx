@@ -54,8 +54,21 @@ INSTALLED_APPS = [
 SITE_ID=1
 
 COMMENTS_APP = 'django_comments_xtd';
+COMMENTS_XTD_SALT = (b"Timendi causa est nescire. "
+                     b"Aequam memento rebus in arduis servare mentem.")
+COMMENTS_XTD_CONFIRM_EMAIL = True
+COMMENTS_XTD_FROM_EMAIL = "noreply@gmail.com"
+COMMENTS_XTD_CONTACT_EMAIL = "helpdesk@gmail.com"
+COMMENTS_XTD_MAX_THREAD_LEVEL = 4  # default is 0
+COMMENTS_XTD_LIST_ORDER = ('-thread_id', 'order')  # default is ('thread_id', 'order')
+COMMENTS_XTD_APP_MODEL_OPTIONS = {
+    'cms.articlepage': {
+        'allow_flagging': False,
+        'allow_feedback': True,
+        'show_feedback': True,
+    }
+}
 
-COMMENTS_XTD_MAX_THREAD_LEVEL  = 4;
 
 COMMENTS_XTD_CONFIRM_EMAIL = True;
 
