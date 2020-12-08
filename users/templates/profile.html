@@ -17,11 +17,12 @@
               <legend class="border-bottom mb-4">Profile Info</legend>
               {{ u_form|crispy }}
               {{ p_form|crispy }}
+              <hr>
+              <strong>Number of friends : {{profile.get_friends_number}}</strong>
               {% for friend in profile.get_friends %}
                   {{friend}}
                   <br>
               {% endfor %}
-              Number of friends : {{profile.get_friends_number}}
 
               {{ object }}
           </fieldset>
