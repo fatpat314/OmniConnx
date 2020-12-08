@@ -17,7 +17,7 @@ Do what ever you want -->
 
         <hr>
         <!-- Don't change this -->
-        <p>{{ post.content|linebreaksbr }}</p>
+        <p>{% csrf_token %}{{ post.content|linebreaksbr }}</p>
 
 
         <hr>

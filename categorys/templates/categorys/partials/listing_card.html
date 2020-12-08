@@ -75,7 +75,7 @@ return elClassName[elClassName.length - 1]
         <div class="post-form" style="margin-top:5rem; margin-left:5rem;">
           <h1>New comment</h1>
                 <form method="POST" id="csrf_token" action="."  class="post-form">
-                  {% csrf_token %}
+                  {{ csrf_input }}
                     {{ form.as_table }}
                     <button type="submit" class="save btn btn-primary" name="send-button">Send</button>
                 </form>

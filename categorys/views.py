@@ -7,12 +7,14 @@ from django.views.generic.detail import DetailView
 
 from .models import Listing, Comment
 from .forms import CommentForm
+# from .urls import csrf_exempt
 from message.models import Message
 # from .forms import PageForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, View
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.template import loader
+from django.views.decorators.csrf import csrf_exempt
 
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
@@ -146,7 +148,7 @@ class PageDetailView(DetailView):
 
     def get(self, request, pk=None): #slug
         """ Returns a specific wiki page by pk. """
-        post = self.get_queryset().get(pk=pk)
+        post = self.get_queryset().get(pk=pk);
         return render(request, 'categorys/post.html', {
           'post': post
         })
@@ -279,10 +281,10 @@ class Post_delete_view(DeleteView):
 
     model = Listing
     template_name = 'categorys/post_delete.html'
-    success_url = reverse_lazy('index_all')
+    success_url = reverse_lazy('index_all');
 
+@csrf_exempt
 def add_comment_to_post(request, parent_or_child=None, pk=None):
-
     categories = Category.objects.filter(parent=None)
 
     if parent_or_child is None:
@@ -292,11 +294,9 @@ def add_comment_to_post(request, parent_or_child=None, pk=None):
         sub_cat = SubCategory.objects.get(pk=pk)
         listings = sub_cat.listing_set.all().order_by("-created")
 
-
     elif parent_or_child == 'parent':
         listings = []
         sub_cats = Category.objects.get(pk=pk).children.all().order_by("-created")
-
 
         for sub_cat in sub_cats:
             prds = sub_cat.listing_set.all().order_by("-created")
@@ -317,4 +317,4 @@ def add_comment_to_post(request, parent_or_child=None, pk=None):
             return redirect('index_all')
     else:
         form = CommentForm()
-    return render(request, 'categorys/com.html', {'categories': categories, 'listings': listings, 'form': form})
+    return render(request, 'categorys/add_comment_to_post.html', {'categories': categories, 'listings': listings, 'form': form})

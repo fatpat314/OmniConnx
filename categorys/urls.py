@@ -1,11 +1,11 @@
 from django.urls import path, include
 from . import views
-from .views import PageDetailView, PageListView, PostCreateView, SubCreate, GridView
+from .views import PageDetailView, PageListView, PostCreateView, SubCreate, GridView;
 # from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-# from . import settings
+from django.views.decorators.csrf import csrf_exempt
 admin.autodiscover()
 
 # app_name = 'categorys'
@@ -23,8 +23,7 @@ urlpatterns = [
     path('<int:pk>/edit/', views.Post_edit_view.as_view(), name='edit-post'),
     path('<int:pk>/delete/', views.Post_delete_view.as_view(), name='delete-post'),
     path('post/new/', PostCreateView.as_view(), name='post-create'),
-    path('post/<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
-    # path('home/', PageDetailView.as_view(), name='home' )
+    path('post/<int:pk>/comment/', csrf_exempt(views.add_comment_to_post), name='add_comment_to_post'),
     path('sub/new', SubCreate.as_view(), name='sub-create')
 ]
 
