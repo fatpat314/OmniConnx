@@ -13,10 +13,10 @@
 <br>
 <div class="columns is-mobile" style="margin-top:6rem; margin-left:20rem;">
  <div class="box">
-  <!-- <ul style="overflow-y: scroll; height: 75px" class="menu-list">
+  <ul style="overflow-y: scroll; height: 75px" class="menu-list">
 
 
-  </ul> -->
+  </ul> 
 <!-- <br> -->
 <h3 class="title is-2">
 Messages
@@ -32,17 +32,19 @@ Messages
                     <div class="box">
                       <article class="media">
                         <div class="media-left">
+                          <strong>Sender: </strong>@{{ direct.sender.username }} <small>on: {{ direct.date|date:'N d G:i'}}</small>
                         </div>
+                        <br>
                         <div class="media-content">
                           <div class="content">
-                            <p>
-                                <img class="rounded-circle account-img" style="width:80px; height:80px; margin:1rem;" src="{{ direct.sender.profile.image.url }}" alt="Placeholder image">
+                                <img class="rounded-circle account-img" style="width:80px; height:80px; " src="{{ direct.sender.profile.image.url }}">
+                                <div class="message-box" style="width:auto; height:auto; background-color:white; padding:1rem;margin-left:6rem;margin-top:-5rem;">
+                                <p>
                                 {{ direct.body }}
-                                <strong>From: {{ direct.sender.profile.user }} To: {{ direct.receiver.profile.user }}</strong> <small>@{{ direct.sender.username }}on: {{ direct.date|date:'N d G:i'}}</small>
-                              <br>
-                              
                             </p>
                           </div>
+                          </div>
+                          <br>
                         </div>
                       </article>
                     </div>
@@ -50,7 +52,7 @@ Messages
             {% endfor %}
         {% endfor %}
         <br>
-        <a href="{% url 'usersearch' %}" class="button is-success">Search Users</a>
+        <!-- <a href="{% url 'usersearch' %}" class="button is-success">Search Users</a> -->
 <br>
 <form role="form" method="POST" action="{% url 'send_direct' %}">
   {% csrf_token %}
@@ -87,10 +89,21 @@ Messages
 
 <style>
    body, html {
-        height: 100%;
+        height: auto;
         background: fixed radial-gradient(white, #cce5ff, #99caff, #007bff);
         }
 
+.columns {
+  margin-top:-6rem;
+}
 
+.content {
+  margin-top: 2rem;
+  margin-left: -18rem;
+}
+/* 
+div.content {
+  margin-left: -18rem;
+} */
 </style>
 {% endblock %}
