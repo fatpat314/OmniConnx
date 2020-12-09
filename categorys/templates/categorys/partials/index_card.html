@@ -1,30 +1,22 @@
-<div class="card mb-4">
-  <h5 class="card-header ">{{ category }}</h5>
+{% block content %}
+
+<div class="card mb-4" style="max-height:267.69px">
+  <h6 class="card-header" style="max-height:49px;">{{ category }}</h6>
   <img class="rounded-circle account-img" style="width:75px;height:75px;" src="{{ category.image.url }}">
   <div class="card-body border-dark">
       <div class="dropdown" style="margin-left:5rem;">
        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" style="background-color: #2196F3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Focus</button>
-       <div id="myDropdown" class="dropdown-content" style="width=100px;" style="background-color: #2196F3">
+       <div id="myDropdown" class="dropdown-content" style="width:auto; height:auto' background-color:whitesmoke">
 
         {% for sub_cat in category.children.all %}
-        <a href="{% url 'listing' parent_or_child='child' pk=sub_cat.id %}">{{ sub_cat }}</a>
-        <!-- <a class="dropdown-item" href="{% url 'listing' parent_or_child='child' pk=sub_cat.id %}">{{ sub_cat }}</a> -->
-                <!-- <a href="{% url 'listing' parent_or_child='child' pk=sub_cat.id %}"> {{ sub_cat }} </a> -->
-        <!-- <hr> -->
-        <!-- Don't change this -->
+        <a href="{% url 'listing' parent_or_child='child' pk=sub_cat.id %}"><h6>{{ sub_cat }}</h6></a>
+        
         {% endfor %}
 
-
+      </div>
     </div>
    </div>
+  </div>
 
-</div>
-</div>
-<!-- <div class="dropdown">
- <button onclick="myFunction()" class="dropbtn">Dropdown</button>
- <div id="myDropdown" class="dropdown-content">
-   <a href="#">Link 1</a>
-   <a href="#">Link 2</a>
-   <a href="#">Link 3</a>
- </div>
-</div> -->
+
+{% endblock %}

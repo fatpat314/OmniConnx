@@ -1,6 +1,8 @@
 {% extends "base.html" %}
+
 {% block content %}
 <html>
+  <body>
 <div class="main-alt">
 <nav class="menu" tabindex="0">
   <div class="smartphone-menu-trigger"></div>
@@ -15,13 +17,12 @@
           {% endif %}
   
     </div>
-<div class="main" style="margin-left:-10rem; margin-top:6rem;">
-<main>
-  {% if user.is_authenticated %}
-{% endif %}
-    <div class="card-columns"> 
 
-        <div class="card-columns" style="column-count:4;">
+    <div class="grid container" style="margin-left:-10rem; margin-top:5rem">
+      <main>
+      {% if user.is_authenticated %}
+    <div class="row">
+  <div class="card-columns" style="column-count:4; margin:auto;">
         {% for category in categories %}
             <!-- <a href="{% url 'index' parent_or_child='parent' pk=category.id %}"> -->
                     {% include "categorys/partials/index_card.html" %}
@@ -29,18 +30,20 @@
 
         {% endfor %}
         </div>
+      </div>
+    
 
-    </div>
-</main>
-</div>
-<body>
+{% endif %}
+  </main>
     {% include 'sidebar.html' %}
 
+</body>
 
   </html>
+
 <style>
-  .card-columns {
-       width: 1000px;
+  .main-alt {
+       width: auto;
        /* margin-left: 100px; */
    }
    #welcome {
@@ -63,7 +66,7 @@
      inline-size: 150%;
    }
 
-    div.main {
+    .grid.container {
       padding-top:4rem;
     }
 
