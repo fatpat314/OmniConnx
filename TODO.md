@@ -25,4 +25,25 @@
 ### on profile list page profile thumbnails should include user's specialization (and maybe whether or not they're a student?)
 
 
+<!-- For the MVP I haven't included every single sub-specialty within every category because there are just too many and it makes more sense to find out exactly who will be using the app and how they're going to be using it. We still may decide that the user is going to create the subcategory specializations by entering it onto a field on their profile, or peraps through a system of hashtags on the body of their posts
+So for the time being I'm leaving the lists of subgaregories here on this page.  -->
 
+### Physicians specializing in diagnostic radiology are trained to diagnose illnesses in patients through the use of x-rays, radioactive substances, sound waves in ultrasounds, or the body’s natural magnetism in magnetic resonance images (MRIs).They can also pursue a subspecialty in the following areas:
+
+## Abdominal radiology
+## Breast imaging
+## Cardiothoracic radiology
+## Cardiovascular radiology
+## Emergency radiology
+## Endovascular surgical neuroradiology
+## Gastrointestinal radiology
+## Genitourinary radiology
+## Head and neck radiology
+## Interventional radiology
+## Musculoskeletal radiology
+## Neuroradiology
+## Nuclear radiology
+## Pediatric radiology
+## Radiation oncology
+## Vascular and interventional radiology 
+---------------------------
