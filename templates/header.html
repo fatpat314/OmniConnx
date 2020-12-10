@@ -4,7 +4,7 @@
   {% if user.is_authenticated %}
   <header class="avatar">
       <div class="container" style="margin-top:4rem; margin-left:-1rem; width:175px;">  
-          <img class="rounded-circle account-img img-fluid" style="width:100% height=auto margin-left=1rem;" src="{{ user.profile.image.url }}">
+          <img class="rounded-circle account-img img-fluid" style="width:100% height=auto border-radius=25% 25% 25% 25%;margin-left=1rem;" src="{{ user.profile.image.url }}">
           <h4 style="color:whitesmoke; margin-left:2rem">Welcome, {{user.username}}!</h4>
         </div>
     {% endif %}

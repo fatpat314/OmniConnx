@@ -7,13 +7,13 @@
 <nav class="menu" tabindex="0">
   <div class="smartphone-menu-trigger"></div>
   {% if user.is_authenticated %}
-  <!-- <header class="avatar">
-          <img class="rounded-circle sm account-img img-fluid" alt="Responsive image" style="width:150px; height:150; margin-left:2rem; position:absolute" src="{{ user.profile.image.url }}">
-          <div id="welcome">
+  <header class="avatar">
+          <img class="rounded-circle sm account-img img-fluid" alt="Responsive image" style="width:150px; height:150;margin-left:-2rem; position:inherit;" src="{{ user.profile.image.url }}">
+          <!-- <div id="welcome">
             <h5>{{user.username}}</h5>
-        </div>
-      </header> -->
-      {% include 'header.html' %}
+        </div> -->
+      </header>
+      <!-- {% include 'header.html' %} -->
           {% endif %}
   
     </div>
@@ -22,7 +22,7 @@
       <main>
       {% if user.is_authenticated %}
     <div class="row">
-  <div class="card-columns" style="column-count:4; margin:auto;">
+  <div class="card-columns" style="column-count:4 ; margin:auto;">
         {% for category in categories %}
             <!-- <a href="{% url 'index' parent_or_child='parent' pk=category.id %}"> -->
                     {% include "categorys/partials/index_card.html" %}
@@ -44,11 +44,10 @@
 <style>
   .main-alt {
        width: auto;
-       /* margin-left: 100px; */
    }
    #welcome {
     /* margin-left: 2rem; */
-    margin-top: 6rem;
+    /* margin-top: 6rem; */
     position: relative;
     
    }
@@ -61,7 +60,7 @@
    }
 
    .avatar {
-     margin-left: -6rem;
+     margin-left: 2rem;
      margin-top:5rem;
      inline-size: 150%;
    }
