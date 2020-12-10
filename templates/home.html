@@ -7,15 +7,16 @@
 
 
 <body>
-
 <div class="container" id="welcome"> 
-  
-    {% if user.is_authenticated %}
+  {% if user.is_authenticated %}
     <section id="home"><h1><a href="/grid">OmniConnx</h1>
+      
     {% else %}
     <section id="login"><h1><a href="{% url 'login' %}">OmniConnx</h1>
-          {% endif %}
-  <div class="container1">
+
+      {% endif %}
+      
+  <div class="container1">                                                                                                                                                                                                                                                                                                                                                                                                               
 
     <div></div>
     <div></div>
@@ -25,9 +26,17 @@
   </div>
   </a>
   </section>
+</section>
+{% if user.is_authenticated %}
+<section id="home"><h1><a href="/grid">ENTER</h1>
+  {% else %}
+  <section id="login"><<h1><a href="{% url 'login' %}">ENTER</h1>
   </div>
-
-<!-- </section> -->
+</div>
+  {% endif %}
+</a>
+</section>
+</div>
   </body>
 </html>
 
@@ -38,7 +47,7 @@
     text-decoration: none;
     font-size: 38px;
     color: #007bff;
-    padding-left: 8px;
+    padding-left: 8px;-ms-scrollbar-shadow-color: ;
     margin-top: 1rem;
 
   }
@@ -63,6 +72,16 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+  }
+
+.ENTER a{
+
+    text-decoration: none;
+    font-size: 38px;
+    color: #007bff;
+    padding-left: 8px;-ms-scrollbar-shadow-color: ;
+    margin-top: 1rem;
+
   }
 
 
