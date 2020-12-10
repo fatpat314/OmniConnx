@@ -10,6 +10,8 @@ from message.models import Message
 
 from django.db.models import Q
 from django.core.paginator import Paginator
+
+
 # Create your views here.
 
 @login_required
@@ -102,7 +104,15 @@ def SendDirect(request):
     to_user_username = request.POST.get('to_user')
     body = request.POST.get('body')
 
+
+
     if request.method == 'POST':
+        all_users = User.objects.values()
+        is_user = []
+        for i in range(len(all_users)):
+            is_user.append(all_users[i]['username'])
+        if to_user_username not in is_user:
+            return redirect('inbox')
         to_user = User.objects.get(username=to_user_username)
         Message.send_message(from_user, to_user, body)
         return redirect('inbox')

@@ -12,17 +12,43 @@
 <br>
 <br>
 <div class="columns is-mobile" style="margin-top:6rem; margin-left:20rem;">
- <div class="box">
-  <ul style="overflow-y: scroll; height: 75px" class="menu-list">
+ <!-- <div class="box"> -->
+  <!-- <ul style="overflow-y: scroll; height: 75px" class="menu-list"> -->
 
 
-  </ul> 
+  </ul>
 <!-- <br> -->
 <h3 class="title is-2">
 Messages
 </h3>
+<!-- </div> -->
 
-</div>
+<!-- <ul style="overflow-y: scroll; height: 150px" class="menu-list"> -->
+  {% for message in messages %}
+    <a class="{% if active_direct == message.user.username %}is-active{% endif %}" href="{% url 'directs' message.user.username %}">
+      <!-- <div class="box"> -->
+        <!-- <article class="media"> -->
+          <!-- <div class="media-left"> -->
+            <figure class="image is-64x64">
+              {% if message.user.profile.image %}
+                <img src="{{ message.user.profile.image.url }}" alt="Placeholder image" style="width:75px;height:75px;">
+              {% else %}
+                <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" style="width:75px;height:75px;">
+              {% endif %}
+            </figure>
+          <!-- </div> -->
+          <div class="media-content">
+            <h3>{{ message.user.profile.user }}<h3>
+          </div>
+        <!-- </article> -->
+      <!-- </div> -->
+    </a>
+
+  {% endfor %}
+
+
+
+
 <div class="column">
     <div style= "height: 500px;">
         {% for direct in directs %}
@@ -101,7 +127,7 @@ Messages
   margin-top: 2rem;
   margin-left: -18rem;
 }
-/* 
+/*
 div.content {
   margin-left: -18rem;
 } */
