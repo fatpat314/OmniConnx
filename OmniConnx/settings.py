@@ -26,7 +26,7 @@ SECRET_KEY = 'p*i+o=-#7m2sz@m00weu26%p2xb73t8^0+r-f44#_$xgv0i_!k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'omniconnx.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', 'omniconnxgs.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'django_comments',
     'message',
     # 'storages'
-]
+] 
 
 SITE_ID=1
 
@@ -117,7 +117,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'yourusername@gmail.com'
+EMAIL_HOST_USER = 'gscrawley@gmail.com'
 EMAIL_HOST_PASSWORD = 'yourpassword'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
