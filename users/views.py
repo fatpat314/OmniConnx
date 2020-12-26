@@ -311,7 +311,7 @@ class ProfileListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        user = User.objects.get(username__iexact=self.request.user)
+        user = User.objects.get(username=self.request.user)
         profile = Profile.objects.get(user=user)
         rel_r = Friend_request.objects.filter(sender=profile)
         rel_s = Friend_request.objects.filter(receiver=profile)
