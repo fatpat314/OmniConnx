@@ -47,3 +47,7 @@ So for the time being I'm leaving the lists of subgaregories here on this page. 
 ## Radiation oncology
 ## Vascular and interventional radiology 
 ---------------------------
+
+ 
+## ERRORS that need addressing ASAP- clicking 'view profile' on any profile on the 'all-profiles' page results in a 404 error.
+
