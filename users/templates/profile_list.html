@@ -20,7 +20,7 @@
                     <div class="thirteen wide column">
                         <h3>{{ obj.user }}</h3>
                         <p>{{ obj.bio }}</p>
-                        <a href={{obj.get_absolute_url}}><button class="ui primary" type="button" name="button">See profile</button></a>
+                        <a href="/view/{{ obj.user.profile.slug }}"><button class="ui primary" type="button" name="button">See profile</button></a>
                         {% if obj.user not in rel_receiver and obj.user not in rel_sender %}
                             <form action="{% url 'send-invite' %}" method="POST">
                                 {% csrf_token %}
@@ -74,7 +74,7 @@
     button:hover {
         color: #007bff;
         background-color: #99caff;
-        
+
     }
 </style>
 {% endblock %}

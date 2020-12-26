@@ -314,7 +314,9 @@ def add_comment_to_post(request, parent_or_child=None, pk=None):
             comment.author = comment.author.user
             print(comment.author.user)
             comment.save()
-            return redirect('index_all')
+            # post = self.get_queryset().get(pk=pk);
+            return render(request, 'categorys/post.html', {'post': post})
+            # return redirect('index_all')
     else:
         form = CommentForm()
     return render(request, 'categorys/add_comment_to_post.html', {'categories': categories, 'listings': listings, 'form': form})
