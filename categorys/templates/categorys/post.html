@@ -8,7 +8,6 @@ Do what ever you want -->
 {% block content %}
 <html>
     <body>
-        TEST
 
 
     <div class="row" style="margin-top:5rem; margin-left:50px;">
@@ -36,7 +35,13 @@ Do what ever you want -->
             {% endif %}
         {% endif %}
 
-        
+        <!-- {% for comment in listing.comments.all %}
+        <div class="date">{{ comment.created_date }}</div>
+        <h6><strong>{{ comment.author }}</strong></h6>
+        <strong><p>{{ comment.text }}</p></strong>
+        <hr>
+        {% empty %}
+        {% endfor %} -->
 
 
 
