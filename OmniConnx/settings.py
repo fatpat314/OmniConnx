@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'p*i+o=-#7m2sz@m00weu26%p2xb73t8^0+r-f44#_$xgv0i_!k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', 'omniconnxgs.herokuapp.com', '127.0.0.1']
 
@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'django_comments',
     'message',
     # 'storages'
-] 
+]
 
 SITE_ID=1
 
