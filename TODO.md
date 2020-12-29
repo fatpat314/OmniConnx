@@ -51,3 +51,4 @@ So for the time being I'm leaving the lists of subgaregories here on this page. 
  
 ## ERRORS that need addressing ASAP- clicking 'view profile' on any profile on the 'all-profiles' page results in a 404 error.
 
+## There's a problem when a category has too many subcategories, the page freaks out because it doesn't know how to show them. rather than a drop-down, each category containing subcategories should lead to its own page. also because some subcategories have subcategories of their own. in fact each (sub)category when clicked should lead to an index page with all the postings in that category anyways. 

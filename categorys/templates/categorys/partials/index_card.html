@@ -5,18 +5,18 @@
   <img class="rounded-circle account-img" style="width:75px;height:75px;" src="{{ category.image.url }}">
   <div class="card-body border-dark">
       <div class="dropdown" style="margin-left:5rem;">
-       <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" style="background-color: #2196F3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Focus</button>
+       <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" style="background-color: #2196F3; position:unset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Focus</button>
        <div id="myDropdown" class="dropdown-content" style="width:auto; height:auto' background-color:whitesmoke">
-
         {% for sub_cat in category.children.all %}
         <a href="{% url 'listing' parent_or_child='child' pk=sub_cat.id %}"><h6>{{ sub_cat }}</h6></a>
         
         {% endfor %}
-
-      </div>
+        
+      
     </div>
    </div>
   </div>
+</div>
 
 
 {% endblock %}
