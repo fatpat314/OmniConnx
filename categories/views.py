@@ -98,7 +98,7 @@ def listing_view(request, parent_or_child=None, pk=None):
     #             return redirect('index_all')
     #     else:
     #         form = CommentForm()
-    #     return render(request, 'categorys/add_comment_to_post.html', {'form': form})
+    #     return render(request, 'categories/add_comment_to_post.html', {'form': form})
 
     categories = Category.objects.filter(parent=None)
 
@@ -138,7 +138,7 @@ def listing_view(request, parent_or_child=None, pk=None):
 
     return render(
         request,
-        'categorys/listings.html',
+        'categories/listings.html',
         {'categories': categories, 'listings': listings, 'messages': messages, 'directs':directs}
     )
 
@@ -149,7 +149,7 @@ class PageDetailView(DetailView):
     def get(self, request, pk=None): #slug
         """ Returns a specific wiki page by pk. """
         post = self.get_queryset().get(pk=pk);
-        return render(request, 'categorys/post.html', {
+        return render(request, 'categories/post.html', {
           'post': post
         })
 
@@ -246,7 +246,7 @@ class PageListView(ListView):
 
         return render(
             request,
-            'categorys/index.html',
+            'categories/index.html',
             {'categories': categories, 'listings': listings, 'messages': messages, 'directs':directs}
         )
 
@@ -273,14 +273,14 @@ class SubCreate(CreateView):
 class Post_edit_view(UpdateView):
     model = Listing
     fields = ['title', 'content']
-    template_name = 'categorys/index.html'
+    template_name = 'categories/index.html'
     success_url = reverse_lazy('index_all')
 
 @method_decorator([login_required], name='dispatch')
 class Post_delete_view(DeleteView):
 
     model = Listing
-    template_name = 'categorys/post_delete.html'
+    template_name = 'categories/post_delete.html'
     success_url = reverse_lazy('index_all');
 
 @csrf_exempt
@@ -315,8 +315,8 @@ def add_comment_to_post(request, parent_or_child=None, pk=None):
             print(comment.author.user)
             comment.save()
             # post = self.get_queryset().get(pk=pk);
-            return render(request, 'categorys/post.html', {'post': post})
+            return render(request, 'categories/post.html', {'post': post})
             return redirect('index_all')
     else:
         form = CommentForm()
-    return render(request, 'categorys/add_comment_to_post.html', {'categories': categories, 'listings': listings, 'form': form})
+    return render(request, 'categories/add_comment_to_post.html', {'categories': categories, 'listings': listings, 'form': form})

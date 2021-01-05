@@ -22,15 +22,15 @@ from message import views as message_views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url
-from categorys import views as category_views
+from categories import views as category_views
 
 
 urlpatterns = [
-    path('', include('categorys.urls')),
+    path('', include('categories.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
     path('', include('users.urls')),
-    # path('categorys/', include('categorys.urls')),
+    # path('categories/', include('categories.urls')),
     path('admin/', admin.site.urls),
     path('register/', user_views.register, name='register'),
     path('profile/', category_views.PageListView.as_view(), name='index_all'),

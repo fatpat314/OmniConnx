@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 
     'crispy_forms',
 
-    'categorys',
+    'categories',
     'users',
 
     'django_comments_xtd',

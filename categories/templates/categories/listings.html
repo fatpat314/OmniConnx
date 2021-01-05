@@ -1,5 +1,3 @@
-
-
 {% extends "base.html" %}
 
 <!-- listings.html -->
@@ -11,7 +9,7 @@
 <html>
   <body>
 
-<!-- Note: I think it looks way better without the avatar header on the listings pages;
+<!-- Note: I think it looks way better without the avatar header on the listings pages; 
 we already have the avatar in the posting itself, it's redundant to repeat it and looks awkward on the page.
 In addition, let's add the name of the subcategory centered at the top of the page. -->
 
@@ -20,12 +18,13 @@ In addition, let's add the name of the subcategory centered at the top of the pa
     <div class="post">
         <div class="timeline" style="width:1200px; margin-top:5rem;">
 
+      
       {% for listing in listings %}
       <h3 style="color:white; text-align:end">{{ listing.sub_category }} postings</h3>
 
           <li class="list-group-item">
               <div class="text_size">
-                  {% include "categorys/partials/com-card.html" %}
+                  {% include "categories/partials/listing_card.html" %}
               </div>
           </li>
       {% endfor %}
@@ -38,14 +37,6 @@ In addition, let's add the name of the subcategory centered at the top of the pa
 </html>
 
 
-
-<!-- <div class="post-form" style="margin-top:5rem; margin-left:5rem;">
-    <h1>New comment</h1>
-        <form method="POST" class="post-form">{% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="save btn btn-primary" name="send-button">Send</button>
-        </form>
-</div> -->
 
 
 {% include 'sidebar.html' %}
