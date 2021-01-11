@@ -37,7 +37,7 @@ class Category(Node):
     objects = CategoryManager()
     class Meta:
         proxy = True
-        verbose_name_plural = 'Categories'
+        verbose_name_plural = 'Categorys'
 
 
 class SubCategory(Node):
