@@ -55,3 +55,4 @@ So for the time being I'm leaving the lists of subgaregories here on this page. 
 
 ## FOCUS button scrolls above the navbar for some reason
 
+## here are the directions for uploading files from django to AWS S3     https://devcenter.heroku.com/articles/s3-upload-python
