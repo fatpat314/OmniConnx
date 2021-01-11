@@ -29,7 +29,7 @@ def about_view(request):
     return render(request, "about.html")
 
 def student_view(request, parent_or_child=None, pk=None):
-    categorys = Category.objects.filter(parent=None)
+    categories = Category.objects.filter(parent=None)
 
     if parent_or_child is None:
         listings = Listing.objects.all()
@@ -51,12 +51,12 @@ def student_view(request, parent_or_child=None, pk=None):
     return render(
         request,
         'for_students.html',
-        {'categorys': categorys, 'listings': listings}
+        {'categorys': categories, 'listings': listings}
     )
     # return render(request, "for_students.html")
 
 def professionals_view(request, parent_or_child=None, pk=None):
-    categorys = Category.objects.filter(parent=None)
+    categories = Category.objects.filter(parent=None)
 
     if parent_or_child is None:
         listings = Listing.objects.all()
@@ -78,7 +78,7 @@ def professionals_view(request, parent_or_child=None, pk=None):
     return render(
         request,
         'for_professionals.html',
-        {'categorys': categorys, 'listings': listings}
+        {'categorys': categories, 'listings': listings}
     )
 
 
@@ -100,7 +100,7 @@ def listing_view(request, parent_or_child=None, pk=None):
     #         form = CommentForm()
     #     return render(request, 'categorys/add_comment_to_post.html', {'form': form})
 
-    categorys = Category.objects.filter(parent=None)
+    categories = Category.objects.filter(parent=None)
 
     if parent_or_child is None:
         listings = Listing.objects.all().order_by("-created")
@@ -139,7 +139,7 @@ def listing_view(request, parent_or_child=None, pk=None):
     return render(
         request,
         'categorys/listings.html',
-        {'categorys': categorys, 'listings': listings, 'messages': messages, 'directs':directs}
+        {'categorys': categories, 'listings': listings, 'messages': messages, 'directs':directs}
     )
 
 class PageDetailView(DetailView):
@@ -174,7 +174,7 @@ class GridView(ListView):
                     message['unread'] = 0
 
         """ GET a list of Pages. """
-        categorys = Category.objects.filter(parent=None)
+        categories = Category.objects.filter(parent=None)
 
         if parent_or_child is None:
             listings = Listing.objects.all().order_by("-created")
@@ -199,7 +199,7 @@ class GridView(ListView):
         return render(
             request,
             'grid.html',
-            {'categorys': categorys, 'listings': listings, 'messages': messages, 'directs':directs}
+            {'categorys': categories, 'listings': listings, 'messages': messages, 'directs':directs}
         )
 
 
@@ -210,7 +210,7 @@ class PageListView(ListView):
 
     def get(self, request, parent_or_child=None, pk=None, *args, **kwargs):
         """ GET a list of Pages. """
-        categorys = Category.objects.filter(parent=None)
+        categories = Category.objects.filter(parent=None)
 
         if parent_or_child is None:
             listings = Listing.objects.all().order_by("-created")
@@ -247,7 +247,7 @@ class PageListView(ListView):
         return render(
             request,
             'categorys/index.html',
-            {'categories': categorys, 'listings': listings, 'messages': messages, 'directs':directs}
+            {'categorys': categories, 'listings': listings, 'messages': messages, 'directs':directs}
         )
 
 class PostCreateView(CreateView):
