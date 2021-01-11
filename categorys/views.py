@@ -139,7 +139,7 @@ def listing_view(request, parent_or_child=None, pk=None):
     return render(
         request,
         'categorys/listings.html',
-        {'categorys': categories, 'listings': listings, 'messages': messages, 'directs':directs}
+        {'categories': categories, 'listings': listings, 'messages': messages, 'directs':directs}
     )
 
 class PageDetailView(DetailView):
@@ -247,7 +247,7 @@ class PageListView(ListView):
         return render(
             request,
             'categorys/index.html',
-            {'categorys': categories, 'listings': listings, 'messages': messages, 'directs':directs}
+            {'categories': categories, 'listings': listings, 'messages': messages, 'directs':directs}
         )
 
 class PostCreateView(CreateView):
@@ -319,4 +319,4 @@ def add_comment_to_post(request, parent_or_child=None, pk=None):
             return redirect('index_all')
     else:
         form = CommentForm()
-    return render(request, 'categorys/add_comment_to_post.html', {'categorys': categories, 'listings': listings, 'form': form})
+    return render(request, 'categorys/add_comment_to_post.html', {'categories': categories, 'listings': listings, 'form': form})
