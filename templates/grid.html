@@ -23,9 +23,9 @@
       {% if user.is_authenticated %}
     <div class="row">
   <div class="card-columns" style="column-count:4 ; margin:auto;">
-        {% for category in categories %}
+        {% for category in categorys %}
             <!-- <a href="{% url 'index' parent_or_child='parent' pk=category.id %}"> -->
-                    {% include "categories/partials/index_card.html" %}
+                    {% include "categorys/partials/index_card.html" %}
             </a>
 
         {% endfor %}

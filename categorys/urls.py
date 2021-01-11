@@ -8,7 +8,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.decorators.csrf import csrf_exempt
 admin.autodiscover()
 
-# app_name = 'categories'
+# app_name = 'categorys'
 urlpatterns = [
     path('', views.home_view, name='home'),
     path('grid/', GridView.as_view(), name='grid'),

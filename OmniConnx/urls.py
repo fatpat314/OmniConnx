@@ -22,11 +22,11 @@ from message import views as message_views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url
-from categories import views as category_views
+from categorys import views as category_views
 
 
 urlpatterns = [
-    path('', include('categories.urls')),
+    path('', include('categorys.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
     path('', include('users.urls')),

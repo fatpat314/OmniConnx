@@ -29,7 +29,7 @@ def about_view(request):
     return render(request, "about.html")
 
 def student_view(request, parent_or_child=None, pk=None):
-    categories = Category.objects.filter(parent=None)
+    categorys = Category.objects.filter(parent=None)
 
     if parent_or_child is None:
         listings = Listing.objects.all()
@@ -51,12 +51,12 @@ def student_view(request, parent_or_child=None, pk=None):
     return render(
         request,
         'for_students.html',
-        {'categories': categories, 'listings': listings}
+        {'categorys': categorys, 'listings': listings}
     )
     # return render(request, "for_students.html")
 
 def professionals_view(request, parent_or_child=None, pk=None):
-    categories = Category.objects.filter(parent=None)
+    categorys = Category.objects.filter(parent=None)
 
     if parent_or_child is None:
         listings = Listing.objects.all()
@@ -78,7 +78,7 @@ def professionals_view(request, parent_or_child=None, pk=None):
     return render(
         request,
         'for_professionals.html',
-        {'categories': categories, 'listings': listings}
+        {'categorys': categorys, 'listings': listings}
     )
 
 
@@ -98,9 +98,9 @@ def listing_view(request, parent_or_child=None, pk=None):
     #             return redirect('index_all')
     #     else:
     #         form = CommentForm()
-    #     return render(request, 'categories/add_comment_to_post.html', {'form': form})
+    #     return render(request, 'categorys/add_comment_to_post.html', {'form': form})
 
-    categories = Category.objects.filter(parent=None)
+    categorys = Category.objects.filter(parent=None)
 
     if parent_or_child is None:
         listings = Listing.objects.all().order_by("-created")
@@ -138,8 +138,8 @@ def listing_view(request, parent_or_child=None, pk=None):
 
     return render(
         request,
-        'categories/listings.html',
-        {'categories': categories, 'listings': listings, 'messages': messages, 'directs':directs}
+        'categorys/listings.html',
+        {'categorys': categorys, 'listings': listings, 'messages': messages, 'directs':directs}
     )
 
 class PageDetailView(DetailView):
@@ -149,7 +149,7 @@ class PageDetailView(DetailView):
     def get(self, request, pk=None): #slug
         """ Returns a specific wiki page by pk. """
         post = self.get_queryset().get(pk=pk);
-        return render(request, 'categories/post.html', {
+        return render(request, 'categorys/post.html', {
           'post': post
         })
 
@@ -174,7 +174,7 @@ class GridView(ListView):
                     message['unread'] = 0
 
         """ GET a list of Pages. """
-        categories = Category.objects.filter(parent=None)
+        categorys = Category.objects.filter(parent=None)
 
         if parent_or_child is None:
             listings = Listing.objects.all().order_by("-created")
@@ -199,7 +199,7 @@ class GridView(ListView):
         return render(
             request,
             'grid.html',
-            {'categories': categories, 'listings': listings, 'messages': messages, 'directs':directs}
+            {'categorys': categorys, 'listings': listings, 'messages': messages, 'directs':directs}
         )
 
 
@@ -210,7 +210,7 @@ class PageListView(ListView):
 
     def get(self, request, parent_or_child=None, pk=None, *args, **kwargs):
         """ GET a list of Pages. """
-        categories = Category.objects.filter(parent=None)
+        categorys = Category.objects.filter(parent=None)
 
         if parent_or_child is None:
             listings = Listing.objects.all().order_by("-created")
@@ -246,8 +246,8 @@ class PageListView(ListView):
 
         return render(
             request,
-            'categories/index.html',
-            {'categories': categories, 'listings': listings, 'messages': messages, 'directs':directs}
+            'categorys/index.html',
+            {'categories': categorys, 'listings': listings, 'messages': messages, 'directs':directs}
         )
 
 class PostCreateView(CreateView):
@@ -273,14 +273,14 @@ class SubCreate(CreateView):
 class Post_edit_view(UpdateView):
     model = Listing
     fields = ['title', 'content']
-    template_name = 'categories/index.html'
+    template_name = 'categorys/index.html'
     success_url = reverse_lazy('index_all')
 
 @method_decorator([login_required], name='dispatch')
 class Post_delete_view(DeleteView):
 
     model = Listing
-    template_name = 'categories/post_delete.html'
+    template_name = 'categorys/post_delete.html'
     success_url = reverse_lazy('index_all');
 
 @csrf_exempt
@@ -315,8 +315,8 @@ def add_comment_to_post(request, parent_or_child=None, pk=None):
             print(comment.author.user)
             comment.save()
             # post = self.get_queryset().get(pk=pk);
-            return render(request, 'categories/post.html', {'post': post})
+            return render(request, 'categorys/post.html', {'post': post})
             return redirect('index_all')
     else:
         form = CommentForm()
-    return render(request, 'categories/add_comment_to_post.html', {'categories': categories, 'listings': listings, 'form': form})
+    return render(request, 'categorys/add_comment_to_post.html', {'categorys': categories, 'listings': listings, 'form': form})
