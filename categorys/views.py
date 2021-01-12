@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
-from .models import Category, SubCategory, Listing
+from .models import Category, SubCategory, Listing, Comment
 from users.models import Profile
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
-from .models import Listing, Comment
 from .forms import CommentForm
 # from .urls import csrf_exempt
 from message.models import Message
@@ -141,6 +140,7 @@ def listing_view(request, parent_or_child=None, pk=None):
         'categorys/listings.html',
         {'categories': categories, 'listings': listings, 'messages': messages, 'directs':directs}
     )
+
 
 class PageDetailView(DetailView):
     """ Renders a specific page based on it's pk."""

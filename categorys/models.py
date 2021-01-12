@@ -1,5 +1,5 @@
 import datetime
-
+import uuid
 from django.conf import settings
 from django.db import models
 from django.urls import reverse
@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 from .managers import CategoryManager, SubCategoryManager
 
 # Create your models here.
+
 class Node(models.Model):
     name = models.CharField(max_length=150)
     image = models.ImageField(default='default.jpg', upload_to='media/profile_pics')
