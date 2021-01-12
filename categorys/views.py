@@ -174,7 +174,7 @@ class GridView(ListView):
                     message['unread'] = 0
 
         """ GET a list of Pages. """
-        categories = Category.objects.filter(parent=None)
+        categorys = Category.objects.filter(parent=None)
 
         if parent_or_child is None:
             listings = Listing.objects.all().order_by("-created")
@@ -199,7 +199,7 @@ class GridView(ListView):
         return render(
             request,
             'grid.html',
-            {'categorys': categories, 'listings': listings, 'messages': messages, 'directs':directs}
+            {'categorys': categorys, 'listings': listings, 'messages': messages, 'directs':directs}
         )
 
 
